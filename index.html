@@ -2,85 +2,137 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Niel Ok-Personal Website</title>
+  <title>Your Name — Personal Website</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    /* Typography & Layout */
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      color: #222;
-      padding: 2rem;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: #fcfcfc;
+      color: #2c2c2c;
+      font-size: 14px;
+      line-height: 1.6;
+      padding: 3rem 1.5rem;
     }
 
+    .content {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* Top links */
     .top-bar {
       display: flex;
       justify-content: flex-end;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
+      gap: 1rem;
+      margin-bottom: 1.8rem;
+      font-size: 13px;
     }
 
     .top-bar a {
       text-decoration: none;
-      color: #555;
-      font-weight: bold;
+      color: #777;
+      font-weight: 500;
     }
 
     .top-bar a:hover {
       color: #000;
     }
 
-    .content {
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
+    /* Name & description */
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+      font-size: 1.8rem;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
     }
 
     .description {
-      font-size: 1.1rem;
-      color: #555;
+      font-size: 13px;
+      color: #666;
       margin-bottom: 2rem;
     }
 
+    /* Section headers */
     h2 {
-      font-size: 1.5rem;
+      font-size: 1.1rem;
       margin-bottom: 1rem;
-      margin-top: 3rem;
+      margin-top: 2.5rem;
+      font-weight: 600;
+      color: #333;
     }
 
-    ul {
-      padding-left: 1.2rem;
+    /* Project entries */
+    .project {
+      margin-bottom: 1.6rem;
     }
 
-    li {
-      margin-bottom: 0.75rem;
+    .project-date {
+      font-size: 12px;
+      font-weight: 500;
+      color: #999;
+    }
+
+    .project-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin: 0.2rem 0 0.2rem 0;
+      color: #333;
+    }
+
+    .project-desc {
+      font-size: 13px;
+      color: #444;
+      margin-top: 0.2rem;
     }
   </style>
 </head>
 <body>
-  <div class="top-bar">
-    <a href="https://github.com/NielOk" target="_blank">GitHub</a>
-    <a href="https://twitter.com/nielok20" target="_blank">Twitter</a>
-    <a href="https://www.linkedin.com/in/niel-ok" target="_blank">LinkedIn</a>
-  </div>
-
   <div class="content">
-    <h1>Niel Ok</h1>
+    <div class="top-bar">
+      <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+      <a href="https://twitter.com/yourhandle" target="_blank">Twitter</a>
+      <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+    </div>
+
+    <h1>Your Name</h1>
     <div class="description">
-      ee@stanford taking inspiration from neuroscience to build intelligent systems.
+      A brief description of who you are, what you work on, or what you're curious about.
     </div>
 
     <h2>Things I’m Working On</h2>
-    <ul>
-      <li> Project 1 </li>
-      <li> Project 2 </li>
-      <li> Project 3</li>
-      <li> Project 4 </li>
-    </ul>
+
+    <div class="project">
+      <div class="project-date">[March 2025]</div>
+      <div class="project-title">Diffusion Policy for Robotics</div>
+      <div class="project-desc">
+        Exploring how test-time compute scaling techniques can improve generalization and creativity in robotics control via diffusion-based policies.
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-date">[April 2025]</div>
+      <div class="project-title">RF Signal Tracker</div>
+      <div class="project-desc">
+        Simulating a 3D directional tracker that autonomously locks onto a moving RF source by adjusting vector orientation based on signal strength feedback.
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-date">[February 2025]</div>
+      <div class="project-title">Biophysical Neuron Simulation</div>
+      <div class="project-desc">
+        Using NEURON to simulate backpropagating action potentials in full neuron morphologies, investigating dendritic contribution to spike timing.
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-date">[January 2025]</div>
+      <div class="project-title">Autonomous EW Defense</div>
+      <div class="project-desc">
+        Designing an AI-powered electronic warfare defense system to identify and neutralize drone threats using real-time sensor fusion and pattern recognition.
+      </div>
+    </div>
   </div>
 </body>
 </html>
