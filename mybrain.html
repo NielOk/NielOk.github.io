@@ -83,7 +83,7 @@
         <li>\( F_t \): feedback from the environment at time \( t \)</li>
         <li>\( U_t \): utility or task performance at time \( t \)</li>
         <li>\( I_t = I(F_t ; \Delta \hat{M}_t) \): mutual information between feedback and model update</li>
-        <li>\( \eta = \frac{I_t}{\Delta U_t} \): feedback efficiency—feedback per unit performance gain</li>
+        <li>\( \eta_{t} = \frac{I_t}{\Delta U_t} \): feedback efficiency—feedback per unit performance gain at time \( t \)</li>
       </ul>
   
       <p><strong>2. Axiom: Drift in Internal Representations</strong></p>
@@ -106,15 +106,15 @@
 
       <p>
       \[
-      \eta(\pi) = \limsup_{t \to \infty} \frac{I(F_t ; \Delta \hat{M}_t)}{\Delta U_t}
+      \eta_{t}(\pi) = \limsup_{t \to \infty} \frac{I(F_t ; \Delta \hat{M}_t)}{\Delta U_t}
       \]
       </p>  
 
-      <p>Then agent \( \pi \) is more intelligent than agent \( \pi' \) over task class \( T \) if:</p>
+      <p>Then agent \( \pi \) is more intelligent than agent \( \pi' \) over task class \( T \) at time \( t \) if:</p>
 
       <div>
       \[
-      \eta_T(\pi) < \eta_T(\pi')
+      \eta_{t}^{T}(\pi) < \eta_{t}^{T}(\pi')
       \]
       </div>
   
@@ -125,7 +125,7 @@
 
       <div>
       \[
-      \forall \pi \in \mathcal{A}_{\text{phys}}, \quad \eta(\pi) > 0
+      \forall \pi \in \mathcal{A}_{\text{phys}}, \quad \forall t, \quad \eta_{t}(\pi) > 0
       \]
       </div>
 
@@ -136,26 +136,26 @@
       <p><strong>6. Model Compression View</strong></p>
 
       <ul>
-        <li>\( D_{\mathrm{KL}}(P_E \| \hat{P}) \): divergence between true and internal prediction distributions</li>
+        <li>\( D_{\mathrm{KL}}(P_{E_{t}} \| \hat{P_{t}}) \): divergence between true and internal prediction distributions at time \( t \), where \( \hat{P_{t}} \) is the internal model at time \( t \) and \( P_{E_{t}} \) is the true probability distribution at time \( t \)</li>
       </ul>
 
       <p>
-      Define a new quantity \( \xi \), which captures the agent’s compression inefficiency. That is, how much model error remains per bit of feedback about the model:
+      Define a new quantity \( \xi_{t} \), which captures the agent’s compression inefficiency. That is, how much model error remains per bit of feedback about the model at time \( t \):
       </p>
 
       <div>
       \[
-      \xi = \frac{D_{\mathrm{KL}}(P_E \| \hat{P})}{I(F_t ; \hat{M})}
+      \xi_{t} = \frac{D_{\mathrm{KL}}(P_{E_{t}} \| \hat{P_{t}})}{I(F_t ; \hat{M_{t}})}
       \]
       </div>
 
       <p>
-      In contrast to \( \eta \), which quantifies feedback cost per performance gain, \( \xi \) quantifies feedback cost per model accuracy. Both reflect intelligence in different regimes: outer utility vs inner alignment.
+      In contrast to \( \eta_{t} \), which quantifies feedback cost per performance gain, \( \xi_{t} \) quantifies model accuracy per bit of feedback. Both reflect intelligence in different regimes: outer utility vs inner alignment.
       </p>
   
       <p><strong>Interpretation</strong></p>
       <p>
-        This reframes intelligence not as raw computational power or self-sufficiency, but as the ability to compress reality—updating latent models with minimal feedback. The lower the feedback efficiency \( \eta \), the more intelligent the agent in a task-general sense. The lower the compression inefficiency \( \xi \), the more precisely it internalizes external structure. In both views, intelligence is fundamentally defined by how efficiently error is reduced per bit of external signal.
+        This reframes intelligence not as raw computational power or self-sufficiency, but as the ability to compress reality—updating latent models with minimal feedback. The lower the feedback efficiency \( \eta_{t} \), the more intelligent the agent in a task-general sense. The lower the compression inefficiency \( \xi_{t} \), the more precisely it internalizes external structure. In both views, intelligence is fundamentally defined by how efficiently error is reduced per bit of external signal.
       </p>
     </div>
   </div>
