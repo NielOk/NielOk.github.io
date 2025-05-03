@@ -81,6 +81,7 @@
         <li>\( x_T \sim p_T(x) \): initial noise drawn from a base Gaussian distribution</li>
         <li>\( x_t \): sample at diffusion step \( t \) (from \( T \) to 0)</li>
         <li>\( \pi = \{x_T, x_{T-1}, \ldots, x_0\} \): a full denoising trajectory</li>
+        <li>\( \pi(x_T) \): a trajectory sampled from the default reverse process starting at \( x_T \)</li>
         <li>\( \mathcal{T}(x_T) \): set of all possible trajectories starting at \( x_T \)</li>
         <li>\( f(\pi) \): objective function scoring the final output \( x_0 \) (e.g., log-likelihood, reward, alignment)</li>
       </ul>
@@ -112,32 +113,29 @@
       </div>
       <p>Search now occurs over this set of noise realizations or perturbations to the denoising dynamics.</p>
   
-      <p><strong>5. Expressivity and Coverage</strong></p>
-      <p>Define expressivity gain of trajectory search over initial noise search as:</p>
+      <p><strong>5. Expressivity and Controllability</strong></p>
+      <p>
+        In stochastic diffusion models, the outcome distribution is already high-variance due to noise injected at each step. But variance alone doesn’t imply control. What trajectory space search offers is not just access to more outcomes, but a structured way to steer toward desired ones.
+      </p>
+      <p>
+        Let \( f(\pi) \) be some task-aligned score of a generated output trajectory \( \pi \), such as realism, alignment, or semantic correctness. Then define the controllability of the output as:
+      </p>
       <div>
       \[
-      \Delta_{\text{expr}} = \mathbb{E}_{\pi \sim \Pi} [\text{Var}(f(\pi))] - \text{Var}(f(\pi(x_T)))
+      \mathcal{C}(f, \Pi) := \sup_{\pi \in \Pi} f(\pi) - \inf_{\pi \in \Pi} f(\pi)
       \]
       </div>
-      <p>This measures how much more diverse and controllable the outcome space becomes when using trajectory-based control.</p>
-  
-      <p><strong>6. Implications for Controllability</strong></p>
-      <p>Let \( \mathcal{C}(f, \Pi) \) be the controllability of outcome metric \( f \) over noise paths \( \Pi \). Then, if:</p>
+      <p>
+        This quantifies how much influence we have over the outcome space when we optimize over noise paths \( \Pi \) at every denoising step. Compare this to controlling only the initial noise \( x_T \), which induces a narrower band of reachable outputs:
+      </p>
       <div>
       \[
-      \mathcal{C}(f, \Pi) \gg \mathcal{C}(f, p(x_T))
+      \mathcal{C}(f, \Pi) \gg \mathcal{C}(f, \mathcal{T}(x_T))
       \]
       </div>
-      <p>we say the model supports controllable generation through trajectory search, not just prompt conditioning.</p>
-  
-      <p><strong>7. Asymptotic Search Lower Bound</strong></p>
-      <p>Assuming bounded noise entropy \( H(\epsilon_t) < \infty \), and a Lipschitz-continuous objective \( f \), then under finite steps \( T \), the minimum achievable regret is lower-bounded by stochastic path entropy:</p>
-      <div>
-      \[
-      \mathbb{E}[f(\pi^\ast)] - \max_{\pi} f(\pi) \geq \Omega\left(\frac{1}{T} \sum_{t=1}^T H(\epsilon_t) \right)
-      \]
-      </div>
-      <p>Thus, as noise accumulates across steps, optimal search requires explicit trajectory intervention.</p>
+      <p>
+        In other words, even though both approaches can land anywhere stochastically, only trajectory space search gives us the levers to decide where. It reframes sampling as structured inference — not just rolling the dice, but picking which dice to roll and when.
+      </p>
   
       <p><strong>Interpretation</strong></p>
       <p>This theory reframes generative search not as one-shot sampling from a magic prior, but as dynamic control through denoising space. In diffusion models where randomness accumulates at each step, control and intelligence reside not in the starting point, but in the trajectory taken through a probabilistic process. By searching in trajectory space, agents can unlock more expressive, aligned, and reliable outputs, trading compute for controllability.</p>
