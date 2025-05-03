@@ -70,6 +70,81 @@
   <h1>my brain</h1>
 
   <div class="entry">
+    <div class="entry-date">May 2, 2025</div>
+    <div class="entry-category">trajectory space search theory</div>
+    <div class="entry-content">
+      This post formalizes the theory I have been calling trajectory space search in stochastic diffusion models. The key idea is to shift the search domain from noise space to trajectory space as we move from deterministic diffusers (under DeepMind's framework) to stochastic ones, potentially enabling more expressive and controllable inference.
+  
+      <p><strong>1. Definitions</strong></p>
+      <ul>
+        <li>\( \mathcal{X} \): data space (e.g., images, text sequences)</li>
+        <li>\( x_T \sim p_T(x) \): initial noise drawn from a base Gaussian distribution</li>
+        <li>\( x_t \): sample at diffusion step \( t \) (from \( T \) to 0)</li>
+        <li>\( \pi = \{x_T, x_{T-1}, \ldots, x_0\} \): a full denoising trajectory</li>
+        <li>\( \mathcal{T}(x_T) \): set of all possible trajectories starting at \( x_T \)</li>
+        <li>\( f(\pi) \): objective function scoring the final output \( x_0 \) (e.g., log-likelihood, reward, alignment)</li>
+      </ul>
+  
+      <p><strong>2. DeepMind's Framing: Noise Space Search</strong></p>
+      <p>Optimize over \( x_T \) to maximize final sample quality via the diffusion model:</p>
+      <div>
+      \[
+      x_T^\ast = \arg\max_{x_T} f(\pi(x_T))
+      \]
+      </div>
+      <p>But this assumes a deterministic or injective mapping from \( x_T \to x_0 \), which fails in stochastic denoising models.</p>
+  
+      <p><strong>3. Proposed Framing: Trajectory Space Search</strong></p>
+      <p>Instead, treat the full denoising trajectory \( \pi \) as the search object:</p>
+      <div>
+      \[
+      \pi^\ast = \arg\max_{\pi \in \mathcal{T}} f(\pi)
+      \]
+      </div>
+      <p>Where \( \pi \) is a stochastic process conditioned on \( x_T \), but with learnable control variables at each step.</p>
+  
+      <p><strong>4. Degrees of Freedom</strong></p>
+      <p>Let each transition step \( x_{t-1} \sim p_\theta(x_{t-1} \mid x_t, \epsilon_t) \) include a noise term \( \epsilon_t \). Then, define the trajectory control space:</p>
+      <div>
+      \[
+      \Pi = \{ \epsilon_T, \epsilon_{T-1}, \ldots, \epsilon_1 \}
+      \]
+      </div>
+      <p>Search now occurs over this set of noise realizations or perturbations to the denoising dynamics.</p>
+  
+      <p><strong>5. Expressivity and Coverage</strong></p>
+      <p>Define expressivity gain of trajectory search over initial noise search as:</p>
+      <div>
+      \[
+      \Delta_{\text{expr}} = \mathbb{E}_{\pi \sim \Pi} [\text{Var}(f(\pi))] - \text{Var}(f(\pi(x_T)))
+      \]
+      </div>
+      <p>This measures how much more diverse and controllable the outcome space becomes when using trajectory-based control.</p>
+  
+      <p><strong>6. Implications for Controllability</strong></p>
+      <p>Let \( \mathcal{C}(f, \Pi) \) be the controllability of outcome metric \( f \) over noise paths \( \Pi \). Then, if:</p>
+      <div>
+      \[
+      \mathcal{C}(f, \Pi) \gg \mathcal{C}(f, p(x_T))
+      \]
+      </div>
+      <p>we say the model supports controllable generation through trajectory search, not just prompt conditioning.</p>
+  
+      <p><strong>7. Asymptotic Search Lower Bound</strong></p>
+      <p>Assuming bounded noise entropy \( H(\epsilon_t) < \infty \), and a Lipschitz-continuous objective \( f \), then under finite steps \( T \), the minimum achievable regret is lower-bounded by stochastic path entropy:</p>
+      <div>
+      \[
+      \mathbb{E}[f(\pi^\ast)] - \max_{\pi} f(\pi) \geq \Omega\left(\frac{1}{T} \sum_{t=1}^T H(\epsilon_t) \right)
+      \]
+      </div>
+      <p>Thus, as noise accumulates across steps, optimal search requires explicit trajectory intervention.</p>
+  
+      <p><strong>Interpretation</strong></p>
+      <p>This theory reframes generative search not as one-shot sampling from a magic prior, but as dynamic control through denoising space. In diffusion models where randomness accumulates at each step, control and intelligence reside not in the starting point, but in the trajectory taken through a probabilistic process. By searching in trajectory space, agents can unlock more expressive, aligned, and reliable outputs, trading compute for controllability.</p>
+    </div>
+  </div>
+
+  <div class="entry">
     <div class="entry-date">April 30, 2025</div>
     <div class="entry-category">theory of feedback-efficient intelligence</div>
     <div class="entry-content">
