@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <meta charset="UTF-8">
   <title>My Brain — Niel Ok</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,37 +17,30 @@
       max-width: 680px;
       margin: 0 auto;
     }
-
     a {
       color: inherit;
       text-decoration: none;
     }
-
     a:hover {
       text-decoration: underline;
     }
-
     .back-link {
       font-size: 13px;
       margin-bottom: 2rem;
       display: inline-block;
       color: #777;
     }
-
     h1 {
       font-size: 1.6rem;
       margin-bottom: 1rem;
     }
-
     .entry {
       margin-bottom: 2.5rem;
     }
-
     .entry-date {
       font-size: 12px;
       color: #999;
     }
-
     .entry-category {
       font-size: 12px;
       font-weight: 500;
@@ -58,7 +50,6 @@
       margin-bottom: 0.5rem;
       letter-spacing: 0.04em;
     }
-
     .entry-content {
       font-size: 13px;
       color: #444;
@@ -69,40 +60,53 @@
   <a class="back-link" href="index.html">← back</a>
   <h1>my brain</h1>
 
-  <div class="entry-date">May 3, 2025</div>
-  <div class="entry-category">feedback-efficient intelligence addendum</div>
-  <div class="entry-content">
-    <p>This post extends my formalization of feedback-efficient intelligence with a second-level insight: that the structure of the feedback channel itself must be learned or evolved. In other words, agents must discover not just how to update from feedback, but which feedback matters at all.</p>
+  <ul style="font-size: 13px; margin-bottom: 2.5rem; padding-left: 1rem;">
+    <li><a href="#entry-2025-05-03">Feedback-Efficient Intelligence Addendum</a></li>
+    <li><a href="#entry-2025-05-02">Formalization of Trajectory Space Search</a></li>
+    <li><a href="#entry-2025-04-30">Formalization of Feedback-Efficient Intelligence</a></li>
+    <li><a href="#entry-2025-04-22">My Workspace</a></li>
+    <li><a href="#entry-2025-04-21">Recursive Superintelligence (Singularity) is Constrained by Drift</a></li>
+    <li><a href="#entry-2025-04-09">Reasoning vs Thinking</a></li>
+    <li><a href="#entry-2025-04-07">Inference Scaling for Stochastic Diffusion</a></li>
+    <li><a href="#entry-2025-01-02">Diffusion and Vectorization</a></li>
+    <li><a href="#entry-2024-12-28">When Evolution Stalls, Information Transfer Must Scale</a></li>
+  </ul>
 
-    <p><strong>1. Definitions</strong></p>
-    <ul>
-      <li><strong>\( \mathcal{E} \)</strong>: the environment (a stochastic dynamical system)</li>
-      <li><strong>\( \pi \)</strong>: the agent’s policy</li>
-      <li><strong>\( \hat{M}_t \)</strong>: the internal model of the environment at time \( t \)</li>
-      <li><strong>\( \mathcal{F}_t \)</strong>: feedback received at time \( t \)</li>
-      <li><strong>\( U_t \)</strong>: utility or performance at time \( t \)</li>
-      <li><strong>\( I(\mathcal{F}_t; \Delta \hat{M}_t) \)</strong>: mutual information between feedback and model update</li>
-      <li><strong>\( I(\mathcal{E}; \mathcal{F}_t) \)</strong>: mutual information between the environment and the feedback</li>
-    </ul>
-
-    <p><strong>2. Meta-Theorem: Feedback Channel Learning</strong></p>
-    <p>No intelligent system can be feedback-efficient without either possessing or learning a model of the mutual information structure between the environment and its feedback signals:</p>
-    <div>
-      \[I(\mathcal{E}; \mathcal{F}_t) > 0 \quad \text{must be learned or evolved.} \]
+  <!-- Entries -->
+  <div class="entry" id="entry-2025-05-03">
+    <div class="entry-date">May 3, 2025</div>
+    <div class="entry-category">feedback-efficient intelligence</div>
+    <h2>Feedback-Efficient Intelligence Addendum</h2>
+    <div class="entry-content">
+      <p>This post extends my formalization of feedback-efficient intelligence with a second-level insight: that the structure of the feedback channel itself must be learned or evolved. In other words, agents must discover not just how to update from feedback, but which feedback matters at all.</p>
+      <p><strong>1. Definitions</strong></p>
+      <ul>
+        <li><strong>\( \mathcal{E} \)</strong>: the environment (a stochastic dynamical system)</li>
+        <li><strong>\( \pi \)</strong>: the agent’s policy</li>
+        <li><strong>\( \hat{M}_t \)</strong>: the internal model of the environment at time \( t \)</li>
+        <li><strong>\( \mathcal{F}_t \)</strong>: feedback received at time \( t \)</li>
+        <li><strong>\( U_t \)</strong>: utility or performance at time \( t \)</li>
+        <li><strong>\( I(\mathcal{F}_t; \Delta \hat{M}_t) \)</strong>: mutual information between feedback and model update</li>
+        <li><strong>\( I(\mathcal{E}; \mathcal{F}_t) \)</strong>: mutual information between the environment and the feedback</li>
+      </ul>
+      <p><strong>2. Meta-Theorem: Feedback Channel Learning</strong></p>
+      <p>No intelligent system can be feedback-efficient without either possessing or learning a model of the mutual information structure between the environment and its feedback signals:</p>
+      <div>
+        \[I(\mathcal{E}; \mathcal{F}_t) > 0 \quad \text{must be learned or evolved.} \]
+      </div>
+      <div>
+        Long-term feedback efficiency requires modeling the feedback channel itself.
+      </div>
+      <p><strong>3. Interpretation</strong></p>
+      <p>This reflects what evolution did for humans: it sculpted our attention, pain, curiosity, and perception toward signals with consistently high mutual information about task success. It’s not just that we learn from feedback. We evolved to learn what counts as feedback.</p>
+      <p>This meta-level principle applies to artificial agents as well. In order to sustain feedback-efficient intelligence, they must eventually learn a generative model over the feedback channel. Otherwise, they risk optimizing over noise or reacting to uninformative stimuli. Feedback channels are not given — they are discovered.</p>
     </div>
-    <div>
-      Long-term feedback efficiency requires modeling the feedback channel itself.
-    </div>
-
-    <p><strong>3. Interpretation</strong></p>
-    <p>This reflects what evolution did for humans: it sculpted our attention, pain, curiosity, and perception toward signals with consistently high mutual information about task success. It’s not just that we learn from feedback. We evolved to learn what counts as feedback.</p>
-
-    <p>This meta-level principle applies to artificial agents as well. In order to sustain feedback-efficient intelligence, they must eventually learn a generative model over the feedback channel. Otherwise, they risk optimizing over noise or reacting to uninformative stimuli. Feedback channels are not given — they are discovered.</p>
   </div>
 
-  <div class="entry">
+  <div class="entry", id="entry-2025-05-02">
     <div class="entry-date">May 2, 2025</div>
-    <div class="entry-category">trajectory space search theory</div>
+    <div class="entry-category">trajectory space search</div>
+    <h2>Formalization of Trajectory Space Search</h2>
     <div class="entry-content">
       This post formalizes the theory I have been calling trajectory space search in stochastic diffusion models. The key idea is to shift the search domain from noise space to trajectory space as we move from deterministic diffusers (under DeepMind's framework) to stochastic ones, potentially enabling more expressive inference.
   
@@ -174,9 +178,10 @@
       </p>
   </div>
 
-  <div class="entry">
+  <div class="entry", id="entry-2025-04-30">
     <div class="entry-date">April 30, 2025</div>
-    <div class="entry-category">theory of feedback-efficient intelligence</div>
+    <div class="entry-category">feedback-efficient intelligence</div>
+    <h2>Formalization of Feedback-Efficient Intelligence</h2>
     <div class="entry-content">
       This is my first attempt to formalize the ideas in my blog plost on April 21, 2025. I'm not super mathy, but this is the gist of it.
       <p><strong>1. Definitions</strong></p>
@@ -265,56 +270,60 @@
     </div>
   </div>
   
-  <div class="entry">
+  <div class="entry", id="entry-2025-04-22">
     <div class="entry-date">April 22, 2025</div>
     <div class="entry-category">my workspace</div>
+    <h2>My Workspace</h2>
     <div class="entry-content">
       <img src="images/my_workspace_ai.png" alt="Niel's workspace according to AI" style="width:100%; max-width:100%; margin-bottom: 1rem; border-radius: 4px;">
       My workspace according to AI.
     </div>
   </div>
 
-  <div class="entry">
+  <div class="entry", id="entry-2025-04-21">
     <div class="entry-date">April 21, 2025</div>
     <div class="entry-category">recursive superintelligence</div>
+    <h2>Recursive Superintelligence (Singularity)is Constrained by Drift</h2>
     <div class="entry-content">
       At Brains in Silicon, Stanford’s neuromorphic computing lab, I work in neuroscience theory, hoping to find inspiration for the hardware and algorithms people to work with. Recently, I’ve been messing with place fields, grid cells, and BTSP (behavioral time scale plasticity, a novel proposal for a learning mechanism that occurs on slower time-scales), mainly to see how animals localize themselves in unfamiliar environments. In my research, I’ve found that, while the brain can guess where the animal is located based on internal estimates of motion (like an inertial measurement unit), this estimate drifts significantly without external stimuli. This coincides with observations I’ve had while building Corvus, where I’ve learned that it is impossible to build a system that is able to navigate perfectly with no external input, even with an inertial navigation system. This brings me to an insight: all forms of intelligence, no matter how sophisticated, rely on input from the environment for feedback on actions, including metacognitive updates. Why? Because intelligence is all about how well an agent is able to do in its environment. No agent can internally verify the success of an action at 100% accuracy. Perfect simulation and pre-verification of action outcomes is physically intractable due to the inherent stochasticity and chaos present in real-world systems, including quantum uncertainty. To speed up the rate of updates, agents can build latent representations (internal models) of the world to simulate actions and feedback, but these representations are approximate, and from what I’ve learned with Corvus and neuroscience, all systems that are not 100% accurate have drift that grows exponentially over large time-scales. External input is required to recalibrate these internal representations. Thus, even a self-improving superintelligence will depend upon external input for feedback. So, what would set apart this superintelligence from other, normal intelligences? One possible axis would be the magnitude of environmental input required per intelligence update, where the intelligence update could be across various tasks such as math, maze solving, language, etc. I would say that, generally, the more intelligent an agent is, the closer to 0 it is on this axis across many different tasks. If there were a self-improving agent, it would attempt to get closer to 0 on this axis across many tasks (note: if my theory about drift is true, it is impossible to have a perfect singularity for intelligence, since 0 cannot be reached, although something very close to one might be possible). How would it get close to 0? Like I hinted at earlier, by improving its latent representations, it can get close to 0. Then, a well-designed, self-improving superintelligent agent would be very good at creating its own latent representations of the world. This reframes superintelligence not as the ability to recursively rewrite itself in isolation, but as the capacity to build highly accurate internal representations of the world that minimize, but never eliminate, the need for feedback. Given sufficient compute, these internal representations can be updated and queried at high speed, shifting the bottleneck from processing time to feedback efficiency. Intelligence is thus better understood not as raw computational power, but as the ability to form accurate models with minimal reliance on external correction: a property of a feedback-efficient loop between agent and world. 
     </div>
   </div>
 
-  <div class="entry">
+  <div class="entry", id="entry-2025-04-09">
     <div class="entry-date">April 9, 2025</div>
     <div class="entry-category">intelligence, scaling thinking, reasoning</div>
+    <h2>Reasoning vs Thinking</h2>
     <div class="entry-content">
       Looking at all of the recent work attempting to scale reasoning for language models with variations of Chain-of-Thought (DeepSeek-R1, OpenAI o-1, o-3), plus with some reflection on how human learning and thinking works, I have some insights. It seems to me that reasoning and thinking for language models should be established as two different things. Reasoning, to me, seems like a cognitive action that utilizes facts and step-by-step logic to get from one point to another. Basically, CoT. When we talk about reasoning for language models, we think about how we can bake reasoning into the models with human text that demonstrates reasoning. Humans can learn how to reason, and so can models. Meanwhile, when it comes to thinking, it seems like it is more about taking an existing model, no matter how good it is at reasoning, and allowing it to search a larger portion of the space of possible answers before narrowing it down to the most ideal one. When people say someone is thinking hard, it means that person is using a lot of internal compute on a certain problem, not that the person is reasoning particularly well or anything like that. DeepMind’s inference scaling framework for deterministic diffusion models is an example of a framework for thinking. Thinking can be more quantitative, without the need for the abstraction of human language on top of the numbers that the model is actually running. I think reasoning sacrifices mathematical interpretability in favor of qualitative interpretability, while thinking sacrifices qualitative interpretability in favor of mathematical interpretability. So, reasoning looks more ethical while thinking looks more promising in terms of creating superintelligent, flexible models. Now, I believe that we can eventually build tools for interpreting thinking, so I am more interested in thinking than reasoning. I work on structured metacognition frameworks and denoising trajectory search for text, image, and robotics policy diffusion models, because that’s thinking. These projects are attempts to make thinking controllable. Thinking speaks more in the language of the model than the human, and it doesn’t restrict the model to our mode of communication. I think reasoning may force the model to commit to certain trajectories too early, while with thinking, you can basically control how long the model explores and when it should commit. The framework of thinking just gives you more control over the model in my opinion. I’m working on building more of a theoretical framework on this in my free time, which I’m excited about.  
     </div>
   </div>
 
-  <div class="entry">
+  <div class="entry", id="entry-2025-04-07">
     <div class="entry-date">April 7, 2025</div>
     <div class="entry-category">diffusion models, llms, inference scaling</div>
+    <h2>Diffusion Models and Inference Scaling</h2>
     <div class="entry-content">
       Over the past few months, I’ve been diving into a research direction that takes inference-time compute scaling for diffusion models somewhere fundamentally different from where DeepMind has gone. Their approach focuses on deterministic diffusion models and treats inference-time scaling as a search over the initial noise vector, as if the entire generative process hinges on getting that first random sample just right. But that framing doesn’t hold up when you step into the stochastic regime. In stochastic diffusion models, randomness isn’t a one-time deal at the start. It gets injected at every step of the denoising process. The result? The final sample isn’t just determined by where you start, it’s shaped by the entire trajectory the model takes through denoising space. So optimizing only over initial noise is like trying to steer a rocket by tweaking the launch angle and ignoring all mid-course corrections. What I’ve been exploring is this: inference-time compute scaling for stochastic diffusion models shouldn’t be framed as a search over initial noise vectors. Instead, it should be framed as a search over denoising trajectories. That shift in perspective changes everything. It acknowledges the true degrees of freedom in the system. It’s harder computationally, but the payoff is real. Instead of being locked into a narrow slice of the outcome space, trajectory-based search opens up far more expressive possibilities. Multiple trajectories can land you in semantically different, yet equally plausible regions of the output space. That makes it not just more powerful, but more useful, especially when you care about conditioning, controllability, or aligning with task-specific goals. This has led to a few ideas I want to push further: One, a formal comparison between noise space and trajectory space. What’s actually gained in terms of dimensionality, expressiveness, or alignment capability? Two, could we design and demonstrate trajectory-space search algorithms, even in simplified settings, that outperform initial-noise search with less proportional coverage? That would be a strong empirical signal. Three, maybe the most ambitious one: if trajectory space really is this rich, it might be possible to prove that inference in diffusion models, especially for text, is more scalable than autoregressive LLM inference. 
     </div>
   </div>  
 
-  <div class="entry">
+  <div class="entry", id="entry-2025-01-02">
     <div class="entry-date">January 2, 2025</div>
     <div class="entry-category">ml research, neuroscience</div>
+    <h2>Diffusion and Vectorization</h2>
     <div class="entry-content">
       Recently, I’ve become interested in implementing diffusion (image generation) from scratch, including the neural network module used to do it (I’m building myself a mini-PyTorch using only numpy). Because of this, I’ve had the opportunity to reflect a lot on what data should look like when passed to a neural network, and how we can represent different types of information as input for a neural network. For example, for a diffusion model, you somehow have to feed to the neural network both the image and the step number of diffusion you are on in order for the neural network to learn how to denoise step by step. Now, at first, I thought you could just concatenate the step number to the flattened image vector input, but my intuition told me that because the image was so much more high-dimensional than the single number step, I must be incorrect. I figured that there must be some step where I turn the single number step into a vector of larger dimension before concatenation so that the step number is more obvious to the neural network. Turns out, there are many ways to do this. This brought me to an insight: as long as some piece of information can be vectorized, it can be the input to a neural network. Then, a lot of ML research must be figuring out the best way to vectorize different pieces of information for a neural network to digest. This is very interesting. For example, one idea I had was to vectorize high-level physics inputs for video-generation models. Maybe a video-generation model could take in a text prompt and a pre-reasoned set of words that best describe the appropriate physics for the imagery to be generated. The way objects move underwater is very different from the air, and so if we trained a model to discriminate between those two explicitly while generating video, perhaps it would be easier to come up with good physics in video models. Anyways, one of my key questions coming away from today is: is it possible to create a framework for testing what method of vectorization maximizes the performance of a neural network at digesting a particular piece of information? Another thought I have that’s an offshoot of the previous one: do biological neurons specialize as a result of starting to process input or are they somewhat primed as a result of evolution, even before they are used to process any signals? Are auditory and visual neurons that way before they are ever used to process sound or light, or do they become that way after receiving a bunch of input in that form? I ask because this would help for me to determine whether learning the most optimal vectorization of information should be part of pre-training, if it should be trained completely separately, or if it should be something in-between.
     </div>
   </div>  
 
-  <div class="entry">
+  <div class="entry", id="entry-2024-12-28">
     <div class="entry-date">December 28, 2024</div>
     <div class="entry-category">evolution</div>
+    <h2>When Evolution Stalls, Information Transfer Must Scale</h2>
     <div class="entry-content">
       Any improvements to a person’s physique, increase in knowledge, or anything else that a person developed which was helpful to them in their lifetime is not passed down to their children by their genes. All that is passed down is a copy of their own genes, their partner’s genes, and some mutations. What does this mean? My first thought is that maybe this is nature betting that basic traits (fundamental intelligence level, strength level, etc.) of an organism are more valuable than whatever information or strength it could have received from its parent for its survival and eventual reproduction. However, the idea of the selfish gene reframes genes such that they have the desire to be passed on, and therefore optimize the organism for which they are the genes of to be best at passing on the genes. Thus, there would be no additional energy or matter spent on transferring information or traits developed during an organism’s lifetime not relevant to survival and reproduction. This brings me to a question. Is the selfish gene still the most optimal way to advance the human race, and has it ever been? A thought I have about this is that, for the majority of the existence of life, the selfish gene probably also happened to be the most optimal way to advance a species. When survival is difficult to come by and energy low in availability, it makes sense for a species to evolve to be optimal for survival and reproduction. Things like information transfer (as a direct result of reproduction, not just through the parent teaching the offspring) from parent to offspring can be wasteful since there is nowhere near a guarantee that the offspring will also be able to pass down its own information to its offspring. Furthermore, this mechanism would, in most cases, ensure that surviving organisms are the most optimal, and not alive simply because of some random piece of information their ancestors learned that the others did not. Solid fundamental traits must be built first. With computers, it is worth waiting until we have the right fundamental architecture to scale before we actually do scale. Like computers, for organisms, it might be worth waiting until the right traits are in place before scaling up the energy and matter required for reproduction in order to speed up advancement. I think that, at the moment, humans have come to the point where it might be worth scaling. Our architecture shows no signs of changing due to natural selection. We have no shortage of resources compared to the days when we were just trying to survive, and we have transformed the world to suit our tastes. If in evolution, the world transforms the organisms to its taste, the opposite is true now for humans. In this strange scenario, the only thing we can improve now is the efficiency of information transfer between generations. What I am saying is that the next big way for the human race to advance might be to think about how to embed information from a parent in their DNA or some similar mechanism so that their child inherits it.
     </div>
   </div>
-
-  <!-- Add more entries below -->
 
 </body>
 </html>
