@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,16 +52,24 @@
       margin-bottom: 2rem;
     }
 
-    h2 {
+    details {
+      margin-top: 2rem;
+      border-top: 1px solid #ddd;
+      padding-top: 1rem;
+    }
+
+    summary {
       font-size: 1.1rem;
-      margin-bottom: 1rem;
-      margin-top: 2.5rem;
       font-weight: 500;
+      cursor: pointer;
       color: #333;
+      margin-bottom: 1rem;
     }
 
     .project {
-      margin-bottom: 1.6rem;
+      margin-bottom: 2.2rem;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 1.2rem;
     }
 
     .project-date {
@@ -133,93 +140,111 @@
       ee@stanford building corvus.
     </div>
 
-    <h2>stuff i've worked on</h2>
-
-    <div class="project">
+    <details open>
+      <summary>current work</summary>
+      <div class="project">
         <div class="project-date">[April 2025]</div>
         <div class="project-title"><a href="https://corvusdefense.us" target="_blank">Corvus Defense</a></div>
         <div class="project-desc">
           building...
         </div>
       </div>
+    </details>
 
-    <div class="project">
-      <div class="project-date">[February 2025]</div>
-      <div class="project-title">Text Diffusion Structured Metacognition</div>
-      <div class="project-desc">
-        built a structured metacognition framework for language models. got <a href="https://ml-gsai.github.io/LLaDA-demo/" target="_blank">text diffusion models</a> to think about how they think by introducing GRPO-embedded Monte Carlo Tree Search over decoding policies. <a href="https://github.com/NielOk/LLaDA_TTC" target="_blank">[code]</a> † *
+    <details>
+      <summary>ml + systems + control research</summary>
+      <div class="project">
+        <div class="project-date">[February 2025]</div>
+        <div class="project-title">Text Diffusion Structured Metacognition</div>
+        <div class="project-desc">
+          built a structured metacognition framework for language models. got <a href="https://ml-gsai.github.io/LLaDA-demo/" target="_blank">text diffusion models</a> to think about how they think by introducing GRPO-embedded Monte Carlo Tree Search over decoding policies. <a href="https://github.com/NielOk/LLaDA_TTC" target="_blank">[code]</a> † *
+        </div>
       </div>
-    </div>
 
-    <div class="project">
-      <div class="project-date">[January 2025]</div>
-      <div class="project-title">Interpretability for Text Diffusion Models</div>
-      <div class="project-desc">
-        latent decomposition of token prediction dynamics for semantic interpretability of text diffusion models, expanding on <a href="https://www.anthropic.com/research/mapping-mind-language-model" target="_blank">mechanistic interpretability research</a> from <a href="https://www.anthropic.com/research/mapping-mind-language-model" target="_blank">anthropic</a>. <a href="https://github.com/NielOk/latent_coherence_dynamics" target="_blank">[code]</a> † *
+      <div class="project">
+        <div class="project-date">[January 2025]</div>
+        <div class="project-title">Interpretability for Text Diffusion Models</div>
+        <div class="project-desc">
+          latent decomposition of token prediction dynamics for semantic interpretability of text diffusion models, expanding on <a href="https://www.anthropic.com/research/mapping-mind-language-model" target="_blank">mechanistic interpretability research</a> from <a href="https://www.anthropic.com/research/mapping-mind-language-model" target="_blank">anthropic</a>. <a href="https://github.com/NielOk/latent_coherence_dynamics" target="_blank">[code]</a> † *
+        </div>
       </div>
-    </div>
 
-    <div class="project">
-      <div class="project-date">[December 2024]</div>
-      <div class="project-title">Inference Scaling of Diffusion Policy for Robotics</div>
-      <div class="project-desc">
-        adapted trajectory-search based inference scaling to robotics diffusion policy for action planning, combining my previous work on trajectory-search based inference scaling with <a href="https://diffusion-policy.cs.columbia.edu" target="_blank">work</a> from <a href="https://www.tri.global" target="_blank">toyota research institute</a>. <a href="https://github.com/NielOk/robotics_policy_ttc" target="_blank">[code]</a> † *
+      <div class="project">
+        <div class="project-date">[December 2024]</div>
+        <div class="project-title">Inference Scaling of Diffusion Policy for Robotics</div>
+        <div class="project-desc">
+          adapted trajectory-search based inference scaling to robotics diffusion policy for action planning, combining my previous work on trajectory-search based inference scaling with <a href="https://diffusion-policy.cs.columbia.edu" target="_blank">work</a> from <a href="https://www.tri.global" target="_blank">toyota research institute</a>. <a href="https://github.com/NielOk/robotics_policy_ttc" target="_blank">[code]</a> † *
+        </div>
       </div>
-    </div>
 
-    <div class="project">
-      <div class="project-date">[November 2024]</div>
-      <div class="project-title">Trajectory-Search Based Diffusion Inference Scaling</div>
-      <div class="project-desc">
-        led team in developing a framework for trajectory-search-based inference scaling of stochastic diffusion models, expanding on <a href="https://arxiv.org/abs/2501.09732" target="_blank">deepmind's work</a> for deterministic models. <a href="https://nielok.github.io/diffusion_test_time_compute/" target="_blank">[paper]</a> | <a href="https://github.com/NielOk/diffusion_test_time_compute" target="_blank">[code]</a> *
+      <div class="project">
+        <div class="project-date">[November 2024]</div>
+        <div class="project-title">Trajectory-Search Based Diffusion Inference Scaling</div>
+        <div class="project-desc">
+          led team in developing a framework for trajectory-search-based inference scaling of stochastic diffusion models, expanding on <a href="https://arxiv.org/abs/2501.09732" target="_blank">deepmind's work</a> for deterministic models. <a href="https://nielok.github.io/diffusion_test_time_compute/" target="_blank">[paper]</a> | <a href="https://github.com/NielOk/diffusion_test_time_compute" target="_blank">[code]</a> *
+        </div>
       </div>
-    </div>
 
-    <div class="project">
-      <div class="project-date">[October 2024]</div>
-      <div class="project-title">Heft AI</div>
-      <div class="project-desc">
-        hire number 2 at a <a href="https://deepmind.google" target="_blank">deepmind</a> spinout. helped build fully vertical, scalable infrastructure for high-performance large model inference.
+      <div class="project">
+        <div class="project-date">[July 2024]</div>
+        <div class="project-title">RL-Embedded OS</div>
+        <div class="project-desc">
+          an rl-embedded os, integrating stochastic intelligence with low-level kernel behavior. built to align system behavior with the dynamic patterns of real human use. <a href="https://github.com/NielOk/rl_embedded_os" target="_blank">[code]</a> †
+        </div>
       </div>
-    </div>
 
-    <div class="project">
-      <div class="project-date">[July 2024]</div>
-      <div class="project-title">RL-Embedded OS</div>
-      <div class="project-desc">
-        an rl-embedded os, integrating stochastic intelligence with low-level kernel behavior. built to align system behavior with the dynamic patterns of real human use. <a href="https://github.com/NielOk/rl_embedded_os" target="_blank">[code]</a> †
+      <div class="project">
+        <div class="project-date">[January 2020]</div>
+        <div class="project-title">AI Brain Tumor Diagnosis</div>
+        <div class="project-desc">
+          AI for brain tumor diagnosis using MRI images. ended up working on generative models for dataset balancing after discovering effects of class imbalance. †
+        </div>
       </div>
-    </div>
 
-    <div class="project">
-      <div class="project-date">[April 2024]</div>
-      <div class="project-title">Neuromorphic Computing@<a href="https://web.stanford.edu/group/brainsinsilicon/" target="_blank">Brains in Silicon</a></div>
-      <div class="project-desc">
-        studied neural circuits and plasticity using computational methods, from novel dendritic mechanisms supporting sequence selectivity to circuit-level models of spatial learning on long behavioral timescales. <a href="https://github.com/NielOk/btsp_nav_sim" target="_blank">[code]</a>
-      </div>
-    </div>
+    </details>
 
-    <div class="project">
-      <div class="project-date">[June 2020]</div>
-      <div class="project-title">Quantum Teleportation@<a href="https://researchdirectory.uc.edu/p/cahaymm" target="_blank">Cahay Lab</a></div>
-      <div class="project-desc">
-        devised quantum teleportation circuits utilizing all 4 bell states and adapted them to <a href="https://blog.google/technology/research/google-willow-quantum-chip/" target="_blank">google willow</a>'s superconducting grid qubit architecture. built quantum circuit simulators for verification.
+    <details>
+      <summary>industry</summary>
+      <div class="project">
+        <div class="project-date">[October 2024]</div>
+        <div class="project-title">Technical Staff@Heft AI</div>
+        <div class="project-desc">
+          hire number 2 at a <a href="https://deepmind.google" target="_blank">deepmind</a> spinout. helped build fully vertical, scalable infrastructure for high-performance large model inference.
+        </div>
       </div>
-    </div>
 
-    <div class="project">
-      <div class="project-date">[January 2020]</div>
-      <div class="project-title">AI Brain Tumor Diagnosis</div>
-      <div class="project-desc">
-        AI for brain tumor diagnosis using MRI images. ended up working on generative models for dataset balancing after discovering effects of class imbalance. †
+      <div class="project">
+        <div class="project-date">[May 2024]</div>
+        <div class="project-title">Research Intern@Insyt Labs</div>
+        <div class="project-desc">
+          chain-of-thought and interpretability research for llm-driven digital twins. backed by <a href="https://www.plugandplaytechcenter.com" target="_blank">plug-and-play</a>.
+        </div>
       </div>
-    </div>
+    </details>
+
+    <details>
+      <summary>alternative compute research</summary>
+      <div class="project">
+        <div class="project-date">[April 2024]</div>
+        <div class="project-title">Neuromorphic Computing@<a href="https://web.stanford.edu/group/brainsinsilicon/" target="_blank">Brains in Silicon</a></div>
+        <div class="project-desc">
+          studied neural circuits and plasticity using computational methods, from novel dendritic mechanisms supporting sequence selectivity to circuit-level models of spatial learning on long behavioral timescales. <a href="https://github.com/NielOk/btsp_nav_sim" target="_blank">[code]</a>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-date">[June 2020]</div>
+        <div class="project-title">Quantum Teleportation@<a href="https://researchdirectory.uc.edu/p/cahaymm" target="_blank">Cahay Lab</a></div>
+        <div class="project-desc">
+          devised quantum teleportation circuits utilizing all 4 bell states and adapted them to <a href="https://blog.google/technology/research/google-willow-quantum-chip/" target="_blank">google willow</a>'s superconducting grid qubit architecture. built quantum circuit simulators for verification.
+        </div>
+      </div>
+    </details>
 
     <div class="footnote" style="font-size: 12px; color: #999; margin-top: 2rem;">
       † = sole contributor. <br>
       * = compute sponsored by senior deepmind researchers (specific affiliations under nda).
     </div>
-
   </div>
 
   <div class="footer">
