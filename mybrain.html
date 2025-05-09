@@ -61,6 +61,7 @@
   <h1>my brain</h1>
 
   <ul style="font-size: 13px; margin-bottom: 2.5rem; padding-left: 1rem;">
+    <li><a href="#entry-2025-05-09">Intelligence as Compressed Search</a></li>
     <li><a href="#entry-2025-05-03">Feedback-Efficient Intelligence Addendum</a></li>
     <li><a href="#entry-2025-05-02">Formalization of Trajectory Space Search</a></li>
     <li><a href="#entry-2025-04-30">Formalization of Feedback-Efficient Intelligence</a></li>
@@ -73,6 +74,52 @@
   </ul>
 
   <!-- Entries -->
+  <div class="entry" id="entry-2025-05-09">
+    <div class="entry-date">May 9, 2025</div>
+    <div class="entry-category">compressed search</div>
+    <h2>Intelligence as Compressed Search</h2>
+    <div class="entry-content">
+      <p>
+        In this entry, I offer a view of intelligence at a slightly different angle. It is inspired by my work on variance-aware trajectory search inference scaling for robotics action planning using diffusion policy. From this, I've gained an insight: you can empirically map how a learned model compresses its internal state space. There are two levels to this. First, the model compresses high-dimensional environmental state space into a more compact internal representation space. Second, empirically, the model also learns to further compress that internal state space by only traversing a small, structured subset of it during inference. This dual compression reveals something interesting: intelligent systems don't just learn to model the world, they learn to compress it. From this perspective, intelligent systems may exist to reduce the effective compute required to search through large possibility spaces. It's not just optimization — it's optimization with amortized cost. In this view, intelligence is a compression engine for intractable search. This search can be over actions, thoughts, representations, optimal search methods (at the meta-cognition level), or any other space of possible outcomes, in relation to some objective function. All of these spaces are potentially infinite, and would be very expensive to brute-force search.
+      </p>
+  
+      <p><strong>1. Definitions</strong></p>
+      <ul>
+        <li>\( \mathcal{S} \): a space of possible actions, thoughts, or representations</li>
+        <li>\( T_{\text{brute}} \): expected compute cost of brute-force search in \( \mathcal{S} \)</li>
+        <li>\( T_{\text{intel}} \): expected compute cost using an intelligent system</li>
+        <li>\( \mathcal{I} \): intelligence as the compression ratio of search compute</li>
+      </ul>
+  
+      <div>
+        \[
+        \mathcal{I} = \frac{T_{\text{brute}}}{T_{\text{intel}}}
+        \]
+      </div>
+  
+      <p>
+        Higher \( \mathcal{I} \) implies greater intelligence: the system achieves the same or better outcome with fewer evaluations or decisions. This metric is task-general and architecture-independent.
+      </p>
+  
+      <p><strong>2. Interpretation</strong></p>
+      <p>
+        This theory reframes intelligence as a search-accelerating process that distills the structure of a domain to avoid wasting compute on dead-ends. In biological systems, this manifests as perception, memory, and predictive modeling. In artificial systems, it manifests as amortized inference, inductive biases, or learned heuristics.
+      </p>
+  
+      <p>
+        Importantly, \( \mathcal{I} \) is not fixed. A system can learn to improve its own \( T_{\text{intel}} \) over time, i.e., it can compress search even further as it gains experience. This recursive efficiency is a possible axis for defining higher-order intelligence.
+      </p>
+
+      <p>
+        Another important insight is that, in this view, thinking is about using compute to search more of the compressed space offered by the learned models. 
+      </p>
+  
+      <p>
+        Intelligence, in this sense, is not the raw power to search everything — it is the ability to know what not to search.
+      </p>
+    </div>
+  </div>
+
   <div class="entry" id="entry-2025-05-03">
     <div class="entry-date">May 3, 2025</div>
     <div class="entry-category">feedback-efficient intelligence</div>
