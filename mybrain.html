@@ -81,7 +81,7 @@
     <div class="entry-category">world models</div>
     <h2>The Case for Language-Native World Models</h2>
     <div class="entry-content">
-      This post is about a framework I’ve been working on that I call “language-native world modeling.” The key idea is to separate language from generation. Language isn’t the output, it’s the interface. What we really want to build is a system that interprets language into structured latent representations of the world, simulates how that world might evolve, and then uses language only when it needs to communicate something back to us.
+      This post is about a framework I’ve been working on that I call “language-native world modeling.” The key idea is to separate language from planning and simulation. Language isn’t the substrate of thought, it’s the interface. What we really want to build is a system that interprets language into structured latent representations of the world, simulates how that world might evolve, and then uses language only when it needs to communicate something back to us.
 
       It starts with a simple observation: humans reasoned before we spoke. Long before syntax or grammar emerged, our brains were already simulating spatial layouts, predicting actions, modeling goals. Language didn’t give us reasoning. It did, however, give us a powerful way to interface with it. Language supercharged cognition by giving us tools to name abstractions, compare counterfactuals, and share mental simulations. But the underlying substrate of world modeling was already there.
 
@@ -89,7 +89,7 @@
 
       That said, there’s growing evidence that language models do form internal representations of the world. Even when trained only on text, they appear to acquire structured latent knowledge about space, causality, physical interactions, and goals. These internal world models seem to support surprisingly coherent behavior, but they’re buried inside the model, inaccessible except through clever prompting or behavioral probing.
 
-      The core problem is this: we don’t have direct control over those world models. We can only interact with them through the lens of text generation. There’s no clean mechanism to extract, simulate, or manipulate the underlying structure, no way to treat the world model as an explicit, evolving state.
+      The core problem with LLM-based approaches to reasoning is this: we don’t have direct control over those world models. We can only interact with them through the lens of text generation. There’s no clean mechanism to extract, simulate, or manipulate the underlying structure, no way to treat the world model as an explicit, evolving state.
 
       So here’s what I propose. We build a system with three modules:
       <ol>
@@ -119,6 +119,8 @@
       To me, this is what intelligence looks like. Not the ability to finish a sentence. The ability to simulate a world, manipulate it mentally, and test whether your imagined trajectory gets you to the outcome you want.
 
       Language boosted that power. It gave us a keyboard for simulation. But simulation itself, world modeling, was always the substrate. My claim is that we can go back to that substrate, build from it, and use language as the bridge, not the destination. If you're interested in the math, I've linked a paper on my page that formalizes this idea more rigorously.
+
+      Also, here's a hint for implementing a working prototype of this right now: language models, with good prompting, can also be used as the latent dynamics model, predicting next latent states from previous latents. As long as the latent dynamics model somehow stays in latent space, this is a working prototype of the system.
     </div>
   </div>
   
