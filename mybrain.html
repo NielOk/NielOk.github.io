@@ -120,7 +120,7 @@
 
       Language boosted that power. It gave us a keyboard for simulation. But simulation itself, world modeling, was always the substrate. My claim is that we can go back to that substrate, build from it, and use language as the bridge, not the destination. If you're interested in the math, I've linked a paper on my page that formalizes this idea more rigorously.
 
-      Also, here's a hint for implementing a working prototype of this right now: language models, with good prompting, can also be used as the latent dynamics model, predicting next latent states from previous latents. As long as the latent dynamics model somehow stays in latent space, this is a working prototype of the system.
+      Also, here's a hint for implementing a working prototype of this right now: language models, with good prompting, can also be used as the latent dynamics model, predicting next latent states from previous latents. As long as the system is set up such that the language model takes in previous latent states as input and outputs predicted latent states, it works as the latent dynamics model. This way, you can leverage existing LLMs to boostrap the latent dynamics model without needing to train a new one from scratch. With this approach, you're basically giving a cognitive framework to existing LLMs.
     </div>
   </div>
   
