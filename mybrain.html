@@ -61,6 +61,7 @@
   <h1>my brain</h1>
 
   <ul style="font-size: 13px; margin-bottom: 2.5rem; padding-left: 1rem;">
+    <li><a href="#entry-2025-05-30">Notes on Optimizing in Non-Differentiable Worlds</a></li>
     <li><a href="#entry-2025-05-18">The Case for Language-Native World Models</a></li>
     <li><a href="#entry-2025-05-10">Formalization of Minimal Latent Representation Learning</a></li>
     <li><a href="#entry-2025-05-09">Intelligence as Compressed Search</a></li>
@@ -76,6 +77,107 @@
   </ul>
 
   <!-- Entries -->
+  <div class="entry", id="entry-2025-05-30">
+    <div class="entry-date">May 30, 2025</div>
+    <div class="entry-category">evolution, non-differentiable environments, optimization</div>
+    <h2>Notes on Optimizing in Non-Differentiable Worlds</h2>
+    <p>  Modern machine learning is built on gradient-based optimization methods, particularly backpropagation. All arguments that say neural networks alone will bring about superintelligence rest on one of two assumptions: 1. the world is differentiable, or 2. a simplified, differentiable representation of the world is enough to create intelligence more powerful than humans. If either one of these are true, then neural networks alone will bring about superintelligence. In this essay, I will argue that both of these conditions are likely false and reason from first principles on what developing superior intelligence looks like when these conditions are false. Interestingly, the approach I come up with can be found in nature.</p>
+    <div class="entry-content">
+      <p><strong>1. Assumption One: The World is Differentiable</strong>
+      </p>
+        The first condition underpinning arguments that say neural networks alone will bring about superintelligence is that the world is differentiable, that is, the world provides smooth, continuous feedback that can be used to adjust internal parameters of a model through gradient descent. 
+        The idea is that, if the world is differentiable, then we can just create a system that takes in observations, runs them through a neural network, computes a loss based on how well the output matches some target, and then uses gradient descent to adjust the model parameters to improve performance. Over time, with enough data and compute, this system is expected to approximate optimal behavior, even in complex environments. This is the logic behind end-to-end learning, model-based reinforcement learning, and world models as approaches to superintelligence: they all assume that the dynamics of the world can be captured and improved upon through continuous, differentiable functions, and so a neural network trained on enough data will eventually learn to perform well enough in any environment to be considered superintelligent, or more intelligent than humans.
+      <p> 
+      <p>
+        But this assumption glosses over a critical point: the real world isn't smoothly structured, so it doesn't cooperate with backpropagation. In many domains, feedback is sparse, delayed, or discrete. For example, in robotics, the environment is often non-differentiable: a robot's actions can lead to abrupt changes in state, like slipping or breaking something, which doesn't provide smooth gradients for learning. Similarly, in language, the meaning of a sentence isn’t a continuous function of its tokens: replacing a single word can flip the entire intent or truth value. In reasoning tasks, correctness is binary: a proof either holds or it doesn’t. These domains are governed not by smooth transitions, but by thresholds, discrete structures, and irreversibility. There is no reliable slope to follow when the consequences of an action are all-or-nothing, or when the only signal comes at the end of a long, non-linear chain of steps.
+      </p>
+
+      <p>
+        Even world models, which aim to internalize environment dynamics and simulate forward, are built on this same faulty foundation. They assume that the world can be encoded into a latent space where transitions are continuous and gradients exist. But the real world is full of blind spots, hidden variables, and chaotic dynamics. No matter how smooth the latent space looks during training, the deployment environment remains jagged, opaque, and unforgiving. A world model trained on synthetic or sanitized data may interpolate well within its training manifold, but generalization outside of it often fails, not because the model isn’t large enough, but because the world itself is not differentiable in the ways that matter. 
+      </p>
+
+      <p>
+        In short, backpropagation works wonderfully on problems that have been processed into a smooth form. But when the structure of the world is sharp, discontinuous, and only partially visible, the assumptions underlying gradient-based learning break down. Intelligence in such settings cannot rely on infinitesimal updates guided by local error.
+      </p>
+      </p>
+      <p><strong>2. Assumption Two: A Simplified Differentiable Representation of the World is Enough</strong>
+      <p>
+        If the real world isn't differentiable, then the fallback argument is this: maybe it doesn't matter.  Maybe we can construct a simplified, differentiable approximation of the world that's close enough to reality where training on it still leads to general intelligence. In other words, even if the world itself is jagged, sparse, or discrete, we can still smooth it into something learnable, and the resulting model, trained on this abstraction, will generalize well enough to be superintelligent.
+      </p>
+
+      <p>
+        This idea has powered the development of everything from large language models to model-based reinforcement learning. In both cases, researchers designed training objectives that are clean, differentiable proxies: next-token prediction, expected reward, future semantic state prediction (e.g. my work on language-native world models). These objectives find proxies for real-world tasks that are smooth enough to optimize with well-behaved loss functions and gradient descent, enabling backpropagation to proceed as if the world were cooperative.
+      </p>
+
+      <p>
+        But this assumption, too, is dangerously optimistic. A simplified model of the world is always a filter: it excludes complexity, collapses uncertainty, and imposes structure that may not exist in the real environment. The smoother you make it, the further it drifts from the true nature of the system it’s supposed to represent. And this becomes a problem when intelligence trained on that model is deployed into environments with sharp transitions, hidden variables, or unmodeled failure modes.
+      </p>
+
+      <p>
+        Large language models are the clearest example. They are trained on differentiable objectives like next-token prediction, but we expect them to perform reasoning, planning, and goal-directed behavior. These are not next-token problems. They are structured decision processes with long-term dependencies, constraints, and logical coherence requirements. As a result, LLMs often hallucinate, break under multistep reasoning, or fail to maintain internal consistency, not because they lack capacity, but because they were never optimized for the actual structure of the tasks we care about.
+      </p>
+
+      <p>
+        This problem generalizes: in robotics, simulation-trained models often fail in the real world (Sim2Real gap). In reinforcement learning, agents trained on differentiable reward proxies exploit the proxy instead of solving the task (reward hacking). In safety-critical systems, oversimplified models miss catastrophic edge cases. These failures aren’t technical bugs: they’re the natural consequence of relying on smooth proxies to represent a non-smooth world.
+      </p>
+
+      <p>
+        In other words, even if we accept that the real world isn’t differentiable, and try to work around it with simplified approximations, we still run into a wall: the approximation is only as good as its ability to preserve the decision-critical structure of the original world. And the more complex the world becomes, the more likely it is that something important gets lost in translation.
+      </p>
+
+      <p><strong>3. Evolutionary Search for Optimization in Non-Differentiable Worlds</strong>
+        <p>
+          This leaves us with a problem: if the world is non-differentiable, and simplified representations are insufficient, how do we build superintelligent systems that can operate effectively in such environments? 
+        </p>
+
+        <p>
+          To start, here are characteristics that make the world non-differentiable:
+          <ul>
+            <li>Partial Observability: The optimizer does not have access to the full state of the environment. It must act based on limited, noisy, or indirect information. This makes it impossible to compute a true error signal at each step.</li>
+            <li>Delayed and Sparse Feedback: Rewards or outcomes do not arrive immediately after an action, and they may occur infrequently. This decouples cause from effect, making it difficult to assign credit or blame to any particular step in the process.</li>
+            <li>Irreversibility and Sharp Transitions: Many real-world environments contain cliffs: single decisions that irreversibly destroy future potential. These aren’t smooth valleys you can climb out of; they’re edges you can fall off. In such cases, the cost of a bad update can be catastrophic.</li>
+            <li>Combinatorial and Discrete Structure: Often, the space of strategies is fundamentally discrete or symbolic. There is no smooth interpolation between “write a valid proof” and “write gibberish”, only distinct categories of success and failure.</li>
+          </ul>
+        </p>
+
+        <p>
+          Our goal is to build systems that can optimize in environments that exhibit these characteristics. From first principles, optimization in such environments requires two things: 1. exploration that does not rely on gradients, and 2. evaluation that works even when feedback is sparse, delayed, or discrete.
+        </p>
+
+        <p>
+          Let's reason through what this implies. In a world that is partially observable, you can’t trust any single viewpoint. So rather than relying on a single agent updating its internal model from limited observations, it becomes useful to deploy many agents, each with slightly different policies, each exploring the world from a different perspective.
+        </p>
+
+        <p>
+          In a world with sparse or delayed feedback, learning must happen through whole-trajectory evaluation. You can’t improve behavior by nudging a parameter based on immediate error. Instead, you need to evaluate complete candidate strategies based on their long-term outcomes and compare them to one another.
+        </p>
+
+        <p>
+          In a world with sharp transitions and irreversibility, risk becomes existential. A single misstep can destroy the agent’s ability to learn. This means you must preserve redundancy and diversity in the population. If one candidate fails, others must continue. Failure must be distributed, not centralized.
+        </p>
+
+        <p>
+          In a world that is combinatorial and discrete, the search space is not smooth. There are no gradients, only possibilities. This requires structured, combinatorial search over configurations. Mutation, not interpolation, is the way to traverse the space. What matters is not a small tweak in the right direction, but the ability to generate viable, testable alternatives.
+        </p>
+
+        <p>
+          We've seen this approach succeed in searching non-differentiable spaces most notably in nature and evolution. In evolution, organisms explore the world through a population of diverse agents, each with different genetic makeups. They explore the environment, evaluate their fitness based on survival and reproduction, and adapt over generations through mutation and selection. This process does not rely on gradients or smooth feedback; it relies on the ability to generate diverse candidates, evaluate them based on long-term outcomes, and preserve those that succeed.
+        </p>
+        
+        <p>
+          We also see this in AlphaEvolve and other evolutionary algorithms, which use population-based search to optimize complex problems. They generate a diverse set of candidate solutions, evaluate them based on their performance in the environment, and iteratively refine the population through mutation and selection. This approach does not require differentiable feedback; it relies on the ability to explore the space of possible solutions and evaluate them based on their long-term outcomes.
+        </p>
+
+        <p>
+          I've also seen this personally in my work done in preparation for Deepmind's Gemini Diffusion, where I developed a structured metacognition framework that does GRPO-embedded monte carlo tree search at test time to exlpore the space of possible discrete decoding policies. This approach is an evolutionary search method that evolves decoding policies to full maturity through tree search, with exploration of multiple candidates and evaluation of their long-term outcomes. My specific algorithm is an informed mutation form of evolution, where the mutation is guided by a learned policy that predicts the most promising candidates based on rollouts of the current population. I also see parallels in my work on trajectory space search scaling for diffusion models in robotics and vision.
+        </p>
+      <p><strong>4. Moving Forward</strong>
+        <p>
+          The key takeaway is that, in non-differentiable worlds, intelligence cannot reliy on gradient-based optimization. While neural networks and differentiable models are powerful tools, they are not sufficient for building superintelligent systems that can operate effectively in non-differentiable environments. They will, however, play a large part in the agents that are used in evolutionary search, as we already see with works like AlphaEvolve and my structured metacognition framework, as they are great tools for autonomously creating diverse candidates, evaluating them based on their long-term outcomes, and converting environmental feedback to information that can be used to guide the search process. Without the advancements we have seen in neural networks, the evolutionary search algorithms we envision now would not be possible, but it is important to remember that neural networks are not the end goal. They are a tool that can be used to build more powerful and effective evolutionary search algorithms.
+        </p>
+      </p>
+    </div>
+  </div>  
   <div class="entry" id="entry-2025-05-18">
     <div class="entry-date">May 18, 2025</div>
     <div class="entry-category">world models</div>
