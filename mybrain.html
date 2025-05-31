@@ -163,6 +163,10 @@
         <p>
           We've seen this approach succeed in searching non-differentiable spaces most notably in nature and evolution. In evolution, organisms explore the world through a population of diverse agents, each with different genetic makeups. They explore the environment, evaluate their fitness based on survival and reproduction, and adapt over generations through mutation and selection. This process does not rely on gradients or smooth feedback; it relies on the ability to generate diverse candidates, evaluate them based on long-term outcomes, and preserve those that succeed.
         </p>
+
+        <p>
+          This process can be viewed not just as a random walk through solution space, but as a form of tree search. Each generation branches into a new set of candidates, each with its own trajectory through the environment. Selection acts as a pruning mechanism, collapsing the tree toward regions of high fitness. Mutation introduces new branches. Over time, the search tree grows in structured directions, guided by evaluation, not gradients. In this light, evolutionary algorithms are population-based tree search algorithms, with stochastic branching and delayed feedback.
+        </p>
         
         <p>
           We also see this in AlphaEvolve and other evolutionary algorithms, which use population-based search to optimize complex problems. They generate a diverse set of candidate solutions, evaluate them based on their performance in the environment, and iteratively refine the population through mutation and selection. This approach does not require differentiable feedback; it relies on the ability to explore the space of possible solutions and evaluate them based on their long-term outcomes.
@@ -302,7 +306,7 @@
       </p>
       
       <p>
-        This suggests that minimal representations are not necessarily atomic — they may still contain compressible structure, which can be discovered only through functional learning. Formally:
+        This suggests that minimal representations are not necessarily atomic: they may still contain compressible structure, which can be discovered only through functional learning. Formally:
       </p>
       
       <div>
@@ -326,7 +330,7 @@
       </div>
       
       <p>
-        Each \( \mathcal{Z}^{(i)} \) is a latent space learned to be sufficient for the compressed structure of the previous space — not by static reduction, but via introspective learning of functional invariance. This defines a nested compression hierarchy:
+        Each \( \mathcal{Z}^{(i)} \) is a latent space learned to be sufficient for the compressed structure of the previous space, not by static reduction, but via introspective learning of functional invariance. This defines a nested compression hierarchy:
       </p>
       
       <div>
@@ -344,7 +348,7 @@
       </p>
       
       <p>
-        Intelligence, in this view, is not just the compression of representations — it is the ability to discover recursively compressible structure hidden even within spaces already believed to be minimal.
+        Intelligence, in this view, is not just the compression of representations. It is the ability to discover recursively compressible structure hidden even within spaces already believed to be minimal.
       </p>
 
       <p><strong>6. Semantic Compressibility Limit (Principle)</strong></p>
@@ -360,16 +364,16 @@
         </div>
 
         <p>
-        Here, \( d^\ast \) is the semantic compressibility limit of the task — the minimal latent dimensionality required for any model to resolve the distinctions that the task demands. Compression beyond this point leads to loss of essential information.
+        Here, \( d^\ast \) is the semantic compressibility limit of the task, which is the minimal latent dimensionality required for any model to resolve the distinctions that the task demands. Compression beyond this point leads to loss of essential information.
         </p>
 
         <p>
-        Thus, intelligence is not the ability to infinitely compress. It is the ability to approach this limit — to identify and operate at the edge of irreducible complexity. Recursive compression converges not to zero, but to this task-specific boundary.
+        Thus, intelligence is not the ability to infinitely compress. It is the ability to approach this limit, to identify and operate at the edge of irreducible complexity. Recursive compression converges not to zero, but to this task-specific boundary.
         </p>
   
       <p><strong>7. Interpretation</strong></p>
       <p>
-        This theory reframes model compression as a general strategy for intelligence amplification. Rather than pruning weights or reducing parameters arbitrarily, it proposes targeting the actual semantic manifold that inference operates on. Intelligence emerges not from modeling more — but from modeling just enough, and modeling it efficiently.
+        This theory reframes model compression as a general strategy for intelligence amplification. Rather than pruning weights or reducing parameters arbitrarily, it proposes targeting the actual semantic manifold that inference operates on. Intelligence emerges not from modeling more but from modeling just enough, and modeling it efficiently.
       </p>
     </div>
   </div>
@@ -380,7 +384,7 @@
     <h2>Intelligence as Compressed Search</h2>
     <div class="entry-content">
       <p>
-        In this entry, I offer a view of intelligence at a slightly different angle. It's inspired by my work from Corvus and my work on variance-aware trajectory search inference scaling for robotics action planning using diffusion policy. From these places, I've gained an insight: you can empirically map how a learned model compresses its internal state space. There are two levels to this. First, the model compresses high-dimensional environmental state space into a more compact internal representation space. Second, empirically, the model also learns to further compress that internal state space by only traversing a small, structured subset of it during inference. This dual compression reveals something interesting: intelligent systems don't just learn to model the world, they learn to compress it. From this perspective, intelligent systems may exist to reduce the effective compute required to search through large possibility spaces. It's not just optimization — it's optimization with amortized cost. In this view, intelligence is a compression engine for intractable search. This search can be over actions, thoughts, representations, optimal search methods (at the meta-cognition level), or any other space of possible outcomes, in relation to some objective function. At Corvus, we see this with our systems when we're trying to find the best estimate for your location. The smaller the search space, the more granular and therefore accurate the estimate. All of these spaces are potentially infinite, and would be very expensive to brute-force search.
+        In this entry, I offer a view of intelligence at a slightly different angle. It's inspired by my work from Corvus and my work on variance-aware trajectory search inference scaling for robotics action planning using diffusion policy. From these places, I've gained an insight: you can empirically map how a learned model compresses its internal state space. There are two levels to this. First, the model compresses high-dimensional environmental state space into a more compact internal representation space. Second, empirically, the model also learns to further compress that internal state space by only traversing a small, structured subset of it during inference. This dual compression reveals something interesting: intelligent systems don't just learn to model the world, they learn to compress it. From this perspective, intelligent systems may exist to reduce the effective compute required to search through large possibility spaces. It's not just optimization. It's optimization with amortized cost. In this view, intelligence is a compression engine for intractable search. This search can be over actions, thoughts, representations, optimal search methods (at the meta-cognition level), or any other space of possible outcomes, in relation to some objective function. At Corvus, we see this with our systems when we're trying to find the best estimate for your location. The smaller the search space, the more granular and therefore accurate the estimate. All of these spaces are potentially infinite, and would be very expensive to brute-force search.
       </p>
   
       <p><strong>1. Definitions</strong></p>
@@ -415,7 +419,7 @@
       </p>
   
       <p>
-        Intelligence, in this sense, is not the raw power to search everything — it is the ability to know what not to search.
+        Intelligence, in this sense, is not the raw power to search everything,it is the ability to know what not to search.
       </p>
     </div>
   </div>
@@ -446,7 +450,7 @@
       </div>
       <p><strong>3. Interpretation</strong></p>
       <p>This reflects what evolution did for humans: it sculpted our attention, pain, curiosity, and perception toward signals with consistently high mutual information about task success. It’s not just that we learn from feedback. We evolved to learn what counts as feedback.</p>
-      <p>This meta-level principle applies to artificial agents as well. In order to sustain feedback-efficient intelligence, they must eventually learn a generative model over the feedback channel. Otherwise, they risk optimizing over noise or reacting to uninformative stimuli. Feedback channels aren't given — they're discovered.</p>
+      <p>This meta-level principle applies to artificial agents as well. In order to sustain feedback-efficient intelligence, they must eventually learn a generative model over the feedback channel. Otherwise, they risk optimizing over noise or reacting to uninformative stimuli. Feedback channels aren't given, they're discovered.</p>
     </div>
   </div>
 
@@ -612,7 +616,7 @@
   
       <p><strong>Interpretation</strong></p>
       <p>
-        This reframes intelligence not as raw computational power or self-sufficiency, but as the ability to compress reality—updating latent models with minimal feedback. The lower the feedback efficiency \( \eta_{t} \), the more intelligent the agent in a task-general sense. The lower the compression inefficiency \( \xi_{t} \), the more precisely it internalizes external structure. In both views, intelligence is fundamentally defined by how efficiently error is reduced per bit of external signal.
+        This reframes intelligence not as raw computational power or self-sufficiency, but as the ability to compress reality, updating latent models with minimal feedback. The lower the feedback efficiency \( \eta_{t} \), the more intelligent the agent in a task-general sense. The lower the compression inefficiency \( \xi_{t} \), the more precisely it internalizes external structure. In both views, intelligence is fundamentally defined by how efficiently error is reduced per bit of external signal.
       </p>
     </div>
   </div>
