@@ -81,53 +81,55 @@
     <div class="entry-date">May 30, 2025</div>
     <div class="entry-category">evolution, non-differentiable environments, optimization</div>
     <h2>Notes on Optimizing in Non-Differentiable Worlds</h2>
-    <p>  Modern machine learning is built on gradient-based optimization methods, particularly backpropagation. All arguments that say neural networks alone will bring about superintelligence rest on one of two assumptions: 1. the world is differentiable, or 2. a simplified, differentiable representation of the world is enough to create intelligence more powerful than humans. If either one of these are true, then neural networks alone will bring about superintelligence. In this essay, I will argue that both of these conditions are likely false and reason from first principles on what developing superior intelligence looks like when these conditions are false. Interestingly, the approach I come up with can be found in nature.</p>
+    <p>  Modern machine learning is built on gradient-based optimization methods, particularly backpropagation. All arguments that say neural networks alone will bring about superintelligence rest on one of two assumptions: 1. the world is learnable by continuous functions, or 2. a simplified, continuous representation of the world is enough to create intelligence more powerful than humans. If either one of these are true, then neural networks alone will bring about superintelligence. In this essay, I will argue that both of these conditions are likely false and reason from first principles on what developing superior intelligence looks like when these conditions are false. Interestingly, the approach I come up with can be found in nature.</p>
     <div class="entry-content">
-      <p><strong>1. Assumption One: The World is Differentiable</strong>
-      </p>
-        The first condition underpinning arguments that say neural networks alone will bring about superintelligence is that the world is differentiable, that is, the world provides smooth, continuous feedback that can be used to adjust internal parameters of a model through gradient descent. 
-        The idea is that, if the world is differentiable, then we can just create a system that takes in observations, runs them through a neural network, computes a loss based on how well the output matches some target, and then uses gradient descent to adjust the model parameters to improve performance. Over time, with enough data and compute, this system is expected to approximate optimal behavior, even in complex environments. This is the logic behind end-to-end learning, model-based reinforcement learning, and world models as approaches to superintelligence: they all assume that the dynamics of the world can be captured and improved upon through continuous, differentiable functions, and so a neural network trained on enough data will eventually learn to perform well enough in any environment to be considered superintelligent, or more intelligent than humans.
-      <p> 
+      <p><strong>1. Assumption One: The World Can Be Learned by Continuous Functions</strong>
       <p>
-        But this assumption glosses over a critical point: the real world isn't smoothly structured, so it doesn't cooperate with backpropagation. In many domains, feedback is sparse, delayed, or discrete. For example, in robotics, the environment is often non-differentiable: a robot's actions can lead to abrupt changes in state, like slipping or breaking something, which doesn't provide smooth gradients for learning. Similarly, in language, the meaning of a sentence isn’t a continuous function of its tokens: replacing a single word can flip the entire intent or truth value. In reasoning tasks, correctness is binary: a proof either holds or it doesn’t. These domains are governed not by smooth transitions, but by thresholds, discrete structures, and irreversibility. There is no reliable slope to follow when the consequences of an action are all-or-nothing, or when the only signal comes at the end of a long, non-linear chain of steps.
+        The first condition underpinning arguments that neural networks alone can bring about superintelligence is the assumption that the world can be learned by continuous functions, that is, that the underlying structure of the world can be captured through smooth function approximators, like neural networks, which rely on small changes in input producing small changes in output. This assumption enables training via gradient descent: a model takes in observations, computes a loss based on how well its output matches a target, and adjusts its internal parameters through infinitesimal updates. Over time, with enough data and compute, it is expected that such a system can approximate optimal behavior even in complex environments. This logic drives end-to-end learning, model-based reinforcement learning, and world models: all assume that the world’s dynamics can be represented and improved upon through continuous transformations learned from data.
       </p>
 
       <p>
-        Even world models, which aim to internalize environment dynamics and simulate forward, are built on this same faulty foundation. They assume that the world can be encoded into a latent space where transitions are continuous and gradients exist. But the real world is full of blind spots, hidden variables, and chaotic dynamics. No matter how smooth the latent space looks during training, the deployment environment remains jagged, opaque, and unforgiving. A world model trained on synthetic or sanitized data may interpolate well within its training manifold, but generalization outside of it often fails, not because the model isn’t large enough, but because the world itself is not differentiable in the ways that matter. 
+        But this assumption glosses over a critical truth: much of the real world is not continuous in the ways that matter. Feedback is often sparse, delayed, or discrete. In robotics, for instance, a small motor command can cause a catastrophic failure, such as a slip, a collision, or a break, where the consequences are abrupt and irreversible. In language, changing a single word can invert meaning; in reasoning, a proof either holds or it doesn’t. These are not gradual shifts but structural breaks. In such domains, the relationship between action and outcome is governed by thresholds, binary outcomes, and discrete symbolic rules, not by smooth transitions. This undermines the foundational premise of continuous function learning: there is no reliable gradient to follow when the system jumps unpredictably from one regime to another.
       </p>
 
       <p>
-        In short, backpropagation works wonderfully on problems that have been processed into a smooth form. But when the structure of the world is sharp, discontinuous, and only partially visible, the assumptions underlying gradient-based learning break down. Intelligence in such settings cannot rely on infinitesimal updates guided by local error.
-      </p>
-      </p>
-      <p><strong>2. Assumption Two: A Simplified Differentiable Representation of the World is Enough</strong>
-      <p>
-        If the real world isn't differentiable, then the fallback argument is this: maybe it doesn't matter.  Maybe we can construct a simplified, differentiable approximation of the world that's close enough to reality where training on it still leads to general intelligence. In other words, even if the world itself is jagged, sparse, or discrete, we can still smooth it into something learnable, and the resulting model, trained on this abstraction, will generalize well enough to be superintelligent.
+        Even world models, which attempt to simulate future states in latent space, inherit this flaw. They rely on internal representations that assume continuous transitions and learnable gradients between states. Yet the real world includes hidden variables, chaotic events, and discontinuities that are not captured in training data. A world model may interpolate beautifully within the training distribution, but fail catastrophically when faced with states outside of it: not because the model lacks scale, but because the world defies continuous approximation where it matters most.
       </p>
 
       <p>
-        This idea has powered the development of everything from large language models to model-based reinforcement learning. In both cases, researchers designed training objectives that are clean, differentiable proxies: next-token prediction, expected reward, future semantic state prediction (e.g. my work on language-native world models). These objectives find proxies for real-world tasks that are smooth enough to optimize with well-behaved loss functions and gradient descent, enabling backpropagation to proceed as if the world were cooperative.
+        In short, neural networks are powerful tools for learning smooth approximations of the world. But when the world’s structure is discontinuous, symbolic, or only partially observable, the assumptions underlying gradient-based learning collapse. Intelligence in such environments cannot be built solely on infinitesimal nudges through continuous landscapes. It must reason, search, and adapt in ways that transcend smooth function fitting.
       </p>
 
-      <p>
-        But this assumption, too, is dangerously optimistic. A simplified model of the world is always a filter: it excludes complexity, collapses uncertainty, and imposes structure that may not exist in the real environment. The smoother you make it, the further it drifts from the true nature of the system it’s supposed to represent. And this becomes a problem when intelligence trained on that model is deployed into environments with sharp transitions, hidden variables, or unmodeled failure modes.
-      </p>
+      <p><strong>2. Assumption Two: A Simplified Continuous Representation of the World is Enough</strong></p>
 
-      <p>
-        Large language models are the clearest example. They are trained on differentiable objectives like next-token prediction, but we expect them to perform reasoning, planning, and goal-directed behavior. These are not next-token problems. They are structured decision processes with long-term dependencies, constraints, and logical coherence requirements. As a result, LLMs often hallucinate, break under multistep reasoning, or fail to maintain internal consistency, not because they lack capacity, but because they were never optimized for the actual structure of the tasks we care about.
-      </p>
+        <p>
+          If the real world cannot be learned directly through continuous functions, as argued in Assumption One, the fallback hope in modern machine learning is that this doesn’t matter. Instead, perhaps we can construct a simplified, continuous approximation of the world that is smooth enough to train on, and close enough to reality that the resulting model will generalize effectively. This approximation acts as a surrogate for the world, and the assumption is that optimizing performance within this proxy space will transfer to intelligent behavior in the real world.
+        </p>
 
-      <p>
-        This problem generalizes: in robotics, simulation-trained models often fail in the real world (Sim2Real gap). In reinforcement learning, agents trained on differentiable reward proxies exploit the proxy instead of solving the task (reward hacking). In safety-critical systems, oversimplified models miss catastrophic edge cases. These failures aren’t technical bugs: they’re the natural consequence of relying on smooth proxies to represent a non-smooth world.
-      </p>
+        <p>
+          This logic underlies many of today’s most advanced machine learning systems. Large language models are trained to minimize differentiable losses like next-token prediction. Model-based reinforcement learning systems optimize smooth objectives such as expected future reward. Even when the real-world environment is discrete, delayed, or brittle, the training setup is restructured to look continuous by using simulators, embedding spaces, or differentiable reward functions. In this setup, backpropagation can proceed as if the world were well-behaved and smooth.
+        </p>
 
-      <p>
-        In other words, even if we accept that the real world isn’t differentiable, and try to work around it with simplified approximations, we still run into a wall: the approximation is only as good as its ability to preserve the decision-critical structure of the original world. And the more complex the world becomes, the more likely it is that something important gets lost in translation.
-      </p>
+        <p>
+          But this assumption inherits the same blind spots as Assumption One, just one level removed. A simplified, continuous representation of the world is always a lossy filter. It imposes structure where none exists, smooths over sharp transitions, and often discards the very dynamics that are most important for generalization. The more you tune the proxy for smooth learnability, the more it risks drifting from the actual causal and symbolic structure of the task.
+        </p>
+
+        <p>
+          Large language models highlight this failure mode vividly. While trained on next-token prediction, which is a continuous, gradient-friendly task, we expect them to reason, plan, and maintain coherence across long time horizons. But these are not next-token problems. They require discrete commitments, causal consistency, and symbolic reasoning. When pushed into these domains, LLMs often hallucinate, contradict themselves, or fail to recover from logical errors. This is not due to lack of scale, but due to a structural mismatch: the smooth proxy objective does not preserve the brittle, compositional structure of the real task.
+        </p>
+
+        <p>
+          The same principle applies beyond language. In robotics, policies trained in clean simulators often fail catastrophically in the real world: a phenomenon known as the Sim2Real gap. In reinforcement learning, agents trained on shaped, differentiable reward functions frequently exploit the proxy rather than solving the intended task: a form of reward hacking. In safety-critical systems, approximated models miss rare but high-impact edge cases. These are not implementation bugs. They are the predictable consequence of training systems on a smooth abstraction of a discontinuous world.
+        </p>
+
+        <p>
+          In short, even if we accept that the world is not learnable through continuous functions, and instead work with differentiable approximations, we are still operating under the same flawed premise: that smoothness is sufficient. But real-world intelligence depends on navigating sharp transitions, preserving symbolic constraints, and handling irreversibility, qualities that continuous proxies do not naturally encode. As the complexity of the world increases, so too does the likelihood that something essential gets lost in the smoothing process.
+        </p>
+
 
       <p><strong>3. Evolutionary Search for Optimization in Non-Differentiable Worlds</strong>
         <p>
-          This leaves us with a problem: if the world is non-differentiable, and simplified representations are insufficient, how do we build superintelligent systems that can operate effectively in such environments? We need to create systems that can optimize in non-differentiable worlds, but what does that entail? 
+          This leaves us with a problem: if the world is discontinuous and therefore non-differentiable, and simplified representations are insufficient, how do we build superintelligent systems that can operate effectively in such environments? We need to create systems that can optimize in non-differentiable worlds, but what does that entail? 
         </p>
 
         <p>
