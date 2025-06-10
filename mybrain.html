@@ -84,12 +84,12 @@
     <div class="entry-category">knowledge, brain, memory</div>
     <h2>Notes on Optimizing in Non-Differentiable Worlds (III)</h2>
     <p>
-      This is a follow-up to my previous entries on optimizing in non-differentiable worlds. In the past two entries, I mainly focused on arguing that, while continuous function approximators like neural networks are powerful tools and show signs of being able to reason, they are fundamentally misaligned with the nature of the world, which is composed of continuous processes but discontinuous when observed by bounded agents. As such, models that treat learning as smooth approximation fail to optimize effectively in real environments. In this post, I will propose more fundamental definitions of knowledge and learning, precisely define memory, and explore the role of the brain might be in my framework.
+      This is a follow-up to my previous entries on optimizing in non-differentiable worlds. In the past two entries, I mainly focused on arguing that, while continuous function approximators like neural networks are powerful tools and show signs of being able to reason, they are fundamentally misaligned with the nature of the world, which is composed of continuous processes but discontinuous when observed by bounded agents. As such, models that treat learning as smooth approximation fail to optimize effectively in real environments. In this post, I will propose more fundamental definitions of knowledge and learning, precisely define memory, and explore what the role of the brain might be in my framework.
     </p>
     <div class="entry-content">
       <p><strong>Knowledge</strong></p>
         <p>
-          Fundamentally, what is knowledge? I define knowledge as a set of beliefs about the world that consistently resist falsification across diverse observations. With this framing, the strength of a piece of knowledge can by measured by the number and diversity (variance) of observations that support it. This definition is nice for a few reasons. One, it grounds knowledge in reality by tying it to observations and preserves the epistemic role of knowledge (as described in my previous entries). Second, it enables us to quantify the likelihood that a belief is true vs merely consistent with the data by chance; knowledge backed by a broader range of observations is less likely to be coincidental. Third, it generalizes well across different forms of knowledge. Whether we're referring to factual knowledge (about events or states), procedural knowledge (about how to perform tasks), or conceptual knowledge (about abstract relationships), each can be understood in terms of its resistance to falsification across varied contexts.
+          What is knowledge, fundamentally? I define knowledge as a set of beliefs about the world that consistently resist falsification across diverse observations. With this framing, the strength of a piece of knowledge can by measured by the number and diversity (variance) of observations that support it. This definition is nice for a few reasons. One, it grounds knowledge in reality by tying it to observations and preserves the epistemic role of knowledge (as described in my previous entries). Second, it enables us to quantify the likelihood that a belief is true vs merely consistent with the data by chance; knowledge backed by a broader range of observations is less likely to be coincidental. Third, it generalizes well across different forms of knowledge. Whether we're referring to factual knowledge (about events or states), procedural knowledge (about how to perform tasks), or conceptual knowledge (about abstract relationships), each can be understood in terms of its resistance to falsification across varied contexts.
         </p>
 
       <p><strong>Learning</strong></p>
@@ -108,7 +108,7 @@
 
       <p><strong>The Role of the Brain in Learning</strong></p>
         <p>
-          Before proceeding, I want to clarify that this section is not intended to capture the brain’s full range of functions. While the brain is essential not just for learning but also for using knowledge to act and thrive, the focus here is solely on its role in learning. In this context, I view the brain as a finite computational system tasked with processing a largely continuous stream of bounded observations and using them to construct and refine the strongest possible set of beliefs.
+          Before proceeding, I want to clarify that these next few sections are not intended to capture the brain’s full range of functions. While the brain is essential not just for learning but also for using knowledge to act and thrive, the focus here is solely on its role in learning. In this context, I view the brain as a finite computational system tasked with processing a largely continuous stream of bounded observations and using them to construct and refine the strongest possible set of beliefs.
         </p>
 
         <p>
@@ -121,11 +121,15 @@
         
       <p><strong>Top-Down Prediction and Bottom-Up Correction</strong></p>
         <p>
-          For this section, it is helpful to think about what the most efficient way for checking a set of beliefs against an observation is. Mathematically, to compare two objects, you need to project them to a common representational space. In the case of knowledge and observations, this either means 1. converting observations to knowledge space, or 2. converting knowledge to observation space. Which way is more efficient? As an agent experiences more observations, its knowledge space grows, while the observation space remains largely constant in size (assuming the agent stays bounded). Thus, it is more computationally efficient to compare in observation space. How do you convert knowledge to observation space? You take a handful of previous observations, put them through your knowledge, and generate a prediction of what the next observation should be. This is known as top-down prediction. The process of comparing these predictions to actual observations, and updating the knowledge based on the discrepancies, is known as bottom-up correction.
+          For this section, it is helpful to think about what the most efficient way for checking a set of beliefs against an observation is. Mathematically, to compare two objects, you need to project them to a common representational space. In the case of knowledge and observations, this either means 1. converting observations to knowledge space, or 2. converting knowledge to observation space. Which way is more efficient? 
         </p>
 
         <p>
-          In predictive coding models of the brain, higher-level cortical areas generate predictions about expected sensory input, and lower-level areas compare these predictions with the actual input received. The resulting prediction error is propagated back up the hierarchy to adjust the internal model. This maps directly onto the consistency-checking architecture that I propose. 
+          As an agent experiences more observations, its knowledge space grows, while the observation space remains largely constant in size (assuming the agent stays bounded). Thus, overall, as long as the observation space and knowledge space start off relatively similar in size, it is more computationally efficient to compare in observation space. How do you convert knowledge to observation space? You take a handful of previous observations, give them as input to some system that has the agent's knowledge embedded within it, and generate a prediction of what the next observation should be. This is known as top-down prediction. The process of comparing these predictions to actual observations and updating the knowledge based on the discrepancies is known as bottom-up correction.
+        </p>
+
+        <p>
+          In predictive coding models of the brain, higher-level cortical areas generate predictions about expected sensory input, and lower-level areas compare these predictions with the actual input received. The resulting prediction error is propagated locally back up the hierarchy to adjust the internal model.
         </p>
 
         <p>
@@ -138,7 +142,7 @@
         </p>
 
         <p>
-          This aligns with the principle of computational frugality. Rather than re-deriving all beliefs from scratch, the brain performs targeted updates: synaptic weight changes in specific circuits, shifts in local priors, or re-weighting of category boundaries. These local corrections are a hallmark of biological intelligence—and a crucial design principle for artificial agents that must learn efficiently in non-differentiable environments.
+          This aligns with the principle of computational frugality. Rather than re-deriving all beliefs from scratch, the brain performs targeted updates: synaptic weight changes in specific circuits, shifts in local priors, or re-weighting of category boundaries. These local corrections are a hallmark of biological intelligence and a crucial design principle for artificial agents that must learn efficiently in non-differentiable environments.
         </p>
 
         <p>
