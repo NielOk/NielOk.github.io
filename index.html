@@ -22,34 +22,16 @@
       margin: 0 auto;
     }
 
-    .top-bar {
-      display: flex;
-      justify-content: flex-end;
-      gap: 1rem;
-      margin-bottom: 1.8rem;
-      font-size: 13px;
-    }
-
-    .top-bar a {
-      text-decoration: none;
-      color: #777;
-      font-weight: 500;
-    }
-
-    .top-bar a:hover {
-      color: #000;
-    }
-
     h1 {
-      font-size: 1.8rem;
-      margin-bottom: 0.4rem;
+      font-size: 2.0rem;
+      margin-bottom: 1.5rem;
       font-weight: 500;
     }
 
     .description {
-      font-size: 13px;
+      font-size: 18px;
       color: #666;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
 
     details {
@@ -66,74 +48,71 @@
       margin-bottom: 1rem;
     }
 
-    .project {
-      margin-bottom: 2.2rem;
-      border-bottom: 1px solid #eee;
-      padding-bottom: 1.2rem;
-    }
-
-    .project-date {
-      font-size: 12px;
-      font-weight: 500;
-      color: #999;
-    }
-
-    .project-title {
-      font-size: 14px;
-      font-weight: 500;
-      margin: 0.2rem 0 0.2rem 0;
-      color: #333;
-    }
-
-    .project-desc {
-      font-size: 13px;
-      color: #444;
-      margin-top: 0.2rem;
-    }
-
     a {
-      color: inherit;
-      text-decoration: none;
+        color: #0077cc; /* or just 'blue' */
+        text-decoration: none;
+        font-weight: 300;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      font-size: 18px;
+    }
+
+    .top-left a {
+      margin-right: 2rem; /* controls spacing between top nav links */
+      color: #0077cc;
+      font-weight: 500;
+      text-decoration: none;
     }
 
     .footer {
       max-width: 680px;
-      margin: 3rem auto 1.5rem auto;
-      display: flex;
-      justify-content: space-between;
-      font-size: 12px;
+      margin: 1.5rem auto 1.5rem auto;
+      font-size: 14px;
       color: #999;
-      padding: 0 0.5rem;
-    }
-
-    .footer a {
-      color: #999;
-    }
-
-    .footer a:hover {
-      color: #000;
+      padding: 0 0rem;
     }
 
     .footer-left {
-      line-height: 1.4;
+      line-height: 1.6;
+    }
+
+    .footer-left .emails div {
+      margin-bottom: 0.3rem;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .social-links a {
+      color: #0077cc;
+      text-decoration: none;
+      font-weight: 500;
     }
 
     .footer-right {
-      text-align: right;
+      margin-top: 2rem;
+      text-align: left;
     }
   </style>
 </head>
 <body>
   <div class="content">
     <div class="top-bar">
-      <a href="https://github.com/NielOk" target="_blank">github</a>
-      <a href="https://twitter.com/nielok20" target="_blank">twitter</a>
-      <a href="https://www.linkedin.com/in/niel-ok" target="_blank">linkedin</a>
-      <a href="https://huggingface.co/NielOk" target="_blank">hugging face</a>
+      <div class="top-left">
+        <a href="index.html">home</a>
+        <a href="experience.html">experience</a>
+        <a href="mybrain.html">thoughts</a>
+      </div>
     </div>
 
     <h1>Niel Jongwhan Ok</h1>
@@ -141,129 +120,20 @@
       systems+theory guy that likes to make metal smart. left stanford ee, stanford brains in silicon lab, and several deepmind-adjacent projects to cofound corvus, working on sick ml-embedded hardware.  
     </div>
 
-    <details open>
-      <summary>current work</summary>
-      <div class="project">
-        <div class="project-date">[April 2025]</div>
-        <div class="project-title"><a href="https://corvusdefense.us" target="_blank">Corvus Defense</a></div>
-        <div class="project-desc">
-          building...
-        </div>
-      </div>
-    </details>
-
-    <details>
-      <summary>ml theory + systems + control research</summary>
-
-      <div class="project">
-        <div class="project-date">[March 2025]</div>
-        <div class="project-title">Scalable Structured Metacognition with Test-Time RL Tree Policies</div>
-        <div class="project-desc">
-          a general and scalable metacognition framework and research prototype for <a href="https://ml-gsai.github.io/LLaDA-demo/" target="_blank">text diffusion models</a>, applied to <a href="https://arxiv.org/abs/2209.00840" target="_blank">natural language reasoning with first-order logic</a>. introduced 2-level grpo-embedded monte carlo tree search over decoding policies. done in preparation for <a href="https://deepmind.google/models/gemini-diffusion/" target="_blank">deepmind's gemini diffusion release</a> as a new axis for test-time scaling. <a href="https://nielok.github.io/LLaDA_TTC/" target="_blank">[paper]</a> | <a href="https://github.com/NielOk/LLaDA_TTC" target="_blank">[code]</a> † *
-        </div>
-      </div>
-
-      <div class="project">
-        <div class="project-date">[February 2025]</div>
-        <div class="project-title">Interpretability for Text Diffusion Models</div>
-        <div class="project-desc">
-          semantic interpretability of text diffusion models, expanding on <a href="https://www.anthropic.com/research/mapping-mind-language-model" target="_blank">mechanistic interpretability research</a> from <a href="https://www.anthropic.com/" target="_blank">anthropic</a>. done in preparation for deepmind's gemini diffusion release. <a href="https://github.com/NielOk/latent_coherence_dynamics" target="_blank">[code]</a> † *
-        </div>
-      </div>
-
-      <div class="project">
-        <div class="project-date">[December 2024]</div>
-        <div class="project-title">A Blueprint for Language-Native World Modeling</div>
-        <div class="project-desc">
-          a theoretical framework and blueprint for world modeling that uses natural language as an interface for reasoning. <a href="https://nielok.github.io/language_native_world_model/" target="_blank">[paper]</a> †
-        </div>
-      </div>
-
-      <div class="project">
-        <div class="project-date">[November 2024]</div>
-        <div class="project-title">Adaptive Inference Scaling of Diffusion Policy for Robotics</div>
-        <div class="project-desc">
-          variance-aware trajectory-search inference scaling for robotics action planning with diffusion policy, combining my work on trajectory-search inference scaling with <a href="https://diffusion-policy.cs.columbia.edu" target="_blank">work</a> from <a href="https://www.tri.global" target="_blank">toyota research institute</a>. <a href="https://github.com/NielOk/robotics_policy_ttc" target="_blank">[code]</a> † *
-        </div>
-      </div>
-
-      <div class="project">
-        <div class="project-date">[October 2024]</div>
-        <div class="project-title">Trajectory-Search Based Diffusion Inference Scaling</div>
-        <div class="project-desc">
-          led team in developing a theoretical framework and image-generation proof-of-concept for trajectory-search-based inference scaling of stochastic diffusion models, expanding on <a href="https://arxiv.org/abs/2501.09732" target="_blank">deepmind's work</a> for deterministic models. <a href="https://nielok.github.io/diffusion_test_time_compute/" target="_blank">[paper]</a> | <a href="https://github.com/NielOk/diffusion_test_time_compute" target="_blank">[code]</a> *
-        </div>
-      </div>
-
-      <div class="project">
-        <div class="project-date">[July 2024]</div>
-        <div class="project-title">RL-Embedded OS</div>
-        <div class="project-desc">
-          an rl-embedded os, integrating stochastic intelligence with low-level kernel behavior. built to align system behavior with the dynamic patterns of real human use. <a href="https://github.com/NielOk/rl_embedded_os" target="_blank">[code]</a> †
-        </div>
-      </div>
-
-      <div class="project">
-        <div class="project-date">[January 2020]</div>
-        <div class="project-title">AI Brain Tumor Diagnosis</div>
-        <div class="project-desc">
-          ai for brain tumor diagnosis using mri images. ended up working on generative models for dataset balancing after discovering effects of class imbalance. †
-        </div>
-      </div>
-
-    </details>
-
-    <details>
-      <summary>industry</summary>
-      <div class="project">
-        <div class="project-date">[October 2024]</div>
-        <div class="project-title">Technical Staff@Heft AI</div>
-        <div class="project-desc">
-          hire number 2 at an inference-focused applied ai lab spun out of <a href="https://deepmind.google" target="_blank">deepmind</a>. led team in building fully vertical, scalable infrastructure for high-performance large model inference, including quantization pipelines, kernel-level optimizations, performance benchmarking, and distributed systems.
-        </div>
-      </div>
-
-      <div class="project">
-        <div class="project-date">[May 2024]</div>
-        <div class="project-title">Research Intern@Insyt Labs</div>
-        <div class="project-desc">
-          led chain-of-thought and interpretability research for llm-driven grounded digital twins. backed by <a href="https://www.plugandplaytechcenter.com" target="_blank">plug-and-play</a> and <a href="https://www.techstars.com/" target="_blank">techstars</a>.
-        </div>
-      </div>
-    </details>
-
-    <details>
-      <summary>alternative compute research</summary>
-      <div class="project">
-        <div class="project-date">[April 2024]</div>
-        <div class="project-title">Neuromorphic Computing@<a href="https://web.stanford.edu/group/brainsinsilicon/" target="_blank">Brains in Silicon</a></div>
-        <div class="project-desc">
-          studied neural circuits and plasticity with computational methods. theorized and built novel dendritic mechanisms supporting spatiotemporal codes and circuit-level dynamical system models of spatial and motion learning on long behavioral timescales. <a href="https://github.com/NielOk/btsp_nav_sim" target="_blank">[code]</a>
-        </div>
-      </div>
-
-      <div class="project">
-        <div class="project-date">[June 2020]</div>
-        <div class="project-title">Quantum Teleportation@<a href="https://researchdirectory.uc.edu/p/cahaymm" target="_blank">Cahay Lab</a></div>
-        <div class="project-desc">
-          devised quantum teleportation circuits utilizing all 4 bell states and ported them to <a href="https://blog.google/technology/research/google-willow-quantum-chip/" target="_blank">google willow</a>'s superconducting grid qubit architecture. built quantum circuit simulators for verification. sponsored by <a href="https://quantum.ibm.com" target="_blank">ibm quantum</a> and <a href="https://quantumai.google" target="_blank">google quantum ai</a>.
-        </div>
-      </div>
-    </details>
-
-    <div class="footnote" style="font-size: 12px; color: #999; margin-top: 2rem;">
-      † = sole contributor. <br>
-      * = compute sponsored by senior deepmind researchers (specific affiliations under nda).
-    </div>
-  </div>
-
   <div class="footer">
-    <div class="emails">
-      <div>nielok@corvusdefense.us</div>
-      <div>nielok@stanford.edu</div>
-      <div>niel.jongwhan.ok@gmail.com</div>
+    <div class="footer-left">
+      <div class="social-links">
+        <a href="https://github.com/NielOk" target="_blank">github</a>
+        <a href="https://twitter.com/nielok20" target="_blank">twitter</a>
+        <a href="https://www.linkedin.com/in/niel-ok" target="_blank">linkedin</a>
+        <a href="https://huggingface.co/NielOk" target="_blank">hugging face</a>
+      </div>
+      <div class="emails">
+        <div>nielok@corvusdefense.us</div>
+        <div>nielok@stanford.edu</div>
+        <div>niel.jongwhan.ok@gmail.com</div>
+      </div>
     </div>
-    <div class="my-brain-link"><a href="mybrain.html">my brain →</a></div>
   </div>
 </body>
 </html>
