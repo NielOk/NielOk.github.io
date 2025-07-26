@@ -109,13 +109,12 @@
   </ul>
 
   <!-- Entries -->
-  <!-- Entries -->
   <div class="entry" id="entry-2025-07-25">
     <div class="entry-date">July 25, 2025</div>
     <div class="entry-category">directionality of time, irreversible systems</div>
     <h2>Irreversible Systems and the Computational Asymmetry of Time</h2>
     <p>
-      This entry introduces the thesis that the arrow of time, its apparent irreversibility, is not solely a consequence of thermodynamic constraints or psychological phenomena, but a reflection of an underlying computational asymmetry inherent to the physical universe. I introduce a model of an unbounded, stateless observer, one who exists within and is constrained to a single instantiation of the universe. Even if the many-worlds interpretation of quantum mechanics holds, this observer can access only one instance of the universe. Within this constraint, I argue that in systems characterized by many-to-one state transitions, the directionality of time emerges from the observer's inability to efficiently reconstruct past states. Temporal asymmetry, under this framework, is a consequence of computational intractability: time flows forward because only forward evolution admits a well-posed computation.
+      This entry introduces the idea that the arrow of time, its apparent irreversibility, is not solely a consequence of thermodynamic constraints or psychological phenomena, but a reflection of an underlying computational asymmetry inherent to the physical universe. I introduce a model of an unbounded, stateless observer, one who exists within and is constrained to a single instantiation of the universe. Even if the many-worlds interpretation of quantum mechanics holds, this observer can access only one instance of the universe, meaning it is possible for information to be lost to this observer without being lost as a whole. Within this constraint, I argue that in systems characterized by many-to-one state transitions, the directionality of time emerges from the observer's inability to efficiently reconstruct past states. Temporal asymmetry, under this framework, is a consequence of computational intractability: time flows forward because only forward evolution admits a well-posed computation.
     </p>
 
     <div class="entry-content">
@@ -149,6 +148,22 @@
         In each case, the forward transition \(f\) acts as a lossy compression operator; its inverse lacks a unique solution without external memory or auxiliary constraints.
       </p>
 
+      <p><strong>Compression of Futures into a Single Present</strong></p>
+      <p>
+      What distinguishes the past from the future under this model is not merely entropy, but the asymmetry of representational compression. While the past may consist of many possible prior states that converge to the current one (i.e., many-to-one), the future evolves deterministically (or probabilistically, but still computably) into a single next state. In effect, forward transitions squeeze the plurality of potential futures into a unique present, collapsing uncertainty into actuality. This directional compression ensures that:
+      </p>
+
+      <p>
+      $$
+      \exists \, S_{t-1}^{(1)} \neq S_{t-1}^{(2)} : f(S_{t-1}^{(1)}) = f(S_{t-1}^{(2)}) = S_t,
+      \quad \text{but} \quad f(S_t) \rightarrow S_{t+1} \text{ is unique}
+      $$
+      </p>
+
+      <p>
+      The future is funneled into one consistent present, while the past branches remain computationally inaccessible without auxiliary constraints. This asymmetry, one-to-many in reverse but one-to-one (or deterministic/stochastic but computable) in forward time, explains why only forward simulation is feasible for the stateless, unbounded observer.
+      </p>
+
       <p><strong>The Computational Arrow of Time</strong></p>
       <p>
         In a universe governed exclusively by reversible dynamics, temporal directionality would be arbitrary: both forward and backward evolution would be computationally equivalent. In such a system, the observer could compute:
@@ -165,7 +180,7 @@
 
       <p><strong>Conclusion: Computability as Temporal Grounding</strong></p>
       <p>
-        Temporal directionality, in this formulation, is a derived property of a system's informational structure and the observer’s computational constraints. For an observer devoid of memory, one limited to present-state evaluation, the direction of time corresponds to the axis along which simulation remains tractable. The universe does not inherently flow toward the future; it is simply the only direction that remains accessible to forward modeling. This principle can be formalized as:
+        Temporal directionality, in this formulation, is a derived property of a system's informational structure and the observer’s computational constraints. For an observer devoid of memory, one limited to present-state evaluation of the universe, the direction of time corresponds to the axis along which simulation remains tractable. The universe does not inherently flow toward the future; it is simply the only direction that remains accessible to forward modeling. This principle can be formalized as:
       </p>
       <p>
         \[ \text{Time direction} = \arg\min_{d \in \{\text{forward}, \text{backward}\}} \text{Complexity}(\text{Compute}(S_d)) \]
