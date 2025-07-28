@@ -132,7 +132,7 @@
         \[ \exists S_{t-1}^{(1)} \neq S_{t-1}^{(2)} : f(S_{t-1}^{(1)}) = f(S_{t-1}^{(2)}) = S_t \]
       </p>
       <p>
-        This renders the inverse computation either ill-defined or computationally intractable, as the computer has no mechanism to distinguish among multiple plausible precursors to the current state.
+        This renders the inverse computation ill-defined, as the computer has no mechanism to distinguish or automatically select the correct precursor among multiple plausible candidates to the current state.
       </p>
 
       <p><strong>Irreversibility Across Scales</strong></p>
@@ -180,7 +180,7 @@
 
       <p><strong>Conclusion: Computability as Temporal Grounding</strong></p>
       <p>
-        Temporal directionality, in this formulation, is a derived property of a system's informational structure and the computer’s computational constraints. For an unbounded computer devoid of memory, one limited to present-state evaluation of the universe, the direction of time corresponds to the axis along which simulation remains tractable. The universe does not inherently flow toward the future; it is simply the only direction that remains accessible to forward modeling. This principle can be formalized as:
+        Temporal directionality, in this formulation, is a derived property of a system's informational structure and the computer’s computational constraints. For an unbounded computer devoid of memory, one limited to present-state evaluation of the universe, the direction of time corresponds to the axis along which simulation remains well-posed. The universe does not inherently flow toward the future; it is simply the only direction that remains accessible to forward modeling. This principle can be formalized as:
       </p>
       <p>
         \[ \text{Time direction} = \arg\min_{d \in \{\text{forward}, \text{backward}\}} \text{Complexity}(\text{Compute}(S_d)) \]
