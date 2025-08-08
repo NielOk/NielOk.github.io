@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <meta charset="UTF-8">
+  <title>Intelligence as Compressed Search - Niel Ok</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: #fcfcfc;
+      color: #2c2c2c;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.6;
+      padding: 3rem 1.5rem;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    a {
+        color: #0077cc; /* or just 'blue' */
+        text-decoration: none;
+        font-weight: 300;
+    }
+    .back-link {
+      font-size: 13px;
+      margin-bottom: 2rem;
+      display: inline-block;
+      color: #777;
+    }
+    h1 {
+      font-size: 2.0rem;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 0.25rem;
+      margin-bottom: 0.75rem;
+      font-weight: 300;
+    }
+    .entry {
+      margin-bottom: 2.5rem;
+    }
+    .entry-date {
+      font-size: 12px;
+      color: #999;
+    }
+    .entry-category {
+      font-size: 12px;
+      font-weight: 400;
+      color: #888;
+      text-transform: uppercase;
+      margin-top: 0.1rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.04em;
+    }
+    .entry-content {
+      font-size: 13px;
+      color: #444;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      font-size: 18px;
+    }
+
+    .top-left a {
+      margin-right: 2rem; /* controls spacing between top nav links */
+      color: #0077cc;
+      font-weight: 300;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <a href="javascript:window.history.back()">Back</a>
+
+  <p></p>
+    <!-- Entries -->
+  <div class="entry" id="entry-2025-05-09">
+    <div class="entry-date">May 9, 2025</div>
+    <div class="entry-category">compressed search</div>
+    <h2>Intelligence as Compressed Search</h2>
+    <div class="entry-content">
+      <p>
+        In this entry, I offer a view of intelligence at a slightly different angle. It's inspired by my work from Corvus and my work on variance-aware trajectory search inference scaling for robotics action planning using diffusion policy. From these places, I've gained an insight: you can empirically map how a learned model compresses its internal state space. There are two levels to this. First, the model compresses high-dimensional environmental state space into a more compact internal representation space. Second, empirically, the model also learns to further compress that internal state space by only traversing a small, structured subset of it during inference. This dual compression reveals something interesting: intelligent systems don't just learn to model the world, they learn to compress it. From this perspective, intelligent systems may exist to reduce the effective compute required to search through large possibility spaces. It's not just optimization. It's optimization with amortized cost. In this view, intelligence is a compression engine for intractable search. This search can be over actions, thoughts, representations, optimal search methods (at the meta-cognition level), or any other space of possible outcomes, in relation to some objective function. At Corvus, we see this with our systems when we're trying to find the best estimate for your location. The smaller the search space, the more granular and therefore accurate the estimate. All of these spaces are potentially infinite, and would be very expensive to brute-force search.
+      </p>
+  
+      <p><strong>1. Definitions</strong></p>
+      <ul>
+        <li>\( \mathcal{S} \): a space of possible actions, thoughts, or representations</li>
+        <li>\( T_{\text{brute}} \): expected compute cost of brute-force search in \( \mathcal{S} \)</li>
+        <li>\( T_{\text{intel}} \): expected compute cost using an intelligent system</li>
+        <li>\( \mathcal{I} \): intelligence as the compression ratio of search compute</li>
+      </ul>
+  
+      <div>
+        \[
+        \mathcal{I} = \frac{T_{\text{brute}}}{T_{\text{intel}}}
+        \]
+      </div>
+  
+      <p>
+        Higher \( \mathcal{I} \) implies greater intelligence: the system achieves the same or better outcome with fewer evaluations or decisions. This metric is task-general and architecture-independent.
+      </p>
+  
+      <p><strong>2. Interpretation</strong></p>
+      <p>
+        This theory reframes intelligence as a search-accelerating process that distills the structure of a domain to avoid wasting compute on dead-ends. In biological systems, this manifests as perception, memory, and predictive modeling. In artificial systems, it manifests as amortized inference, inductive biases, or learned heuristics.
+      </p>
+  
+      <p>
+        Importantly, \( \mathcal{I} \) is not fixed. A system can learn to improve its own \( T_{\text{intel}} \) over time, i.e., it can compress search even further as it gains experience. This recursive efficiency is a possible axis for defining higher-order intelligence.
+      </p>
+
+      <p>
+        Another important insight is that, in this view, thinking is about using compute to search more of the compressed space offered by learned models. 
+      </p>
+  
+      <p>
+        Intelligence, in this sense, is not the raw power to search everything,it is the ability to know what not to search.
+      </p>
+    </div>
+  </div>
+</body>
+</html>

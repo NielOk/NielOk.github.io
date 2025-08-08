@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <meta charset="UTF-8">
+  <title>Formalization of Minimal Latent Representation Learning - Niel Ok</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: #fcfcfc;
+      color: #2c2c2c;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.6;
+      padding: 3rem 1.5rem;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    a {
+        color: #0077cc; /* or just 'blue' */
+        text-decoration: none;
+        font-weight: 300;
+    }
+    .back-link {
+      font-size: 13px;
+      margin-bottom: 2rem;
+      display: inline-block;
+      color: #777;
+    }
+    h1 {
+      font-size: 2.0rem;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 0.25rem;
+      margin-bottom: 0.75rem;
+      font-weight: 300;
+    }
+    .entry {
+      margin-bottom: 2.5rem;
+    }
+    .entry-date {
+      font-size: 12px;
+      color: #999;
+    }
+    .entry-category {
+      font-size: 12px;
+      font-weight: 400;
+      color: #888;
+      text-transform: uppercase;
+      margin-top: 0.1rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.04em;
+    }
+    .entry-content {
+      font-size: 13px;
+      color: #444;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      font-size: 18px;
+    }
+
+    .top-left a {
+      margin-right: 2rem; /* controls spacing between top nav links */
+      color: #0077cc;
+      font-weight: 300;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <a href="javascript:window.history.back()">Back</a>
+
+  <p></p>
+    <!-- Entries -->
+  <div class="entry" id="entry-2025-05-10">
+    <div class="entry-date">May 10, 2025</div>
+    <div class="entry-category">compressed representations</div>
+    <h2>Formalization of Minimal Latent Representation Learning</h2>
+    <div class="entry-content">
+      <p>
+        This entry formalizes a key idea extending from my compressed search framework: that a model's internal latent space \( \mathcal{Z} \subset \mathbb{R}^D \) is typically larger than necessary for the behaviors it expresses during inference. If we can isolate the empirically used subspace \( \tilde{\mathcal{Z}} \subset \mathcal{Z} \), then it may be possible to learn a new model that operates in a minimally sufficient latent space \( \mathcal{Z}_{\min} \subset \mathbb{R}^d \), where \( d \ll D \), achieving equivalent function with reduced inference cost. Retroactively, I realize that most of this is a formalization for model quantization, but I think it has broader implications for understanding the nature of intelligence and the limits of model compression, especially the latter parts on recursive intelligence and the semantic compressibility limit.
+      </p>
+  
+      <p><strong>1. Latent Usage Estimation</strong></p>
+      <p>
+        Let \( \text{Enc}: \mathcal{X} \to \mathcal{Z} \) be the encoder for some model \( f: \mathcal{Z} \to \mathcal{Y} \), and let:
+      </p>
+      <div>
+        \[
+        \tilde{\mathcal{Z}} = \{ z_i = \text{Enc}(x_i) \mid x_i \in \mathcal{D}_{\text{inference}} \}
+        \]
+      </div>
+      <p>
+        be the latent codes actually used during inference on task-relevant data.
+      </p>
+  
+      <p><strong>2. Compression Objective</strong></p>
+      <p>
+        The goal is to find a smooth embedding \( g: \mathbb{R}^d \to \mathcal{Z} \) such that:
+      </p>
+      <div>
+        \[
+        \forall z \in \tilde{\mathcal{Z}},\quad \exists u \in \mathbb{R}^d \text{ s.t. } g(u) \approx z
+        \]
+      </div>
+      <p>
+        This defines a compressed latent space \( \mathcal{Z}_{\min} = \mathbb{R}^d \) that preserves semantic variability. \( g \) can be learned using PCA (linear), autoencoders (nonlinear), or manifold learning methods.
+      </p>
+  
+      <p><strong>3. Functional Equivalence</strong></p>
+      <p>
+        Train a function \( \hat{f}: \mathbb{R}^d \to \mathcal{Y} \) such that:
+      </p>
+      <div>
+        \[
+        \hat{f}(u) \approx f(g(u)) \quad \text{for } u \sim \mathcal{Z}_{\min}
+        \]
+      </div>
+      <p>
+        This is a distillation process over the compressed latent manifold. The new model \( \hat{f} \) is smaller, faster, and potentially more robust due to reduced sensitivity to unused latent dimensions.
+      </p>
+  
+      <p><strong>4. Intelligence Ratio Comparison</strong></p>
+      <p>
+        We utilize the idea of intelligence as compressed search described in my previous entry. Let \( T_{\text{brute}} \) be the compute cost of exhaustive search over \( \mathcal{S} \), and \( T_f \), \( T_{\hat{f}} \) be the cost of inference with \( f \) and \( \hat{f} \), respectively. Then define the intelligence of a system as:
+      </p>
+      <div>
+        \[
+        \mathcal{I}(f) = \frac{T_{\text{brute}}}{T_f}, \quad \mathcal{I}(\hat{f}) = \frac{T_{\text{brute}}}{T_{\hat{f}}}
+        \]
+      </div>
+      <p>
+        If \( \hat{f} \) faithfully replicates \( f \) in \( \tilde{\mathcal{Z}} \), then:
+      </p>
+      <div>
+        \[
+        \mathcal{I}(\hat{f}) > \mathcal{I}(f)
+        \]
+      </div>
+      <p>
+        This expresses the idea that latent compression improves intelligence not by increasing capability, but by reducing the compute required to reach equivalent outcomes.
+      </p>
+  
+      <p><strong>5. Recursive Intelligence</strong></p>
+      <p>
+        I suspect that, even after identifying a minimal latent space \( \mathcal{Z}_{\min} \) sufficient to reproduce the original model's outputs, the process of learning \( \hat{f}: \mathcal{Z}_{\min} \to \mathcal{Y} \) may itself reveal internal compressibility within that space. That is, the model might only rely on a structured subregion \( \tilde{\mathcal{Z}}_{\min} \subset \mathcal{Z}_{\min} \) during actual inference.
+      </p>
+      
+      <p>
+        This suggests that minimal representations are not necessarily atomic: they may still contain compressible structure, which can be discovered only through functional learning. Formally:
+      </p>
+      
+      <div>
+        \[
+        \exists\, \tilde{\mathcal{Z}}_{\min} \subset \mathcal{Z}_{\min} \text{ such that } \hat{f}(u) \approx \hat{f}(P(u)) \quad \forall u \in \mathcal{Z}_{\min}
+        \]
+      </div>
+      
+      <p>
+        where \( P: \mathcal{Z}_{\min} \to \tilde{\mathcal{Z}}_{\min} \) is a projection or learned compression map.
+      </p>
+      
+      <p>
+        This leads naturally to a recursive refinement process:
+      </p>
+      
+      <div>
+        \[
+        \mathcal{Z}^{(0)} \supset \tilde{\mathcal{Z}}^{(0)} \xrightarrow{P_0} \mathcal{Z}^{(1)} \supset \tilde{\mathcal{Z}}^{(1)} \xrightarrow{P_1} \mathcal{Z}^{(2)} \supset \cdots
+        \]
+      </div>
+      
+      <p>
+        Each \( \mathcal{Z}^{(i)} \) is a latent space learned to be sufficient for the compressed structure of the previous space, not by static reduction, but via introspective learning of functional invariance. This defines a nested compression hierarchy:
+      </p>
+      
+      <div>
+        \[
+        \hat{f}^{(i)}: \mathcal{Z}^{(i)} \to \mathcal{Y}, \quad \hat{f}^{(i)}(u) \approx \hat{f}^{(i-1)}(g^{(i)}(u))
+        \]
+      </div>
+      
+      <p>
+        where \( g^{(i)} \) maps upward into the previous latent structure. The process continues until either:
+        <ul>
+          <li>Inference cost stops decreasing, or</li>
+          <li>Further compression degrades semantic capacity</li>
+        </ul>
+      </p>
+      
+      <p>
+        Intelligence, in this view, is not just the compression of representations. It is the ability to discover recursively compressible structure hidden even within spaces already believed to be minimal.
+      </p>
+
+      <p><strong>6. Semantic Compressibility Limit (Principle)</strong></p>
+
+        <p>
+        I predict that there exists a lower bound on how much a model’s internal representation space can be compressed while still preserving its ability to express task-relevant distinctions. This bound is determined not by the model, but by the semantic complexity of the task itself.
+        </p>
+
+        <div>
+        \[
+        \exists\, d^\ast \in \mathbb{N} \quad \text{such that} \quad \forall\, d < d^\ast,\, \hat{f}: \mathbb{R}^d \to \mathcal{Y} \text{ cannot preserve } f\text{'s task fidelity.}
+        \]
+        </div>
+
+        <p>
+        Here, \( d^\ast \) is the semantic compressibility limit of the task, which is the minimal latent dimensionality required for any model to resolve the distinctions that the task demands. Compression beyond this point leads to loss of essential information.
+        </p>
+
+        <p>
+        Thus, intelligence is not the ability to infinitely compress. It is the ability to approach this limit, to identify and operate at the edge of irreducible complexity. Recursive compression converges not to zero, but to this task-specific boundary.
+        </p>
+  
+      <p><strong>7. Interpretation</strong></p>
+      <p>
+        This theory reframes model compression as a general strategy for intelligence amplification. Rather than pruning weights or reducing parameters arbitrarily, it proposes targeting the actual semantic manifold that inference operates on. Intelligence emerges not from modeling more but from modeling just enough, and modeling it efficiently.
+      </p>
+    </div>
+  </div>
+</body>
+</html>

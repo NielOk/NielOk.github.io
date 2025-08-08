@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <meta charset="UTF-8">
+  <title>Feedback-Efficient Intelligence Addendum - Niel Ok</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: #fcfcfc;
+      color: #2c2c2c;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.6;
+      padding: 3rem 1.5rem;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    a {
+        color: #0077cc; /* or just 'blue' */
+        text-decoration: none;
+        font-weight: 300;
+    }
+    .back-link {
+      font-size: 13px;
+      margin-bottom: 2rem;
+      display: inline-block;
+      color: #777;
+    }
+    h1 {
+      font-size: 2.0rem;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 0.25rem;
+      margin-bottom: 0.75rem;
+      font-weight: 300;
+    }
+    .entry {
+      margin-bottom: 2.5rem;
+    }
+    .entry-date {
+      font-size: 12px;
+      color: #999;
+    }
+    .entry-category {
+      font-size: 12px;
+      font-weight: 400;
+      color: #888;
+      text-transform: uppercase;
+      margin-top: 0.1rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.04em;
+    }
+    .entry-content {
+      font-size: 13px;
+      color: #444;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      font-size: 18px;
+    }
+
+    .top-left a {
+      margin-right: 2rem; /* controls spacing between top nav links */
+      color: #0077cc;
+      font-weight: 300;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <a href="javascript:window.history.back()">Back</a>
+
+  <p></p>
+    <!-- Entries -->
+  <div class="entry" id="entry-2025-05-03">
+    <div class="entry-date">May 3, 2025</div>
+    <div class="entry-category">feedback-efficient intelligence</div>
+    <h2>Feedback-Efficient Intelligence Addendum</h2>
+    <div class="entry-content">
+      <p>This post extends my formalization of feedback-efficient intelligence with a second-level insight: that the structure of the feedback channel itself must be learned or evolved. In other words, agents must discover not just how to update from feedback, but which feedback matters at all.</p>
+      <p><strong>1. Definitions</strong></p>
+      <ul>
+        <li><strong>\( \mathcal{E} \)</strong>: the environment (a stochastic dynamical system)</li>
+        <li><strong>\( \pi \)</strong>: the agent’s policy</li>
+        <li><strong>\( \hat{M}_t \)</strong>: the internal model of the environment at time \( t \)</li>
+        <li><strong>\( \mathcal{F}_t \)</strong>: feedback received at time \( t \)</li>
+        <li><strong>\( U_t \)</strong>: utility or performance at time \( t \)</li>
+        <li><strong>\( I(\mathcal{F}_t; \Delta \hat{M}_t) \)</strong>: mutual information between feedback and model update</li>
+        <li><strong>\( I(\mathcal{E}; \mathcal{F}_t) \)</strong>: mutual information between the environment and the feedback</li>
+      </ul>
+      <p><strong>2. Meta-Theorem: Feedback Channel Learning</strong></p>
+      <p>No intelligent system can be feedback-efficient without either possessing or learning a model of the mutual information structure between the environment and its feedback signals:</p>
+      <div>
+        \[I(\mathcal{E}; \mathcal{F}_t) > 0 \quad \text{must be learned or evolved.} \]
+      </div>
+      <div>
+        Long-term feedback efficiency requires modeling the feedback channel itself.
+      </div>
+      <p><strong>3. Interpretation</strong></p>
+      <p>This reflects what evolution did for humans: it sculpted our attention, pain, curiosity, and perception toward signals with consistently high mutual information about task success. It’s not just that we learn from feedback. We evolved to learn what counts as feedback.</p>
+      <p>This meta-level principle applies to artificial agents as well. In order to sustain feedback-efficient intelligence, they must eventually learn a generative model over the feedback channel. Otherwise, they risk optimizing over noise or reacting to uninformative stimuli. Feedback channels aren't given, they're discovered.</p>
+    </div>
+  </div>
+</body>
+</html>

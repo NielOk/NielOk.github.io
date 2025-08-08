@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <meta charset="UTF-8">
+  <title>Recursive Superintelligence (Singularity) is Constrained by Drift - Niel Ok</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: #fcfcfc;
+      color: #2c2c2c;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.6;
+      padding: 3rem 1.5rem;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    a {
+        color: #0077cc; /* or just 'blue' */
+        text-decoration: none;
+        font-weight: 300;
+    }
+    .back-link {
+      font-size: 13px;
+      margin-bottom: 2rem;
+      display: inline-block;
+      color: #777;
+    }
+    h1 {
+      font-size: 2.0rem;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 0.25rem;
+      margin-bottom: 0.75rem;
+      font-weight: 300;
+    }
+    .entry {
+      margin-bottom: 2.5rem;
+    }
+    .entry-date {
+      font-size: 12px;
+      color: #999;
+    }
+    .entry-category {
+      font-size: 12px;
+      font-weight: 400;
+      color: #888;
+      text-transform: uppercase;
+      margin-top: 0.1rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.04em;
+    }
+    .entry-content {
+      font-size: 13px;
+      color: #444;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      font-size: 18px;
+    }
+
+    .top-left a {
+      margin-right: 2rem; /* controls spacing between top nav links */
+      color: #0077cc;
+      font-weight: 300;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <a href="javascript:window.history.back()">Back</a>
+
+  <p></p>
+    <!-- Entries -->
+  <div class="entry", id="entry-2025-04-21">
+    <div class="entry-date">April 21, 2025</div>
+    <div class="entry-category">recursive superintelligence</div>
+    <h2>Recursive Superintelligence (Singularity) is Constrained by Drift</h2>
+    <div class="entry-content">
+      At Brains in Silicon, Stanford’s neuromorphic computing lab, I work in neuroscience theory, hoping to find inspiration for the hardware and algorithms people to work with. Recently, I’ve been messing with place fields, grid cells, and BTSP (behavioral time scale plasticity, a novel proposal for a learning mechanism that occurs on slower time-scales), mainly to see how animals localize themselves in unfamiliar environments. In my research, I’ve found that, while the brain can guess where the animal is located based on internal estimates of motion (like an inertial measurement unit), this estimate drifts significantly without external stimuli. This coincides with observations I’ve had while building Corvus, where I’ve learned that it is impossible to build a system that is able to navigate perfectly with no external input, even with an inertial navigation system. This brings me to an insight: all forms of intelligence, no matter how sophisticated, rely on input from the environment for feedback on actions, including metacognitive updates. Why? Because intelligence is all about how well an agent is able to do in its environment. No agent can internally verify the success of an action at 100% accuracy. Perfect simulation and pre-verification of action outcomes is physically intractable due to the inherent stochasticity and chaos present in real-world systems, including quantum uncertainty. To speed up the rate of updates, agents can build latent representations (internal models) of the world to simulate actions and feedback, but these representations are approximate, and from what I’ve learned with Corvus and neuroscience, all systems that are not 100% accurate have drift that grows exponentially over large time-scales. External input is required to recalibrate these internal representations. Thus, even a self-improving superintelligence will depend upon external input for feedback. So, what would set apart this superintelligence from other, normal intelligences? One possible axis would be the magnitude of environmental input required per intelligence update, where the intelligence update could be across various tasks such as math, maze solving, language, etc. I would say that, generally, the more intelligent an agent is, the closer to 0 it is on this axis across many different tasks. If there were a self-improving agent, it would attempt to get closer to 0 on this axis across many tasks (note: if my theory about drift is true, it is impossible to have a perfect singularity for intelligence, since 0 cannot be reached, although something very close to one might be possible). How would it get close to 0? Like I hinted at earlier, by improving its latent representations, it can get close to 0. Then, a well-designed, self-improving superintelligent agent would be very good at creating its own latent representations of the world. This reframes superintelligence not as the ability to recursively rewrite itself in isolation, but as the capacity to build highly accurate internal representations of the world that minimize, but never eliminate, the need for feedback. Given sufficient compute, these internal representations can be updated and queried at high speed, shifting the bottleneck from processing time to feedback efficiency. Intelligence is thus better understood not as raw computational power, but as the ability to form accurate models with minimal reliance on external correction: a property of a feedback-efficient loop between agent and world. 
+    </div>
+  </div>
+</body>
+</html>

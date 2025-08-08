@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <meta charset="UTF-8">
+  <title>Notes on Optimizing in Non-Differentiable Worlds (II) - Niel Ok</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: #fcfcfc;
+      color: #2c2c2c;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.6;
+      padding: 3rem 1.5rem;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    a {
+        color: #0077cc; /* or just 'blue' */
+        text-decoration: none;
+        font-weight: 300;
+    }
+    .back-link {
+      font-size: 13px;
+      margin-bottom: 2rem;
+      display: inline-block;
+      color: #777;
+    }
+    h1 {
+      font-size: 2.0rem;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 0.25rem;
+      margin-bottom: 0.75rem;
+      font-weight: 300;
+    }
+    .entry {
+      margin-bottom: 2.5rem;
+    }
+    .entry-date {
+      font-size: 12px;
+      color: #999;
+    }
+    .entry-category {
+      font-size: 12px;
+      font-weight: 400;
+      color: #888;
+      text-transform: uppercase;
+      margin-top: 0.1rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.04em;
+    }
+    .entry-content {
+      font-size: 13px;
+      color: #444;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      font-size: 18px;
+    }
+
+    .top-left a {
+      margin-right: 2rem; /* controls spacing between top nav links */
+      color: #0077cc;
+      font-weight: 300;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <a href="javascript:window.history.back()">Back</a>
+
+  <p></p>
+    <!-- Entries -->
+  <div class="entry", id="entry-2025-06-04">
+    <div class="entry-date">June 4, 2025</div>
+    <div class="entry-category">non-differentiable environments, optimization, intelligence</div>
+    <h2>Notes on Optimizing in Non-Differentiable Worlds (II)</h2>
+    <p>
+      This is a follow-up to my previous entry, "Notes on Optimizing in Non-Differentiable Worlds (I)". In that entry, I argued that the world is not learnable by continuous functions modeled by universal function approximators like neural networks and that simplified, continuous representations of the world are insufficient for building superintelligent systems. I then reasoned from first principles on what developing superior intelligence looks like when these conditions are false, concluding that evolutionary search is a powerful approach to optimization in non-differentiable worlds. In this entry, I will take a step back and explain more rigorously about why the world is not learnable by continuous functions. Specifically, I will argue that, while the world is most likely composed of physically continuous processes, for a bounded agent that can only observe a limited portion of the world, these processes can be observed as discrete, non-differentiable events. This means that, for bounded agents, the world is not learnable by continuous functions, and therefore an alternative approach to optimization, evolutionary search being an example, is necessary for developing world-aligned superintelligent systems, or even just intelligences that can operate effectively in non-differentiable environments. From there, I will build a new agent-level approach to learning in non-differentiable environments.
+    </p>
+    <div class="entry-content">
+      <p><strong>Discontinuity as a Construct of Bounded Observation</strong></p>
+      <p>
+        The argument that the world is not learnable by continuous functions rests on the observation that the world is not continuous. Here, we must make a critical distinction: the world is most likely composed of physically continuous processes, but for a bounded agent, these processes can seem discrete and non-differentiable. Some continuous processes will be observable at much sparser intervals than others, making those processes appear discontinuous. Here is an example to illustrate this point: consider a child in the kitchen for the first time. They observe a pot on the stove, and it smells really good. Wondering what's in the pot, they reach out to grab it, but as they do, they feel a sharp pain in their hand. The child has just touched a hot pot, and the child makes a non-differentiable, discrete observation that the pot is hot, as in, the child had no idea that the pot was hot until they touched it. Yet, the underlying physical process that caused the pot to be hot, which the child did not observe, is continuous: the heat from the stove is transferred to the pot through conduction, which is a continuous process. The discontinuity, then, is not a property of the world itself, but rather a construct of the child's bounded frame of observation. From the child's perspective, the learning signal was binary: “safe” until “not safe.” There was no gradient to descend, no smooth surface to follow, no small perturbation that led to a slightly stronger reaction. There was only an event, and that event carried the entire weight of the update.
+      </p>
+
+      <p>
+        This example reveals a deeper truth: bounded agents experience the world not as it is, but as it appears from their limited vantage point. They do not observe the world continuously; they observe samples, filtered through biological thresholds, cognitive priors, or algorithmic abstractions. In this sense, the learning surface is not smooth but fractured, jagged with cliffs, plateaus, and voids, rather than gentle slopes. A bounded agent, constrained by finite resolution, finite memory, and finite sensory range, does not learn from the continuous unfolding of physics. It learns from events, errors, and outcomes.
+      </p>
+
+      <p>
+        Another truth: these bounded observations are taken continuously, as sensory input is perceved as continuous to the agent, but the world still appears non-differentiable and discontinuous to the agent because the agent is not capable of observing every underlying continuous physical process that governs the world.
+      </p>
+
+      <p><strong>Implications for Learning and Optimization</strong></p>
+      <p>
+        If we accept that bounded agents experience the world through a continuous stream of bounded observations which make the world appear non-differentiable, we must also accept that the learning process for these agents is fundamentally different from the gradient-based optimization methods that dominate modern machine learning. The agent does not have access to a smooth, continuous landscape of the world; it has access only to discrete events and outcomes. This means that the agent cannot rely on gradients to guide its learning. Instead, it must rely on discrete updates based on observed events. 
+      </p>
+
+      <p>
+        I offer an insight on learning in non-differentiable environments. The key is that learning with discrete observations requires discrete updates to the agent's internal model of the world. This means not taking infinitesimal steps in the direction of the gradient, but rather making larger, epistemic jumps based on the observed events. These jumps are prompted not by the presence of a gradient, but by the failure of current knowledge to account for what has just been observed.
+      </p>
+
+      <p>
+        Return to the example of the child and the hot pot. Before the event, the child’s model of the world did not include the concept of heat transfer or the danger of certain objects in the kitchen. After the event, which is the sharp pain, the child makes a discrete, structural update: pots on stoves may be dangerous. This update was not gradual. It was sudden, binary, and irreversible. It did not arise from a loss function slowly pushed toward zero, but from a single mismatch between expectation and reality so strong that it demanded a reorganization of belief.
+      </p>
+
+      <p>
+        This is the essence of learning in non-differentiable environments: the agent evaluates whether a new observation is consistent with its current knowledge of the world, and if not, it modifies that knowledge to accommodate the new evidence. In this sense, learning is not function approximation: it is boundary testing and structure revision.
+      </p>
+
+      <p><strong>A Framework: Learning as Consistency Evaluation and Structure Revision</strong></p>
+      <p>
+        To generalize: learning is the process of taking bounded observations, evaluating their consistency with an agent’s knowledge of the world, and updating that knowledge. The magnitude of learning corresponds to the degree of epistemic mismatch, which is the difference between the agent's updated understanding of the world that accounts for the observation and the agent's previous understanding of the world which does not account for the observation.
+      </p>
+
+      <p>
+        This framing moves learning away from smooth optimization and toward discrete epistemic correction. The agent does not refine parameters to minimize a loss function; instead, it refines its structural understanding. This includes adding new causal rules, breaking old assumptions, and remapping categories, all based on the severity of inconsistency.
+      </p>
+
+      <p><strong>The Role of Curiosity</strong></p>
+      <p>
+        You can see how, in this framework, a passive entity's understanding of the world can become stagnant very quickly. If learning is driven by mismatches between observation and internal structure, then a passive agent, one that merely receives observations without seeking them out, will tend to experience only those parts of the world that already align with its current model once it acclimates to its given environment. As a result, it encounters few contradictions. Few contradictions mean few updates. Learning slows. Eventually, it halts altogether. This stagnation is not due to an inherent limitation of the environment, but to a failure of epistemic challenge. When an agent is not actively testing its assumptions or reaching into unknown spaces, its model of the world calcifies. This agent will become a prisoner of its environment. 
+      </p>
+
+      <p>
+        This is where curiosity becomes indispensable. Curiosity breaks the symmetry of passivity by compelling the agent to search for inconsistencies. A curious agent deliberately puts its own understanding to the test. In this framework, curiosity is not a side effect of uncertainty; it is the engine of learning itself.
+      </p>
+
+      <p>
+        Curiosity is the mechanism by which the agent actively seeks out experiences that are most likely to produce epistemic strain: observations that may not fit cleanly into its current understanding of the world. This is fundamentally different from just maximizing prediction error or information gain. The curious agent is one that actively probes the limits of its own understanding. 
+      </p>
+
+      <p>
+        In the child example, curiosity is what led the child to touch the pot in the first place. The action produced a high-magnitude epistemic mismatch, and with it, a highly valuable learning update. The child now knows something they did not know before, and their internal model of the world is permanently altered.
+      </p>
+
+      <p>
+        Thus, curiosity becomes a meta-policy for generating learning opportunities. It is how the agent constructs its own learning curriculum when learning in non-differentiable environments.
+      </p>
+
+      <p><strong>Separating Learning from Intelligence</strong></p>
+      <p>
+        In this framework, it becomes useful, and perhaps necessary, to separate the concepts of learning and intelligence. 
+      </p>
+
+      <p>
+        Learning is the process by which an agent refines its internal model of the world. It is epistemic in nature. It evaluates whether a new observation can be absorbed into the agent’s current worldview, and if not, it revises that worldview to make it compatible. Learning is about model correction, boundary testing, and structural revision.
+      </p>
+
+      <p>
+        Intelligence, on the other hand, is the ability of an agent to use its current knowledge of the world to make predictions, plan actions, and achieve goals. Intelligence operates within the boundaries of what is already known. It maps understanding to action. It is the ability to act effectively in a given context, even if the model itself is incomplete.
+      </p>
+
+      <p>
+        This distinction matters primarily because it allows us to understand that an agent can be intelligent without being fully learned, and vice versa. There is some minimal level of intelligence required for an agent to be an effective learner because of the need to act on curiosity, but much of the performance of each system is not necessarily dependent on the other. This gives the designer of an agent more control over the agent's behavior, as they can choose to optimize for intelligence or learning almost independently, depending on the task at hand. 
+      </p>
+
+      <p><strong>Moving Forward</strong></p>
+      <p>
+        This framework provides a new way to think about learning, intelligence, and curiosity. It emphasizes the importance of bounded observation in shaping how agents experience the world and learn from it. It also highlights the role of curiosity as a driving force behind learning in non-differentiable environments. Moving forward, we can use this framework to design agents or agentic systems that are better equipped to learn in the real world. 
+      </p>
+
+    </div>
+  </div>
+</body>
+</html>

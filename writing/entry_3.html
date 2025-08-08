@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <meta charset="UTF-8">
+  <title>Inference Scaling for Stochastic Diffusion - Niel Ok</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: #fcfcfc;
+      color: #2c2c2c;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.6;
+      padding: 3rem 1.5rem;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    a {
+        color: #0077cc; /* or just 'blue' */
+        text-decoration: none;
+        font-weight: 300;
+    }
+    .back-link {
+      font-size: 13px;
+      margin-bottom: 2rem;
+      display: inline-block;
+      color: #777;
+    }
+    h1 {
+      font-size: 2.0rem;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 0.25rem;
+      margin-bottom: 0.75rem;
+      font-weight: 300;
+    }
+    .entry {
+      margin-bottom: 2.5rem;
+    }
+    .entry-date {
+      font-size: 12px;
+      color: #999;
+    }
+    .entry-category {
+      font-size: 12px;
+      font-weight: 400;
+      color: #888;
+      text-transform: uppercase;
+      margin-top: 0.1rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.04em;
+    }
+    .entry-content {
+      font-size: 13px;
+      color: #444;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      font-size: 18px;
+    }
+
+    .top-left a {
+      margin-right: 2rem; /* controls spacing between top nav links */
+      color: #0077cc;
+      font-weight: 300;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <a href="javascript:window.history.back()">Back</a>
+
+  <p></p>
+    <!-- Entries -->
+  <div class="entry", id="entry-2025-04-07">
+    <div class="entry-date">April 7, 2025</div>
+    <div class="entry-category">diffusion models, llms, inference scaling</div>
+    <h2>Inference Scaling for Stochastic Diffusion</h2>
+    <div class="entry-content">
+      Over the past few months, I’ve been diving into a research direction that takes inference-time compute scaling for diffusion models somewhere fundamentally different from where DeepMind has gone. Their approach focuses on deterministic diffusion models and treats inference-time scaling as a search over the initial noise vector, as if the entire generative process hinges on getting that first random sample just right. But that framing doesn’t hold up when you step into the stochastic regime. In stochastic diffusion models, randomness isn’t a one-time deal at the start. It gets injected at every step of the denoising process. The result? The final sample isn’t just determined by where you start, it’s shaped by the entire trajectory the model takes through denoising space. So optimizing only over initial noise is like trying to steer a rocket by tweaking the launch angle and ignoring all mid-course corrections. What I’ve been exploring is this: inference-time compute scaling for stochastic diffusion models shouldn’t be framed as a search over initial noise vectors. Instead, it should be framed as a search over denoising trajectories. That shift in perspective changes everything. It acknowledges the true degrees of freedom in the system. It’s harder computationally, but the payoff is real. Instead of being locked into a narrow slice of the outcome space, trajectory-based search opens up far more expressive possibilities. Multiple trajectories can land you in semantically different, yet equally plausible regions of the output space. That makes it not just more powerful, but more useful, especially when you care about conditioning, controllability, or aligning with task-specific goals. This has led to a few ideas I want to push further: One, a formal comparison between noise space and trajectory space. What’s actually gained in terms of dimensionality, expressiveness, or alignment capability? Two, could we design and demonstrate trajectory-space search algorithms, even in simplified settings, that outperform initial-noise search with less proportional coverage? That would be a strong empirical signal. Three, maybe the most ambitious one: if trajectory space really is this rich, it might be possible to prove that inference in diffusion models, especially for text, is more scalable than autoregressive LLM inference. 
+    </div>
+  </div>  
+</body>
+</html>
