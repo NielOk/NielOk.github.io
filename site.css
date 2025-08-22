@@ -5,15 +5,15 @@
   --pad-y: 3rem;
 
   /* Warmer base palette */
-  --bg: #faf9f7;        /* off-white warmth */
+  --bg: #f7f8f4;        /* off-white warmth */
   --fg: #2a2a2a;        /* softer dark gray */
   --muted: #5a5a5a;     /* warmer muted gray */
   --muted-2: #3a3a3a;
   --subtle: #8c8c8c;
 
   /* Accents with subtle warmth */
---link: #4e7f91;
---link-hover: #21353d;
+--link: #4a6b5a;
+--link-hover: #2e4d3c;
 
 
   /* Typography */
