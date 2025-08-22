@@ -17,13 +17,14 @@
 
 html, body { height: 100%; }
 
-body{
+body {
   margin: 0;
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font);
   font-size: 14px;
   line-height: 1.6;
+  /* no padding, no max-width */
 }
 
 /* 
@@ -144,14 +145,15 @@ summary{
 }
 
 /* Footer (shared) */
-.footer{
-  max-width: var(--page-width);
-  margin: 1.5rem auto;
+.footer {
+  margin-top: 2rem;
   font-size: 14px;
   color: #999;
   font-weight: 300;
-  padding: 0 var(--pad-x);
+  text-align: left;   /* ensures text lines up with headings & paragraphs */
 }
+
+
 .footer-left{ line-height: 1.6; }
 .footer-left .emails div{ margin-bottom: 0.3rem; }
 .social-links{
