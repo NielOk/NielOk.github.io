@@ -184,3 +184,10 @@ summary {
   }
   .top-left a { margin-right: 1rem; }
 }
+
+.top-left a.active {
+  color: #1a1a1a;   /* darker than var(--link) */
+  border-bottom: 1px solid #1a1a1a;  /* subtle underline in same dark color */
+  font-weight: 400;  /* same weight as normal text */
+}
+
