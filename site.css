@@ -34,13 +34,8 @@ body {
 }
 
 /* Layout consistency */
-.content {
-  max-width: var(--page-width);
-  margin: 0 auto;
-  padding: var(--pad-y) var(--pad-x);
-}
-
-body:not(:has(.content)) {
+.content,
+body.direct-layout {
   max-width: var(--page-width);
   margin: 0 auto;
   padding: var(--pad-y) var(--pad-x);
