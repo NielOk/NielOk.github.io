@@ -22,6 +22,14 @@
 
 * { box-sizing: border-box; }
 
+/* Keep layout width stable when scrollbar appears/disappears */
+html {
+  /* Modern fix */
+  scrollbar-gutter: stable;
+  /* Fallback for older setups */
+  overflow-y: scroll;
+}
+
 html, body { height: 100%; }
 
 body {
