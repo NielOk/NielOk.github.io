@@ -9,99 +9,101 @@
   <link rel="stylesheet" href="../site.css">
 </head>
 <body>
-  <a href="javascript:window.history.back()">Back</a>
+  <div class="content">
+    <a href="javascript:window.history.back()">Back</a>
 
-  <p></p>
-    <!-- Entries -->
-  <div class="entry", id="entry-2025-04-30">
-    <div class="entry-date">April 30, 2025</div>
-    <div class="entry-category">feedback-efficient intelligence</div>
-    <h2>Formalization of Feedback-Efficient Intelligence</h2>
-    <div class="entry-content">
-      This is my first attempt to formalize the ideas in my blog plost on April 21, 2025. I'm not super mathy, but this is the gist of it.
-      <p><strong>1. Definitions</strong></p>
-      <ul>
-        <li>\( E \): the environment (a partially observable stochastic dynamical system)</li>
-        <li>\( \pi \): the agent’s policy mapping histories to actions, or put more simply, the agent</li>
-        <li>\( \hat{M}_t \): the agent’s learned internal latent model of \( E \) at time \( t \)</li>
-        <li>\( \delta_t \): drift error of \( \hat{M}_t \), i.e., true and internal prediction distributions</li>
-        <li>\( F_t \): feedback from the environment at time \( t \)</li>
-        <li>\( U_t \): utility or task performance at time \( t \)</li>
-        <li>\( I_t = I(F_t ; \Delta \hat{M}_t) \): mutual information between feedback and model update</li>
-        <li>\( \eta_{t} = \frac{I_t}{\Delta U_t} \): feedback efficiency—feedback per unit performance gain at time \( t \)</li>
-      </ul>
-  
-      <p><strong>2. Axiom: Drift in Internal Representations</strong></p>
-      <p><em>Unbounded Drift Axiom:</em></p>
-      <p>If an internal model is not continually recalibrated with external feedback, then:</p>
-      <p>\[
-      \lim_{t \to \infty} \delta_t = \infty
-      \]</p>
-      <p>(under finite precision and chaotic/stochastic environments)</p>
-  
-      <p><strong>3. Theorem: No Self-Sufficient Intelligence</strong></p>
-      <p><em>Nonzero Feedback Theorem:</em></p>
-      <p>No intelligent system can maintain bounded error \( \delta_t < \varepsilon \) without cumulative feedback:</p>
-      <p>\[
-      \int_0^\infty \|F_t\| \, dt > 0 \quad \forall \varepsilon > 0
-      \]</p>
-  
-      <p><strong>4. Intelligence as Feedback Efficiency</strong></p>
-      <p>Define feedback needed per unit of utility improvement:</p>
+    <p></p>
+      <!-- Entries -->
+    <div class="entry", id="entry-2025-04-30">
+      <div class="entry-date">April 30, 2025</div>
+      <div class="entry-category">feedback-efficient intelligence</div>
+      <h2>Formalization of Feedback-Efficient Intelligence</h2>
+      <div class="entry-content">
+        This is my first attempt to formalize the ideas in my blog plost on April 21, 2025. I'm not super mathy, but this is the gist of it.
+        <p><strong>1. Definitions</strong></p>
+        <ul>
+          <li>\( E \): the environment (a partially observable stochastic dynamical system)</li>
+          <li>\( \pi \): the agent’s policy mapping histories to actions, or put more simply, the agent</li>
+          <li>\( \hat{M}_t \): the agent’s learned internal latent model of \( E \) at time \( t \)</li>
+          <li>\( \delta_t \): drift error of \( \hat{M}_t \), i.e., true and internal prediction distributions</li>
+          <li>\( F_t \): feedback from the environment at time \( t \)</li>
+          <li>\( U_t \): utility or task performance at time \( t \)</li>
+          <li>\( I_t = I(F_t ; \Delta \hat{M}_t) \): mutual information between feedback and model update</li>
+          <li>\( \eta_{t} = \frac{I_t}{\Delta U_t} \): feedback efficiency—feedback per unit performance gain at time \( t \)</li>
+        </ul>
+    
+        <p><strong>2. Axiom: Drift in Internal Representations</strong></p>
+        <p><em>Unbounded Drift Axiom:</em></p>
+        <p>If an internal model is not continually recalibrated with external feedback, then:</p>
+        <p>\[
+        \lim_{t \to \infty} \delta_t = \infty
+        \]</p>
+        <p>(under finite precision and chaotic/stochastic environments)</p>
+    
+        <p><strong>3. Theorem: No Self-Sufficient Intelligence</strong></p>
+        <p><em>Nonzero Feedback Theorem:</em></p>
+        <p>No intelligent system can maintain bounded error \( \delta_t < \varepsilon \) without cumulative feedback:</p>
+        <p>\[
+        \int_0^\infty \|F_t\| \, dt > 0 \quad \forall \varepsilon > 0
+        \]</p>
+    
+        <p><strong>4. Intelligence as Feedback Efficiency</strong></p>
+        <p>Define feedback needed per unit of utility improvement:</p>
 
-      <p>
-      \[
-      \eta_{t}(\pi) = \limsup_{t \to \infty} \frac{I(F_t ; \Delta \hat{M}_t)}{\Delta U_t}
-      \]
-      </p>  
+        <p>
+        \[
+        \eta_{t}(\pi) = \limsup_{t \to \infty} \frac{I(F_t ; \Delta \hat{M}_t)}{\Delta U_t}
+        \]
+        </p>  
 
-      <p>Then agent \( \pi \) is more intelligent than agent \( \pi' \) over task class \( T \) at time \( t \) if:</p>
+        <p>Then agent \( \pi \) is more intelligent than agent \( \pi' \) over task class \( T \) at time \( t \) if:</p>
 
-      <div>
-      \[
-      \eta_{t}^{T}(\pi) < \eta_{t}^{T}(\pi')
-      \]
+        <div>
+        \[
+        \eta_{t}^{T}(\pi) < \eta_{t}^{T}(\pi')
+        \]
+        </div>
+    
+        <p><strong>5. Corollary: The Singularity is Asymptotic</strong></p>
+        <p>
+        Even self-improving superintelligences cannot reach perfect intelligence (i.e., \( \eta = 0 \)) due to irreducible environmental entropy:
+        </p>
+
+        <div>
+        \[
+        \forall \pi \in \mathcal{A}_{\text{phys}}, \quad \forall t, \quad \eta_{t}(\pi) > 0
+        \]
+        </div>
+
+        <p>
+        Here, \( \mathcal{A}_{\text{phys}} \) denotes the set of all physically realizable agents, that is, agents embedded in environments with bounded memory, finite energy, and nonzero entropy.
+        </p>
+    
+        <p><strong>6. Model Compression View</strong></p>
+
+        <ul>
+          <li>\( D_{\mathrm{KL}}(P_{E_{t}} \| \hat{P_{t}}) \): divergence between true and internal prediction distributions at time \( t \), where \( \hat{P_{t}} \) is the internal model at time \( t \) and \( P_{E_{t}} \) is the true probability distribution at time \( t \)</li>
+        </ul>
+
+        <p>
+        Define a new quantity \( \xi_{t} \), which captures the agent’s compression inefficiency. That is, how much model error remains per bit of feedback about the model at time \( t \):
+        </p>
+
+        <div>
+        \[
+        \xi_{t} = \frac{D_{\mathrm{KL}}(P_{E_{t}} \| \hat{P_{t}})}{I(F_t ; \hat{M_{t}})}
+        \]
+        </div>
+
+        <p>
+        In contrast to \( \eta_{t} \), which quantifies feedback cost per performance gain, \( \xi_{t} \) quantifies model accuracy per bit of feedback. Both reflect intelligence in different regimes: outer utility vs inner alignment.
+        </p>
+    
+        <p><strong>Interpretation</strong></p>
+        <p>
+          This reframes intelligence not as raw computational power or self-sufficiency, but as the ability to compress reality, updating latent models with minimal feedback. The lower the feedback efficiency \( \eta_{t} \), the more intelligent the agent in a task-general sense. The lower the compression inefficiency \( \xi_{t} \), the more precisely it internalizes external structure. In both views, intelligence is fundamentally defined by how efficiently error is reduced per bit of external signal.
+        </p>
       </div>
-  
-      <p><strong>5. Corollary: The Singularity is Asymptotic</strong></p>
-      <p>
-      Even self-improving superintelligences cannot reach perfect intelligence (i.e., \( \eta = 0 \)) due to irreducible environmental entropy:
-      </p>
-
-      <div>
-      \[
-      \forall \pi \in \mathcal{A}_{\text{phys}}, \quad \forall t, \quad \eta_{t}(\pi) > 0
-      \]
-      </div>
-
-      <p>
-      Here, \( \mathcal{A}_{\text{phys}} \) denotes the set of all physically realizable agents, that is, agents embedded in environments with bounded memory, finite energy, and nonzero entropy.
-      </p>
-  
-      <p><strong>6. Model Compression View</strong></p>
-
-      <ul>
-        <li>\( D_{\mathrm{KL}}(P_{E_{t}} \| \hat{P_{t}}) \): divergence between true and internal prediction distributions at time \( t \), where \( \hat{P_{t}} \) is the internal model at time \( t \) and \( P_{E_{t}} \) is the true probability distribution at time \( t \)</li>
-      </ul>
-
-      <p>
-      Define a new quantity \( \xi_{t} \), which captures the agent’s compression inefficiency. That is, how much model error remains per bit of feedback about the model at time \( t \):
-      </p>
-
-      <div>
-      \[
-      \xi_{t} = \frac{D_{\mathrm{KL}}(P_{E_{t}} \| \hat{P_{t}})}{I(F_t ; \hat{M_{t}})}
-      \]
-      </div>
-
-      <p>
-      In contrast to \( \eta_{t} \), which quantifies feedback cost per performance gain, \( \xi_{t} \) quantifies model accuracy per bit of feedback. Both reflect intelligence in different regimes: outer utility vs inner alignment.
-      </p>
-  
-      <p><strong>Interpretation</strong></p>
-      <p>
-        This reframes intelligence not as raw computational power or self-sufficiency, but as the ability to compress reality, updating latent models with minimal feedback. The lower the feedback efficiency \( \eta_{t} \), the more intelligent the agent in a task-general sense. The lower the compression inefficiency \( \xi_{t} \), the more precisely it internalizes external structure. In both views, intelligence is fundamentally defined by how efficiently error is reduced per bit of external signal.
-      </p>
     </div>
   </div>
 </body>

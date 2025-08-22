@@ -33,11 +33,13 @@ Make layout consistent:
 - If a page *doesn't* use .content (e.g., mybrain.html/thoughts.html),
   we still enforce the same readable width and padding via body.direct-layout below.
 */
-.content{
+.content {
   max-width: var(--page-width);
   margin: 0 auto;
   padding: var(--pad-y) var(--pad-x);
+/* extra space at bottom */
 }
+
 
 /* For pages that didn't use .content and applied styles on <body> directly.
    Add class="direct-layout" to <body> on those pages OR keep this rule enabled
