@@ -93,6 +93,7 @@ a:hover {
 }
 
 .about-list {
+  font-weight: 300;
   font-size: 15px;
   margin: 0;              /* removes browser default margin */
   padding-left: 0;        /* removes browser default padding */
