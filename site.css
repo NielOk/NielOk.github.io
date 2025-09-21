@@ -30,24 +30,21 @@ body{
 }
 
 /* ===== Layout: main | right sidebar ===== */
-.shell{
-  max-width:var(--page-w);
-  margin:0 auto;
-  padding:var(--pad-y) var(--pad-x);
-  display:grid;
+.shell {
+  display: grid;
   grid-template-columns: 1fr var(--sidebar-w);
-  gap:var(--gap);
+  gap: var(--gap);
 }
 .main{min-width:0}
-.side{
-  position:sticky;
-  top:var(--pad-y);
-  align-self:start;
-  display:flex;
-  flex-direction:column;
-  gap:.6rem;
-  font-size:16px;
+.side {
+  position: sticky;
+  top: var(--pad-y);
+  padding-left: var(--sidebar-pad-left);
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
 }
+
 
 /* ===== Type ===== */
 h1{
@@ -126,14 +123,61 @@ a:hover {
 .emails div{margin:.2rem 0}
 
 /* ===== Responsive ===== */
-@media (max-width:780px){
-  :root{ --page-w:680px; --pad-x:1rem; --pad-y:2rem; --gap:1.25rem }
-  .shell{ grid-template-columns:1fr }
-  .side{
-    position:static;
-    flex-direction:row;
-    gap:1rem;
-    margin-top:.5rem;
+@media (max-width: 780px) {
+  .shell {
+    grid-template-columns: 1fr;          /* stack columns */
+    gap: 0.75rem;
+  }
+
+  .side {
+    position: sticky;                    /* stick to top */
+    top: 0;                              /* top of viewport */
+    z-index: 50;                         /* above content */
+    border-left: none;                   /* remove desktop divider */
+    padding-left: 0;
+
+    display: flex;
+    flex-direction: row;                 /* horizontal bar */
+    align-items: center;
+    gap: 1rem;
+    overflow-x: auto;                    /* scroll if links wrap */
+    white-space: nowrap;
+
+    background: var(--bg);               /* solid background while sticky */
+    border-bottom: 1px solid #e6e6e6;    /* divider under the bar */
+    padding: 0.5rem var(--pad-x);
+    margin: 0 calc(var(--pad-x) * -1);   /* edge-to-edge bar */
+  }
+
+  /* optional: respect iOS safe area */
+  .side { padding-left: max(var(--pad-x), env(safe-area-inset-left));
+          padding-right: max(var(--pad-x), env(safe-area-inset-right)); }
+
+  /* “Contents” title behavior on mobile */
+  .side-title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    border-bottom: none;                 /* no underline in top bar */
+    margin: 0 0.25rem 0 0;
+    padding: 0;
+    color: var(--subtle);
+  }
+
+  /* Keep link styling consistent in top bar */
+  .side a { text-decoration: none; }
+  .side a:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 1px;
+  }
+  .side a.active,
+  .side a[aria-current="page"] {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 1px;
+    text-decoration-color: #1a1a1a;
+    color: #1a1a1a;
   }
 }
 
