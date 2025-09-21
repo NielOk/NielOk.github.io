@@ -66,37 +66,37 @@ p{margin:0 0 1rem 0;color:var(--muted)}
 .tagline{font-size:18px;color:#333;font-weight:300;margin-bottom:1.3rem}
 
 /* ===== Links: underline only under text ===== */
-a{
-  color:var(--link);
-  text-decoration:underline;
-  text-underline-offset:2px;
-  text-decoration-thickness:1px;
-  text-decoration-color:var(--link);
-  transition:color .2s ease, text-decoration-color .2s ease;
+/* --- Global links: no underline by default; underline on hover --- */
+a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 400;
+  transition: color .2s ease, text-decoration-color .2s ease;
 }
-a:hover{
-  color:var(--link-hover);
-  text-decoration-color:var(--link-hover);
-}
-/* Right sidebar: no underline by default; only active/hover underline */
-.side a {
-  text-decoration: none;              /* override global underline */
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--link-hover);
+  color: var(--link-hover);
 }
 
+/* --- Right sidebar nav: only active/hover are underlined --- */
+.side a { text-decoration: none; }
 .side a:hover {
   text-decoration: underline;
   text-underline-offset: 2px;
   text-decoration-thickness: 1px;
   text-decoration-color: var(--link-hover);
 }
-
 .side a.active {
   color: #1a1a1a;
-  text-decoration: underline;         /* underline only on current page */
+  text-decoration: underline;
   text-underline-offset: 2px;
   text-decoration-thickness: 1px;
   text-decoration-color: #1a1a1a;
 }
+
 
 
 /* ===== Lists: flush/hanging bullets (no ugly left indent) ===== */
@@ -134,5 +134,34 @@ a:hover{
     flex-direction:row;
     gap:1rem;
     margin-top:.5rem;
+  }
+}
+
+:root{
+  /* ...your existing vars... */
+  --gap: 3rem; 
+  --left-shift: 150px;  /* how far to nudge left on desktop */
+}
+
+/* Centered but biased left by --left-shift */
+.shell{
+  max-width: var(--page-w);
+  padding: var(--pad-y) var(--pad-x);
+  display: grid;
+  grid-template-columns: 1fr var(--sidebar-w);
+  gap: var(--gap);
+
+  /* Asymmetric centering: pull toward left */
+  margin-left: calc(max(0px, (100vw - var(--page-w)) / 2 - var(--left-shift)));
+  margin-right: calc((100vw - var(--page-w)) / 2 + var(--left-shift));
+}
+
+/* Mobile/tablet: recentre and drop the shift */
+@media (max-width: 780px){
+  :root{ --left-shift: 0; }
+  .shell{
+    grid-template-columns: 1fr;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
