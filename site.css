@@ -166,6 +166,29 @@ a:hover {
   }
 }
 
+/* Description text */
+.description {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+}
+
+/* Details & summary blocks */
+details {
+  margin-top: 2rem;
+  border-top: 1px solid #e5e5e5;
+  padding-top: 1rem;
+}
+
+summary {
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
 /* Experience page */
 .section { margin-bottom: 3rem; }
 .section-title {
