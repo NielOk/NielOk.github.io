@@ -165,3 +165,30 @@ a:hover {
     margin-right: auto;
   }
 }
+
+/* Experience page */
+.section { margin-bottom: 3rem; }
+.section-title {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--muted-2);
+  margin-bottom: 1.2rem;
+}
+
+.project { margin-bottom: 2rem; }
+.project-date {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--subtle);
+}
+.project-title {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--muted-2);
+  margin: 0.2rem 0;
+}
+.project-desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--muted);
+}
