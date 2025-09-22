@@ -4,7 +4,7 @@
   --pad-x: 1.5rem;
   --pad-y: 3rem;
 
-  --bg:#ffffff; --fg:#1f2328; --muted:#6e7781; --muted-2:#3a3a3a;
+  --bg:#ffffff; --fg:#1f2328; --muted:#353536; --muted-2:#3a3a3a;
   --subtle:#8c8c8c;
 
   --link:#0969da; --link-hover:#054da7;
@@ -108,27 +108,33 @@ a:hover {
 /* ===== Lists: flush/hanging bullets (no ugly left indent) ===== */
 /* Use a two-column grid: a small bullet column + text column.
    This gives a clean left edge and correct wrapping. */
-.bullet{
-  margin:0; padding:0; list-style:none;
-}
-.bullet li{
-  display:grid;
-  grid-template-columns: .9rem 1fr;  /* bullet | text */
-  column-gap:.6rem;
-  align-items:start;
-  margin:.35rem 0;
-  color:var(--muted);
-}
-.bullet li::before{
-  content:"•";
-  line-height:1.2;
-  color:var(--muted-2);
-}
+/* Replace the grid + ::before with native bullets */
+/* Bullet list (native markers) */
+.bullet{ list-style: disc; padding-left:1.1rem; margin:0; }
+.bullet li{ margin:.35rem 0; color:var(--muted); font-size: 14px; font-weight: 375;}
+.bullet li::marker{ color:var(--muted-2); }
 .bullet.tight li{ margin:.15rem 0 .55rem 0; }
 
+/* Link styling INSIDE bullet items */
+.bullet li a{
+  color: var(--link);                    /* restore your link color */
+  text-underline-offset: 2px;
+  text-decoration-thickness: 0.06em;
+  text-decoration-color: currentColor;
+  text-decoration-skip-ink: auto;
+  overflow-wrap: anywhere; word-break: break-word;
+}
+.bullet li a:hover{
+  color: var(--link-hover);
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+}
+.bullet li a:visited{ color: var(--link); }  /* avoid purple */
+
+
 /* ===== Footer ===== */
-.footer{margin-top:2rem;font-size:14px;color:#888;font-weight:300}
-.social{display:flex;flex-wrap:wrap;gap:1.2rem;margin:1rem 0 1.2rem}
+.footer{margin-top:2rem;color:#888;font-weight:300; font-size:12px}
+.social{display:flex;flex-wrap:wrap;gap:1.2rem;margin:1rem 0 1.2rem; font-size:12px; font-weight:10;}
 .emails div{margin:.2rem 0}
 
 
