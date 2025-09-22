@@ -4,14 +4,10 @@
   --pad-x: 1.5rem;
   --pad-y: 3rem;
 
-  --bg:#f7f8f4;
-  --fg:#2a2a2a;
-  --muted:#5a5a5a;
-  --muted-2:#3a3a3a;
+  --bg:#ffffff; --fg:#1f2328; --muted:#6e7781; --muted-2:#3a3a3a;
   --subtle:#8c8c8c;
 
-  --link:#4a6b5a;
-  --link-hover:#2e4d3c;
+  --link:#0969da; --link-hover:#054da7;
 
   --sidebar-w:180px;
   --gap:2rem;
@@ -167,22 +163,24 @@ a:hover {
     top: 0;
     z-index: 50;
 
-    /* no negative margins; keep it inside the padding box */
     border-left: none;
+    border-bottom: 1px solid #e6e6e6;
     background: var(--bg);
 
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 1rem;
-    padding: 0.5rem var(--pad-x);
 
-    overflow-x: auto;                  /* if links overflow, scroll */
+    /* key change: no horizontal padding; rely on .shell padding */
+    padding: 0.5rem 0;
+
+    overflow-x: auto;
     white-space: nowrap;
 
-    /* safe areas (works without widening the page) */
-    padding-left: max(var(--pad-x), env(safe-area-inset-left));
-    padding-right: max(var(--pad-x), env(safe-area-inset-right));
+    /* safe areas without shifting alignment */
+    padding-left: max(0px, env(safe-area-inset-left));
+    padding-right: max(0px, env(safe-area-inset-right));
   }
 
   .main{
