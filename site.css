@@ -123,53 +123,6 @@ a:hover {
 .social{display:flex;flex-wrap:wrap;gap:1.2rem;margin:1rem 0 1.2rem}
 .emails div{margin:.2rem 0}
 
-/* ===== Responsive ===== */
-@media (max-width: 780px) {
-  .shell {
-    grid-template-columns: 1fr;          /* stack columns */
-    gap: 0.75rem;
-  }
-
-  .side {
-    position: sticky;                    /* stick to top */
-    top: 0;                              /* top of viewport */
-    z-index: 50;                         /* above content */
-    border-left: none;                   /* remove desktop divider */
-    padding-left: 0;
-
-    display: flex;
-    flex-direction: row;                 /* horizontal bar */
-    align-items: center;
-    gap: 1rem;
-    overflow-x: auto;                    /* scroll if links wrap */
-    white-space: nowrap;
-
-    background: var(--bg);               /* solid background while sticky */
-    padding: 0.5rem var(--pad-x);
-    margin: 0 calc(var(--pad-x) * -1);   /* edge-to-edge bar */
-  }
-
-  /* optional: respect iOS safe area */
-  .side { padding-left: max(var(--pad-x), env(safe-area-inset-left));
-          padding-right: max(var(--pad-x), env(safe-area-inset-right)); }
-
-  /* Keep link styling consistent in top bar */
-  .side a { text-decoration: none; }
-  .side a:hover {
-    text-decoration: underline;
-    text-underline-offset: 2px;
-    text-decoration-thickness: 1px;
-  }
-  .side a.active,
-  .side a[aria-current="page"] {
-    text-decoration: underline;
-    text-underline-offset: 2px;
-    text-decoration-thickness: 1px;
-    text-decoration-color: #1a1a1a;
-    color: #1a1a1a;
-  }
-}
-
 :root{
   /* ...your existing vars... */
   --gap: 3rem; 
@@ -191,29 +144,48 @@ a:hover {
 
 /* Mobile/tablet: recentre and drop the shift */
 @media (max-width: 780px){
+  /* turn off desktop shift and width constraints */
+  :root{
+    --left-shift: 0;
+  }
+
+  body { overflow-x: hidden; } /* safety net */
+
   .shell{
+    max-width: none;
+    margin: 0;                               /* no asymmetric margins */
+    padding: var(--pad-y) var(--pad-x);
+    display: grid;
     grid-template-columns: 1fr;
     grid-template-areas:
-      "side"
+      "side"                                  /* sidebar becomes top bar */
       "main";
     gap: 0.75rem;
   }
 
   .side{
+    grid-area: side;
     position: sticky;
     top: 0;
     z-index: 50;
     border-left: none;
     border-bottom: 1px solid #e6e6e6;
-    padding: 0.5rem var(--pad-x);
+
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 1rem;
     overflow-x: auto;
     white-space: nowrap;
+
     background: var(--bg);
-    margin: 0 calc(var(--pad-x) * -1); /* edge-to-edge */
+    padding: 0.5rem var(--pad-x);
+    margin-left: calc(var(--pad-x) * -1);     /* edge-to-edge bar */
+    margin-right: calc(var(--pad-x) * -1);
+
+    /* iOS safe areas */
+    padding-left: max(var(--pad-x), env(safe-area-inset-left));
+    padding-right: max(var(--pad-x), env(safe-area-inset-right));
   }
 
   .side-title{
@@ -221,7 +193,33 @@ a:hover {
     margin: 0 0.25rem 0 0;
     padding: 0;
   }
+
+  .main{
+    grid-area: main;
+    min-width: 0; /* prevent overflow from long lines */
+  }
+
+  /* keep link behavior */
+  .side a { text-decoration: none; }
+  .side a:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 1px;
+  }
+  .side a.active,
+  .side a[aria-current="page"] {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 1px;
+    text-decoration-color: #1a1a1a;
+    color: #1a1a1a;
+  }
+
+  /* media hygiene: prevent wide content from blowing layout */
+  img, video { max-width: 100%; height: auto; }
+  pre, code { white-space: pre-wrap; overflow-wrap: anywhere; }
 }
+
 
 /* Description text */
 .description {
