@@ -10,7 +10,10 @@
   --link:#0969da; --link-hover:#054da7;
 
   --sidebar-w:180px;
-  --gap:2rem;
+  --gap:3rem;
+  --left-gutter: 10rem;
+  --right-gutter: 1rem;
+  --main-w: clamp(320px, 33.33vw, 760px);
 }
 
 *{box-sizing:border-box}
@@ -28,20 +31,29 @@ body{
 /* ===== Layout: main | right sidebar ===== */
 .shell{
   display: grid;
-  grid-template-columns: 1fr var(--sidebar-w);
-  gap: var(--gap);
-  grid-template-areas: "main side";
-}
-.main{ grid-area: main; min-width: 0; }
-.side {
-  position: sticky;
-  top: var(--pad-y);
-  padding-left: var(--sidebar-pad-left);
-  display: flex;
-  flex-direction: column;
-  gap: .6rem;
+  grid-template-columns:
+    var(--left-gutter)
+    minmax(0, var(--main-w))
+    1fr
+    var(--sidebar-w)
+    var(--right-gutter);
+  gap: 0;                         /* gap is handled by gutters + spacer */
+  align-items: start;
+  padding: var(--pad-y) var(--pad-x);
+  width: 100vw;                   /* span full viewport so gutters are true to edges */
+  overflow-x: clip; 
 }
 
+.main{ grid-column: 2; min-width: 0; }
+.side{
+  grid-column: 4;                 /* the fixed-width sidebar track */
+  position: sticky;
+  top: var(--pad-y);
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+  text-align: right; 
+}
 
 /* ===== Type ===== */
 h1{
@@ -119,28 +131,10 @@ a:hover {
 .social{display:flex;flex-wrap:wrap;gap:1.2rem;margin:1rem 0 1.2rem}
 .emails div{margin:.2rem 0}
 
-:root{
-  /* ...your existing vars... */
-  --gap: 3rem; 
-  --left-shift: 150px;  /* how far to nudge left on desktop */
-}
-
-/* Centered but biased left by --left-shift */
-.shell{
-  max-width: var(--page-w);
-  padding: var(--pad-y) var(--pad-x);
-  display: grid;
-  grid-template-columns: 1fr var(--sidebar-w);
-  gap: var(--gap);
-
-  /* Asymmetric centering: pull toward left */
-  margin-left: calc(max(0px, (100vw - var(--page-w)) / 2 - var(--left-shift)));
-  margin-right: calc((100vw - var(--page-w)) / 2 + var(--left-shift));
-}
 
 /* Mobile/tablet: recentre and drop the shift */
 @media (max-width: 780px){
-  :root{ --left-shift: 0; }
+  :root{ --left-gutter: 0; }
   html, body { overflow-x: hidden; }
 
   .shell{
