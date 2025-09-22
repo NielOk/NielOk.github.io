@@ -9,103 +9,105 @@
   <link rel="stylesheet" href="../../site.css">
 </head>
 <body>
-  <div class="content">
-    <a href="javascript:window.history.back()">Back</a>
+  <div class="shell">
+    <main class="main">
+      <a href="javascript:window.history.back()">Back</a>
 
-    <p></p>
-      <!-- Entries -->
-    <div class="entry", id="entry-2025-06-09">
-      <div class="entry-date">June 9, 2025</div>
-      <div class="entry-category">knowledge, brain, memory</div>
-      <h2>Notes on Optimizing in Non-Differentiable Worlds (III)</h2>
-      <p>
-        This is a follow-up to my previous entries on optimizing in non-differentiable worlds. In the past two entries, I mainly focused on arguing that, while continuous function approximators like neural networks are powerful tools and show signs of being able to reason, they are fundamentally misaligned with the nature of the world, which is composed of continuous processes but discontinuous when observed by bounded agents. As such, models that treat learning as smooth approximation fail to optimize effectively in real environments. In this post, I will propose more fundamental definitions of knowledge and learning, precisely define memory, and explore what the role of the brain might be in my framework.
-      </p>
-      <div class="entry-content">
-        <p><strong>Knowledge</strong></p>
-          <p>
-            What is knowledge, fundamentally? I define knowledge as a set of beliefs about the world that consistently resist falsification across diverse observations. With this framing, the strength of a piece of knowledge can by measured by the number and diversity (variance) of observations that support it. This definition is nice for a few reasons. One, it grounds knowledge in reality by tying it to observations and preserves the epistemic role of knowledge (as described in my previous entries). Second, it enables us to quantify the likelihood that a belief is true vs merely consistent with the data by chance; knowledge backed by a broader range of observations is less likely to be coincidental. Third, it generalizes well across different forms of knowledge. Whether we're referring to factual knowledge (about events or states), procedural knowledge (about how to perform tasks), or conceptual knowledge (about abstract relationships), each can be understood in terms of its resistance to falsification across varied contexts.
-          </p>
+      <p></p>
+        <!-- Entries -->
+        <div class="entry" id="entry-2025-06-09">
+        <div class="entry-date">June 9, 2025</div>
+        <div class="entry-category">knowledge, brain, memory</div>
+        <h2>Notes on Optimizing in Non-Differentiable Worlds (III)</h2>
+        <p>
+          This is a follow-up to my previous entries on optimizing in non-differentiable worlds. In the past two entries, I mainly focused on arguing that, while continuous function approximators like neural networks are powerful tools and show signs of being able to reason, they are fundamentally misaligned with the nature of the world, which is composed of continuous processes but discontinuous when observed by bounded agents. As such, models that treat learning as smooth approximation fail to optimize effectively in real environments. In this post, I will propose more fundamental definitions of knowledge and learning, precisely define memory, and explore what the role of the brain might be in my framework.
+        </p>
+        <div class="entry-content">
+          <p><strong>Knowledge</strong></p>
+            <p>
+              What is knowledge, fundamentally? I define knowledge as a set of beliefs about the world that consistently resist falsification across diverse observations. With this framing, the strength of a piece of knowledge can by measured by the number and diversity (variance) of observations that support it. This definition is nice for a few reasons. One, it grounds knowledge in reality by tying it to observations and preserves the epistemic role of knowledge (as described in my previous entries). Second, it enables us to quantify the likelihood that a belief is true vs merely consistent with the data by chance; knowledge backed by a broader range of observations is less likely to be coincidental. Third, it generalizes well across different forms of knowledge. Whether we're referring to factual knowledge (about events or states), procedural knowledge (about how to perform tasks), or conceptual knowledge (about abstract relationships), each can be understood in terms of its resistance to falsification across varied contexts.
+            </p>
 
-        <p><strong>Learning</strong></p>
-          <p>
-            If knowledge is a set of beliefs that consistently resist falsification across observations, then learning is the process of discovering the strongest such set; that is, the set of beliefs most robust across time and context. In dynamic environments, this process must also prioritize recency, giving greater weight to recent observations to ensure that the agent’s knowledge remains up-to-date and adaptive. As discussed in previous entries, curiosity is a key driver of this process, as it compels the agent to seek out new observations that challenge existing beliefs, which results in revision or reinforcement (higher variance). In both cases, knowledge becomes stronger, either by adapting to falsifying observations or by surviving it, which increases its observed variance and resilience. 
-          </p>
+          <p><strong>Learning</strong></p>
+            <p>
+              If knowledge is a set of beliefs that consistently resist falsification across observations, then learning is the process of discovering the strongest such set; that is, the set of beliefs most robust across time and context. In dynamic environments, this process must also prioritize recency, giving greater weight to recent observations to ensure that the agent’s knowledge remains up-to-date and adaptive. As discussed in previous entries, curiosity is a key driver of this process, as it compels the agent to seek out new observations that challenge existing beliefs, which results in revision or reinforcement (higher variance). In both cases, knowledge becomes stronger, either by adapting to falsifying observations or by surviving it, which increases its observed variance and resilience. 
+            </p>
 
-        <p><strong>Memory</strong></p>
-          <p>
-            Memory is the collection of observations an agent has made over time, used to inform its learning process. As the world changes, often in response to the agent’s own actions, memory becomes essential for identifying how those actions influence future states. Without the ability to recall past observations, the agent cannot compare before and after, and thus cannot learn causal relationships. Memory is what enables the agent to connect action and consequence, to learn cause and effect.
-          </p>
+          <p><strong>Memory</strong></p>
+            <p>
+              Memory is the collection of observations an agent has made over time, used to inform its learning process. As the world changes, often in response to the agent’s own actions, memory becomes essential for identifying how those actions influence future states. Without the ability to recall past observations, the agent cannot compare before and after, and thus cannot learn causal relationships. Memory is what enables the agent to connect action and consequence, to learn cause and effect.
+            </p>
 
-          <p>
-            Memory may also serve as a prior for curiosity. If an agent has past observations that were not quite consistent with its current beliefs, but were close enough to move past instead of learning, curiosity may use those observations as a starting point for exploration. After all, some of the greatest scientific discoveries, including the whole field of quantum mechanics, have come from exploring observations that were ever so slightly off what was expected. 
-          </p>
+            <p>
+              Memory may also serve as a prior for curiosity. If an agent has past observations that were not quite consistent with its current beliefs, but were close enough to move past instead of learning, curiosity may use those observations as a starting point for exploration. After all, some of the greatest scientific discoveries, including the whole field of quantum mechanics, have come from exploring observations that were ever so slightly off what was expected. 
+            </p>
 
-        <p><strong>The Role of the Brain in Learning</strong></p>
-          <p>
-            Before proceeding, I want to clarify that these next few sections are not intended to capture the brain’s full range of functions. While the brain is essential not just for learning but also for using knowledge to act and thrive, the focus here is solely on its role in learning. In this context, I view the brain as a finite computational system tasked with processing a largely continuous stream of bounded observations and using them to construct and refine the strongest possible set of beliefs.
-          </p>
+          <p><strong>The Role of the Brain in Learning</strong></p>
+            <p>
+              Before proceeding, I want to clarify that these next few sections are not intended to capture the brain’s full range of functions. While the brain is essential not just for learning but also for using knowledge to act and thrive, the focus here is solely on its role in learning. In this context, I view the brain as a finite computational system tasked with processing a largely continuous stream of bounded observations and using them to construct and refine the strongest possible set of beliefs.
+            </p>
 
-          <p>
-            What does this entail? It means the brain is fundamentally a consistency-checking engine: it evaluates new observations against existing beliefs, updates beliefs when inconsistencies arise, reinforces them when they survive contradiction, and extracts deeper knowledge by identifying causal structure in the world with the help of memory, to be tested by future observations. 
-          </p>
+            <p>
+              What does this entail? It means the brain is fundamentally a consistency-checking engine: it evaluates new observations against existing beliefs, updates beliefs when inconsistencies arise, reinforces them when they survive contradiction, and extracts deeper knowledge by identifying causal structure in the world with the help of memory, to be tested by future observations. 
+            </p>
 
-          <p>
-            From this point forward, I will demonstrate how this framing of the brain can be used to help connect intuitions of learning to mechanistic observations from neuroscience.
-          </p>
-          
-        <p><strong>Top-Down Prediction and Bottom-Up Correction</strong></p>
-          <p>
-            For this section, it is helpful to think about what the most efficient way for checking a set of beliefs against an observation is. Mathematically, to compare two objects, you need to project them to a common representational space. In the case of knowledge and observations, this either means 1. converting observations to knowledge space, or 2. converting knowledge to observation space. Which way is more efficient? 
-          </p>
+            <p>
+              From this point forward, I will demonstrate how this framing of the brain can be used to help connect intuitions of learning to mechanistic observations from neuroscience.
+            </p>
+            
+          <p><strong>Top-Down Prediction and Bottom-Up Correction</strong></p>
+            <p>
+              For this section, it is helpful to think about what the most efficient way for checking a set of beliefs against an observation is. Mathematically, to compare two objects, you need to project them to a common representational space. In the case of knowledge and observations, this either means 1. converting observations to knowledge space, or 2. converting knowledge to observation space. Which way is more efficient? 
+            </p>
 
-          <p>
-            As an agent experiences more observations, its knowledge space grows, while the observation space remains largely constant in size (assuming the agent stays bounded). Thus, overall, as long as the observation space and knowledge space start off relatively similar in size, it is more computationally efficient to compare in observation space. How do you convert knowledge to observation space? You take a handful of previous observations, give them as input to some system that has the agent's knowledge embedded within it, and generate a prediction of what the next observation should be. This is known as top-down prediction. The process of comparing these predictions to actual observations and updating the knowledge based on the discrepancies is known as bottom-up correction.
-          </p>
+            <p>
+              As an agent experiences more observations, its knowledge space grows, while the observation space remains largely constant in size (assuming the agent stays bounded). Thus, overall, as long as the observation space and knowledge space start off relatively similar in size, it is more computationally efficient to compare in observation space. How do you convert knowledge to observation space? You take a handful of previous observations, give them as input to some system that has the agent's knowledge embedded within it, and generate a prediction of what the next observation should be. This is known as top-down prediction. The process of comparing these predictions to actual observations and updating the knowledge based on the discrepancies is known as bottom-up correction.
+            </p>
 
-          <p>
-            In predictive coding models of the brain, higher-level cortical areas generate predictions about expected sensory input, and lower-level areas compare these predictions with the actual input received. The resulting prediction error is propagated locally back up the hierarchy to adjust the internal model.
-          </p>
+            <p>
+              In predictive coding models of the brain, higher-level cortical areas generate predictions about expected sensory input, and lower-level areas compare these predictions with the actual input received. The resulting prediction error is propagated locally back up the hierarchy to adjust the internal model.
+            </p>
 
-          <p>
-            This maps directly onto the consistency-checking engine I propose: prediction is the mechanism for testing beliefs; prediction error is the trigger for belief revision with magnitude sensitivity.
-          </p>
+            <p>
+              This maps directly onto the consistency-checking engine I propose: prediction is the mechanism for testing beliefs; prediction error is the trigger for belief revision with magnitude sensitivity.
+            </p>
 
-        <p><strong>Local Corrections, Not Global Overhaul</strong></p>
-          <p>
-            Importantly, the brain does not perform global rewrites of its belief structure when a prediction fails. Instead, it carries out local corrections, adjusting only the specific subset of the internal model responsible for the mismatch. This ensures coherence and efficiency: a failed prediction about a single visual feature doesn’t trigger a full reevaluation of the world model.
-          </p>
+          <p><strong>Local Corrections, Not Global Overhaul</strong></p>
+            <p>
+              Importantly, the brain does not perform global rewrites of its belief structure when a prediction fails. Instead, it carries out local corrections, adjusting only the specific subset of the internal model responsible for the mismatch. This ensures coherence and efficiency: a failed prediction about a single visual feature doesn’t trigger a full reevaluation of the world model.
+            </p>
 
-          <p>
-            This aligns with the principle of computational frugality. Rather than re-deriving all beliefs from scratch, the brain performs targeted updates: synaptic weight changes in specific circuits, shifts in local priors, or re-weighting of category boundaries. These local corrections are a hallmark of biological intelligence and a crucial design principle for artificial agents that must learn efficiently in non-differentiable environments.
-          </p>
+            <p>
+              This aligns with the principle of computational frugality. Rather than re-deriving all beliefs from scratch, the brain performs targeted updates: synaptic weight changes in specific circuits, shifts in local priors, or re-weighting of category boundaries. These local corrections are a hallmark of biological intelligence and a crucial design principle for artificial agents that must learn efficiently in non-differentiable environments.
+            </p>
 
-          <p>
-            The view of learning as local correction is also reflected at the mechanistic level. Synaptic plasticity is inherently local: changes via Hebbian learning, spike-timing-dependent plasticity (STDP), or behavioral time-scale plasticity (BTSP) occur only at the synapses involved in generating the error. There is no broadcasted global signal that rewrites all internal structure uniformly.
-          </p>
+            <p>
+              The view of learning as local correction is also reflected at the mechanistic level. Synaptic plasticity is inherently local: changes via Hebbian learning, spike-timing-dependent plasticity (STDP), or behavioral time-scale plasticity (BTSP) occur only at the synapses involved in generating the error. There is no broadcasted global signal that rewrites all internal structure uniformly.
+            </p>
 
-          <p>
-            The magnitude of the prediction error plays a key role here. 
-            <ol>
-              <li>
-                Small errors prompt fine-grained tuning, modifying local parameters, expectations, or context weights
-              </li>
-              <li>
-                Large errors, on the other hand, may cause structural revisions, introducing new causal rules, deleting invalid generalizations, or instantiating new representational dimensions.
-              </li>
-            </ol>
-          </p>
+            <p>
+              The magnitude of the prediction error plays a key role here. 
+              <ol>
+                <li>
+                  Small errors prompt fine-grained tuning, modifying local parameters, expectations, or context weights
+                </li>
+                <li>
+                  Large errors, on the other hand, may cause structural revisions, introducing new causal rules, deleting invalid generalizations, or instantiating new representational dimensions.
+                </li>
+              </ol>
+            </p>
 
-          <p>
-            This multi-scale correction mechanism grants the brain both stability and flexibility: it can ignore noise, adapt smoothly when possible, and restructure decisively when necessary, all through localized computation. In this sense, local plasticity is not merely reactive, but an engine of structural refinement through epistemic inconsistency. When a particular circuit consistently fails to predict correctly, it is that circuit, not the entire network, that is restructured. Over time, such targeted mismatches carve functional structure into the system, shaping causal models, priors, and inductive biases.
-          </p>
+            <p>
+              This multi-scale correction mechanism grants the brain both stability and flexibility: it can ignore noise, adapt smoothly when possible, and restructure decisively when necessary, all through localized computation. In this sense, local plasticity is not merely reactive, but an engine of structural refinement through epistemic inconsistency. When a particular circuit consistently fails to predict correctly, it is that circuit, not the entire network, that is restructured. Over time, such targeted mismatches carve functional structure into the system, shaping causal models, priors, and inductive biases.
+            </p>
 
-        <p><strong>Moving Forward</strong></p>
-          <p>
-            This framework provides a new way to think about knowledge, learning, memory, and the role of the brain in learning. I believe it is a powerful tool for starting to design brain-like systems and computational frameworks that can learn efficiently in the context of bounded observation and non-differentiable environments.
-          </p>
+          <p><strong>Moving Forward</strong></p>
+            <p>
+              This framework provides a new way to think about knowledge, learning, memory, and the role of the brain in learning. I believe it is a powerful tool for starting to design brain-like systems and computational frameworks that can learn efficiently in the context of bounded observation and non-differentiable environments.
+            </p>
+        </div>
       </div>
-    </div>
+    </main>
   </div>
 </body>
 </html>

@@ -9,19 +9,21 @@
   <link rel="stylesheet" href="../../site.css">
 </head>
 <body>
-  <div class="content">
-    <a href="javascript:window.history.back()">Back</a>
+  <div class="shell">
+    <main class="main">
+      <a href="javascript:window.history.back()">Back</a>
 
-    <p></p>
-      <!-- Entries -->
-    <div class="entry", id="entry-2025-04-07">
-      <div class="entry-date">April 7, 2025</div>
-      <div class="entry-category">diffusion models, llms, inference scaling</div>
-      <h2>Inference Scaling for Stochastic Diffusion</h2>
-      <div class="entry-content">
-        Over the past few months, I’ve been diving into a research direction that takes inference-time compute scaling for diffusion models somewhere fundamentally different from where DeepMind has gone. Their approach focuses on deterministic diffusion models and treats inference-time scaling as a search over the initial noise vector, as if the entire generative process hinges on getting that first random sample just right. But that framing doesn’t hold up when you step into the stochastic regime. In stochastic diffusion models, randomness isn’t a one-time deal at the start. It gets injected at every step of the denoising process. The result? The final sample isn’t just determined by where you start, it’s shaped by the entire trajectory the model takes through denoising space. So optimizing only over initial noise is like trying to steer a rocket by tweaking the launch angle and ignoring all mid-course corrections. What I’ve been exploring is this: inference-time compute scaling for stochastic diffusion models shouldn’t be framed as a search over initial noise vectors. Instead, it should be framed as a search over denoising trajectories. That shift in perspective changes everything. It acknowledges the true degrees of freedom in the system. It’s harder computationally, but the payoff is real. Instead of being locked into a narrow slice of the outcome space, trajectory-based search opens up far more expressive possibilities. Multiple trajectories can land you in semantically different, yet equally plausible regions of the output space. That makes it not just more powerful, but more useful, especially when you care about conditioning, controllability, or aligning with task-specific goals. This has led to a few ideas I want to push further: One, a formal comparison between noise space and trajectory space. What’s actually gained in terms of dimensionality, expressiveness, or alignment capability? Two, could we design and demonstrate trajectory-space search algorithms, even in simplified settings, that outperform initial-noise search with less proportional coverage? That would be a strong empirical signal. Three, maybe the most ambitious one: if trajectory space really is this rich, it might be possible to prove that inference in diffusion models, especially for text, is more scalable than autoregressive LLM inference. 
-      </div>
-    </div>  
+      <p></p>
+        <!-- Entries -->
+      <div class="entry", id="entry-2025-04-07">
+        <div class="entry-date">April 7, 2025</div>
+        <div class="entry-category">diffusion models, llms, inference scaling</div>
+        <h2>Inference Scaling for Stochastic Diffusion</h2>
+        <div class="entry-content">
+          Over the past few months, I’ve been diving into a research direction that takes inference-time compute scaling for diffusion models somewhere fundamentally different from where DeepMind has gone. Their approach focuses on deterministic diffusion models and treats inference-time scaling as a search over the initial noise vector, as if the entire generative process hinges on getting that first random sample just right. But that framing doesn’t hold up when you step into the stochastic regime. In stochastic diffusion models, randomness isn’t a one-time deal at the start. It gets injected at every step of the denoising process. The result? The final sample isn’t just determined by where you start, it’s shaped by the entire trajectory the model takes through denoising space. So optimizing only over initial noise is like trying to steer a rocket by tweaking the launch angle and ignoring all mid-course corrections. What I’ve been exploring is this: inference-time compute scaling for stochastic diffusion models shouldn’t be framed as a search over initial noise vectors. Instead, it should be framed as a search over denoising trajectories. That shift in perspective changes everything. It acknowledges the true degrees of freedom in the system. It’s harder computationally, but the payoff is real. Instead of being locked into a narrow slice of the outcome space, trajectory-based search opens up far more expressive possibilities. Multiple trajectories can land you in semantically different, yet equally plausible regions of the output space. That makes it not just more powerful, but more useful, especially when you care about conditioning, controllability, or aligning with task-specific goals. This has led to a few ideas I want to push further: One, a formal comparison between noise space and trajectory space. What’s actually gained in terms of dimensionality, expressiveness, or alignment capability? Two, could we design and demonstrate trajectory-space search algorithms, even in simplified settings, that outperform initial-noise search with less proportional coverage? That would be a strong empirical signal. Three, maybe the most ambitious one: if trajectory space really is this rich, it might be possible to prove that inference in diffusion models, especially for text, is more scalable than autoregressive LLM inference. 
+        </div>
+      </div>  
+    </main>
   </div>
 </body>
 </html>

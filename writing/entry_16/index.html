@@ -10,54 +10,57 @@
 </head>
 <body>
 
-  <div class="content">
-    <a href="javascript:window.history.back()">Back</a>
+  <div class="shell">
+    <main class="main">
+      <a href="javascript:window.history.back()">Back</a>
 
-    <p></p>
-      <!-- Entries -->
-    <div class="entry" id="entry-2025-09-20">
-      <div class="entry-date">September 20, 2025</div>
-      <div class="entry-category">simulation, learning, computation</div>
-        <h2>Computable Systems and Learning</h2>
-      <p>
-        When we simulate a physical system, what we’re really doing is trying to compress reality into a computational model. Some systems can be captured with equations that run far faster than the world itself, while others resist this kind of compression. In this note, I explore the variation in computational intensity across different physical systems and why this exploration matters.
-      </p>
-
-      <div class="entry-content">
-        <p><strong>What Makes a Simulation Useful?</strong></p>
+      <p></p>
+        <!-- Entries -->
+      <div class="entry" id="entry-2025-09-20">
+        <div class="entry-date">September 20, 2025</div>
+        <div class="entry-category">simulation, learning, computation</div>
+          <h2>Computable Systems and Learning</h2>
         <p>
-          I'd like to define two axes for evaluating simulations: efficiency and the amount of useful information they provide. Efficiency is fairly straightforward in that it just measures how quickly a simulation can run relative to real time. It can be achieved through approximations of the systems being modeled, parallelization, and other techniques. The second axis, useful information, is a bit more nuanced. It refers to the degree to which a simulation can provide insights or predictions about the system being modeled that are relevant to our goals.
-        </p>
-        <p>
-          I would like to evaluate the usefulness of a simulation in the context of using it to teach machines how to operate in physical reality. In this context, useful information from a simulation would be information that, when trained on, helps a machine learn to perform tasks in the real world.
+          When we simulate a physical system, what we’re really doing is trying to compress reality into a computational model. Some systems can be captured with equations that run far faster than the world itself, while others resist this kind of compression. In this note, I explore the variation in computational intensity across different physical systems and why this exploration matters.
         </p>
 
-        <p><strong>A Gradient of Computability</strong></p>
-        <p>
-          A lot of physics consists of abstractions that reduce the interactions of countless particles into tractable computations. Newtonian mechanics, for instance, allows us to predict the motion of macroscopic objects without simulating every atom involved. However, a lot of times, physics also involves equations describing systems that are not easily computable. Fluid dynamics, for example, can be incredibly complex and chaotic, making it difficult to simulate accurately. 
-        </p>
-        <p>
-          So, there is a gradient of computability in physical systems. Some systems can be simulated with simple equations that run quickly, while others require complex models that are computationally intensive and can run slower than real time. The fact that this is a gradient makes it difficult to draw a clear line between systems that should be included in simulations for training physically intelligent agents, and those that should not. Thus, I believe that an empirical categorization of physical systems for whether or not they are useful for training physically intelligent agents is necessary.
-        </p>
+        <div class="entry-content">
+          <p><strong>What Makes a Simulation Useful?</strong></p>
+          <p>
+            I'd like to define two axes for evaluating simulations: efficiency and the amount of useful information they provide. Efficiency is fairly straightforward in that it just measures how quickly a simulation can run relative to real time. It can be achieved through approximations of the systems being modeled, parallelization, and other techniques. The second axis, useful information, is a bit more nuanced. It refers to the degree to which a simulation can provide insights or predictions about the system being modeled that are relevant to our goals.
+          </p>
+          <p>
+            I would like to evaluate the usefulness of a simulation in the context of using it to teach machines how to operate in physical reality. In this context, useful information from a simulation would be information that, when trained on, helps a machine learn to perform tasks in the real world.
+          </p>
 
-        <p><strong>Categorizing Physical Systems in the Context of Learning</strong></p>
-        <p>
-          While the task I described previously is non-trivial, I believe that there are a couple of guiding principles that can help us categorize physical systems in the context of learning. First, we should consider the scale of the system being modeled. Macroscopic systems, such as the motion of a robot arm, can often be simulated with relatively simple equations that run quickly. These systems are likely to provide useful information for training physically intelligent agents. On the other hand, microscopic systems, such as the interactions of individual molecules, may require complex models that are computationally intensive and may not provide much useful information for training physically intelligent agents.
-        </p>
-        <p>
-          If a system seems to require molecular-level detail to simulate accurately, it is likely better to abstract away those details into learnable rewards or constraints for the agent rather than trying to simulate directly. Or, if possible, it may be better to use a neural approach to learn the dynamics of the system with deterministic compute spend at inference time.
-        </p>
-        <p>
-          Second, we should always consider the performance of the agent trained on the simulation in the real world, and rigorously track where it is failing in the real world. If an agent trained on simulation is not able to perform well in the real world, it is probably because the simulation is not capturing some important aspect of the real world. In this case, we must consider whether the missing aspect is something that can be captured with efficient computations, or if it is something that is inherently complex to where it is better to train for that specific aspect in the real world rather than in simulation. A lot of the time, though, this might just be due to a lack of diversity in the simulation, which can be addressed with better domain randomization.
-        </p>
+          <p><strong>A Gradient of Computability</strong></p>
+          <p>
+            A lot of physics consists of abstractions that reduce the interactions of countless particles into tractable computations. Newtonian mechanics, for instance, allows us to predict the motion of macroscopic objects without simulating every atom involved. However, a lot of times, physics also involves equations describing systems that are not easily computable. Fluid dynamics, for example, can be incredibly complex and chaotic, making it difficult to simulate accurately. 
+          </p>
+          <p>
+            So, there is a gradient of computability in physical systems. Some systems can be simulated with simple equations that run quickly, while others require complex models that are computationally intensive and can run slower than real time. The fact that this is a gradient makes it difficult to draw a clear line between systems that should be included in simulations for training physically intelligent agents, and those that should not. Thus, I believe that an empirical categorization of physical systems for whether or not they are useful for training physically intelligent agents is necessary.
+          </p>
 
-        <p><strong>Conclusion</strong></p>
-        <p>
-          The task I have outlined throughout this note is an important one for the future of AI and robotics. To train general physically intelligent agents, we must be able to train on a large chunk of physical possibility space as fast as possible, and simulation is one of the key tools for achieving this. I believe that this is one of the last frontiers for neural network-based AI systems, as current large language models and vision models have already been trained on a significant portion of internet data. What's left is computable physics and interactions with environments.
-        </p>
+          <p><strong>Categorizing Physical Systems in the Context of Learning</strong></p>
+          <p>
+            While the task I described previously is non-trivial, I believe that there are a couple of guiding principles that can help us categorize physical systems in the context of learning. First, we should consider the scale of the system being modeled. Macroscopic systems, such as the motion of a robot arm, can often be simulated with relatively simple equations that run quickly. These systems are likely to provide useful information for training physically intelligent agents. On the other hand, microscopic systems, such as the interactions of individual molecules, may require complex models that are computationally intensive and may not provide much useful information for training physically intelligent agents.
+          </p>
+          <p>
+            If a system seems to require molecular-level detail to simulate accurately, it is likely better to abstract away those details into learnable rewards or constraints for the agent rather than trying to simulate directly. Or, if possible, it may be better to use a neural approach to learn the dynamics of the system with deterministic compute spend at inference time.
+          </p>
+          <p>
+            Second, we should always consider the performance of the agent trained on the simulation in the real world, and rigorously track where it is failing in the real world. If an agent trained on simulation is not able to perform well in the real world, it is probably because the simulation is not capturing some important aspect of the real world. In this case, we must consider whether the missing aspect is something that can be captured with efficient computations, or if it is something that is inherently complex to where it is better to train for that specific aspect in the real world rather than in simulation. A lot of the time, though, this might just be due to a lack of diversity in the simulation, which can be addressed with better domain randomization.
+          </p>
 
+          <p><strong>Conclusion</strong></p>
+          <p>
+            The task I have outlined throughout this note is an important one for the future of AI and robotics. To train general physically intelligent agents, we must be able to train on a large chunk of physical possibility space as fast as possible, and simulation is one of the key tools for achieving this. I believe that this is one of the last frontiers for neural network-based AI systems, as current large language models and vision models have already been trained on a significant portion of internet data. What's left is computable physics and interactions with environments.
+          </p>
+
+        </div>
       </div>
-
+    </main>
+  </div>
       
 </body>
 </html>

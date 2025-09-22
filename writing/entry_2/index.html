@@ -9,19 +9,21 @@
   <link rel="stylesheet" href="../../site.css">
 </head>
 <body>
-  <div class="content">
-    <a href="javascript:window.history.back()">Back</a>
+  <div class="shell">
+    <main class="main">
+      <a href="javascript:window.history.back()">Back</a>
 
-    <p></p>
-      <!-- Entries -->
-    <div class="entry", id="entry-2025-01-02">
-      <div class="entry-date">January 2, 2025</div>
-      <div class="entry-category">ml research, neuroscience</div>
-      <h2>Diffusion and Vectorization</h2>
-      <div class="entry-content">
-        Recently, I’ve become interested in implementing diffusion (image generation) from scratch, including the neural network module used to do it (I’m building myself a mini-PyTorch using only numpy). Because of this, I’ve had the opportunity to reflect a lot on what data should look like when passed to a neural network, and how we can represent different types of information as input for a neural network. For example, for a diffusion model, you somehow have to feed to the neural network both the image and the step number of diffusion you are on in order for the neural network to learn how to denoise step by step. Now, at first, I thought you could just concatenate the step number to the flattened image vector input, but my intuition told me that because the image was so much more high-dimensional than the single number step, I must be incorrect. I figured that there must be some step where I turn the single number step into a vector of larger dimension before concatenation so that the step number is more obvious to the neural network. Turns out, there are many ways to do this. This brought me to an insight: as long as some piece of information can be vectorized, it can be the input to a neural network. Then, a lot of ML research must be figuring out the best way to vectorize different pieces of information for a neural network to digest. This is very interesting. For example, one idea I had was to vectorize high-level physics inputs for video-generation models. Maybe a video-generation model could take in a text prompt and a pre-reasoned set of words that best describe the appropriate physics for the imagery to be generated. The way objects move underwater is very different from the air, and so if we trained a model to discriminate between those two explicitly while generating video, perhaps it would be easier to come up with good physics in video models. Anyways, one of my key questions coming away from today is: is it possible to create a framework for testing what method of vectorization maximizes the performance of a neural network at digesting a particular piece of information? Another thought I have that’s an offshoot of the previous one: do biological neurons specialize as a result of starting to process input or are they somewhat primed as a result of evolution, even before they're used to process any signals? Are auditory and visual neurons that way before they're ever used to process sound or light, or do they become that way after receiving a bunch of input in that form? I ask because this would help for me to determine whether learning the most optimal vectorization of information should be part of pre-training, if it should be trained completely separately, or if it should be something in-between.
-      </div>
-    </div>  
+      <p></p>
+        <!-- Entries -->
+      <div class="entry", id="entry-2025-01-02">
+        <div class="entry-date">January 2, 2025</div>
+        <div class="entry-category">ml research, neuroscience</div>
+        <h2>Diffusion and Vectorization</h2>
+        <div class="entry-content">
+          Recently, I’ve become interested in implementing diffusion (image generation) from scratch, including the neural network module used to do it (I’m building myself a mini-PyTorch using only numpy). Because of this, I’ve had the opportunity to reflect a lot on what data should look like when passed to a neural network, and how we can represent different types of information as input for a neural network. For example, for a diffusion model, you somehow have to feed to the neural network both the image and the step number of diffusion you are on in order for the neural network to learn how to denoise step by step. Now, at first, I thought you could just concatenate the step number to the flattened image vector input, but my intuition told me that because the image was so much more high-dimensional than the single number step, I must be incorrect. I figured that there must be some step where I turn the single number step into a vector of larger dimension before concatenation so that the step number is more obvious to the neural network. Turns out, there are many ways to do this. This brought me to an insight: as long as some piece of information can be vectorized, it can be the input to a neural network. Then, a lot of ML research must be figuring out the best way to vectorize different pieces of information for a neural network to digest. This is very interesting. For example, one idea I had was to vectorize high-level physics inputs for video-generation models. Maybe a video-generation model could take in a text prompt and a pre-reasoned set of words that best describe the appropriate physics for the imagery to be generated. The way objects move underwater is very different from the air, and so if we trained a model to discriminate between those two explicitly while generating video, perhaps it would be easier to come up with good physics in video models. Anyways, one of my key questions coming away from today is: is it possible to create a framework for testing what method of vectorization maximizes the performance of a neural network at digesting a particular piece of information? Another thought I have that’s an offshoot of the previous one: do biological neurons specialize as a result of starting to process input or are they somewhat primed as a result of evolution, even before they're used to process any signals? Are auditory and visual neurons that way before they're ever used to process sound or light, or do they become that way after receiving a bunch of input in that form? I ask because this would help for me to determine whether learning the most optimal vectorization of information should be part of pre-training, if it should be trained completely separately, or if it should be something in-between.
+        </div>
+      </div>  
+    </main>
   </div>
 </body>
 </html>

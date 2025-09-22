@@ -10,40 +10,42 @@
 </head>
 <body>
 
-  <div class="content">
-    <a href="javascript:window.history.back()">Back</a>
+  <div class="shell">
+    <main class="main">
+      <a href="javascript:window.history.back()">Back</a>
 
-    <p></p>
-      <!-- Entries -->
-    <div class="entry" id="entry-2025-05-03">
-      <div class="entry-date">May 3, 2025</div>
-      <div class="entry-category">feedback-efficient intelligence</div>
-      <h2>Feedback-Efficient Intelligence Addendum</h2>
-      <div class="entry-content">
-        <p>This post extends my formalization of feedback-efficient intelligence with a second-level insight: that the structure of the feedback channel itself must be learned or evolved. In other words, agents must discover not just how to update from feedback, but which feedback matters at all.</p>
-        <p><strong>1. Definitions</strong></p>
-        <ul>
-          <li><strong>\( \mathcal{E} \)</strong>: the environment (a stochastic dynamical system)</li>
-          <li><strong>\( \pi \)</strong>: the agent’s policy</li>
-          <li><strong>\( \hat{M}_t \)</strong>: the internal model of the environment at time \( t \)</li>
-          <li><strong>\( \mathcal{F}_t \)</strong>: feedback received at time \( t \)</li>
-          <li><strong>\( U_t \)</strong>: utility or performance at time \( t \)</li>
-          <li><strong>\( I(\mathcal{F}_t; \Delta \hat{M}_t) \)</strong>: mutual information between feedback and model update</li>
-          <li><strong>\( I(\mathcal{E}; \mathcal{F}_t) \)</strong>: mutual information between the environment and the feedback</li>
-        </ul>
-        <p><strong>2. Meta-Theorem: Feedback Channel Learning</strong></p>
-        <p>No intelligent system can be feedback-efficient without either possessing or learning a model of the mutual information structure between the environment and its feedback signals:</p>
-        <div>
-          \[I(\mathcal{E}; \mathcal{F}_t) > 0 \quad \text{must be learned or evolved.} \]
+      <p></p>
+        <!-- Entries -->
+      <div class="entry" id="entry-2025-05-03">
+        <div class="entry-date">May 3, 2025</div>
+        <div class="entry-category">feedback-efficient intelligence</div>
+        <h2>Feedback-Efficient Intelligence Addendum</h2>
+        <div class="entry-content">
+          <p>This post extends my formalization of feedback-efficient intelligence with a second-level insight: that the structure of the feedback channel itself must be learned or evolved. In other words, agents must discover not just how to update from feedback, but which feedback matters at all.</p>
+          <p><strong>1. Definitions</strong></p>
+          <ul>
+            <li><strong>\( \mathcal{E} \)</strong>: the environment (a stochastic dynamical system)</li>
+            <li><strong>\( \pi \)</strong>: the agent’s policy</li>
+            <li><strong>\( \hat{M}_t \)</strong>: the internal model of the environment at time \( t \)</li>
+            <li><strong>\( \mathcal{F}_t \)</strong>: feedback received at time \( t \)</li>
+            <li><strong>\( U_t \)</strong>: utility or performance at time \( t \)</li>
+            <li><strong>\( I(\mathcal{F}_t; \Delta \hat{M}_t) \)</strong>: mutual information between feedback and model update</li>
+            <li><strong>\( I(\mathcal{E}; \mathcal{F}_t) \)</strong>: mutual information between the environment and the feedback</li>
+          </ul>
+          <p><strong>2. Meta-Theorem: Feedback Channel Learning</strong></p>
+          <p>No intelligent system can be feedback-efficient without either possessing or learning a model of the mutual information structure between the environment and its feedback signals:</p>
+          <div>
+            \[I(\mathcal{E}; \mathcal{F}_t) > 0 \quad \text{must be learned or evolved.} \]
+          </div>
+          <div>
+            Long-term feedback efficiency requires modeling the feedback channel itself.
+          </div>
+          <p><strong>3. Interpretation</strong></p>
+          <p>This reflects what evolution did for humans: it sculpted our attention, pain, curiosity, and perception toward signals with consistently high mutual information about task success. It’s not just that we learn from feedback. We evolved to learn what counts as feedback.</p>
+          <p>This meta-level principle applies to artificial agents as well. In order to sustain feedback-efficient intelligence, they must eventually learn a generative model over the feedback channel. Otherwise, they risk optimizing over noise or reacting to uninformative stimuli. Feedback channels aren't given, they're discovered.</p>
         </div>
-        <div>
-          Long-term feedback efficiency requires modeling the feedback channel itself.
-        </div>
-        <p><strong>3. Interpretation</strong></p>
-        <p>This reflects what evolution did for humans: it sculpted our attention, pain, curiosity, and perception toward signals with consistently high mutual information about task success. It’s not just that we learn from feedback. We evolved to learn what counts as feedback.</p>
-        <p>This meta-level principle applies to artificial agents as well. In order to sustain feedback-efficient intelligence, they must eventually learn a generative model over the feedback channel. Otherwise, they risk optimizing over noise or reacting to uninformative stimuli. Feedback channels aren't given, they're discovered.</p>
       </div>
-    </div>
+    </main>
   </div>
 </body>
 </html>

@@ -9,58 +9,60 @@
   <link rel="stylesheet" href="../../site.css">
 </head>
 <body>
-  <div class="content">
-    <a href="javascript:window.history.back()">Back</a>
+  <div class="shell">
+    <main class="main">
+      <a href="javascript:window.history.back()">Back</a>
 
-    <p></p>
-      <!-- Entries -->
-    <div class="entry" id="entry-2025-05-18">
-      <div class="entry-date">May 18, 2025</div>
-      <div class="entry-category">world models</div>
-      <h2>The Case for Language-Native World Models</h2>
-      <div class="entry-content">
-        This post is about a framework I’ve been working on that I call “language-native world modeling.” The key idea is to separate language from planning and simulation. Language isn’t the substrate of thought, it’s the interface. What we really want to build is a system that interprets language into structured latent representations of the world, simulates how that world might evolve, and then uses language only when it needs to communicate something back to us.
+      <p></p>
+        <!-- Entries -->
+      <div class="entry" id="entry-2025-05-18">
+        <div class="entry-date">May 18, 2025</div>
+        <div class="entry-category">world models</div>
+        <h2>The Case for Language-Native World Models</h2>
+        <div class="entry-content">
+          This post is about a framework I’ve been working on that I call “language-native world modeling.” The key idea is to separate language from planning and simulation. Language isn’t the substrate of thought, it’s the interface. What we really want to build is a system that interprets language into structured latent representations of the world, simulates how that world might evolve, and then uses language only when it needs to communicate something back to us.
 
-        It starts with a simple observation: humans reasoned before we spoke. Long before syntax or grammar emerged, our brains were already simulating spatial layouts, predicting actions, modeling goals. Language didn’t give us reasoning. It did, however, give us a powerful way to interface with it. Language supercharged cognition by giving us tools to name abstractions, compare counterfactuals, and share mental simulations. But the underlying substrate of world modeling was already there.
+          It starts with a simple observation: humans reasoned before we spoke. Long before syntax or grammar emerged, our brains were already simulating spatial layouts, predicting actions, modeling goals. Language didn’t give us reasoning. It did, however, give us a powerful way to interface with it. Language supercharged cognition by giving us tools to name abstractions, compare counterfactuals, and share mental simulations. But the underlying substrate of world modeling was already there.
 
-        That’s what I think we’re missing in LLMs. We treat them like they're intelligent because they complete text well. But completing text is just a visible trace of reasoning. It’s bulky. If you try to represent world states through strings alone, you end up needing five sentences to describe something that could be a clean latent vector — a robot in a kitchen, a cup on the floor, a goal to move it. It’s like trying to draw a diagram using only adjectives. The result is cluttered, slow, and semantically brittle.
+          That’s what I think we’re missing in LLMs. We treat them like they're intelligent because they complete text well. But completing text is just a visible trace of reasoning. It’s bulky. If you try to represent world states through strings alone, you end up needing five sentences to describe something that could be a clean latent vector — a robot in a kitchen, a cup on the floor, a goal to move it. It’s like trying to draw a diagram using only adjectives. The result is cluttered, slow, and semantically brittle.
 
-        That said, there’s growing evidence that language models do form internal representations of the world. Even when trained only on text, they appear to acquire structured latent knowledge about space, causality, physical interactions, and goals. These internal world models seem to support surprisingly coherent behavior, but they’re buried inside the model, inaccessible except through clever prompting or behavioral probing.
+          That said, there’s growing evidence that language models do form internal representations of the world. Even when trained only on text, they appear to acquire structured latent knowledge about space, causality, physical interactions, and goals. These internal world models seem to support surprisingly coherent behavior, but they’re buried inside the model, inaccessible except through clever prompting or behavioral probing.
 
-        The core problem with LLM-based approaches to reasoning is this: we don’t have direct control over those world models. We can only interact with them through the lens of text generation. There’s no clean mechanism to extract, simulate, or manipulate the underlying structure, no way to treat the world model as an explicit, evolving state.
+          The core problem with LLM-based approaches to reasoning is this: we don’t have direct control over those world models. We can only interact with them through the lens of text generation. There’s no clean mechanism to extract, simulate, or manipulate the underlying structure, no way to treat the world model as an explicit, evolving state.
 
-        So here’s what I propose. We build a system with three modules:
-        <ol>
-          <li>
-            A semantic encoder that takes natural language and turns it into a structured latent state. This state is a vector, but not a black-box embedding. It’s structured, as in each dimension corresponds to something interpretable, like object properties or agent location. Optionally, we can use an encoder to project this to a learned latent space to make better embeddings for world prediction, almost like a word embedding model, but used instead to embed world states.
-          </li>
-          <li>
-            A latent dynamics model that predicts how this world evolves over time under hypothetical actions. No tokens involved. Just autoregressive simulation in meaning space.
-          </li>
-          <li>
-            A verifier that checks whether the final state matches the desired goal, also given in natural language, but embedded into the same latent space as the world state.
-          </li>
-        </ol>
+          So here’s what I propose. We build a system with three modules:
+          <ol>
+            <li>
+              A semantic encoder that takes natural language and turns it into a structured latent state. This state is a vector, but not a black-box embedding. It’s structured, as in each dimension corresponds to something interpretable, like object properties or agent location. Optionally, we can use an encoder to project this to a learned latent space to make better embeddings for world prediction, almost like a word embedding model, but used instead to embed world states.
+            </li>
+            <li>
+              A latent dynamics model that predicts how this world evolves over time under hypothetical actions. No tokens involved. Just autoregressive simulation in meaning space.
+            </li>
+            <li>
+              A verifier that checks whether the final state matches the desired goal, also given in natural language, but embedded into the same latent space as the world state.
+            </li>
+          </ol>
 
-        This system is language-native, but token-free at its core. It doesn’t think in words. It thinks in semantic trajectories. When you say, “The robot picks up the cup and places it on the counter,” it builds a latent configuration of the world where the cup moves from floor to counter. And it can run that simulation forward, backward, or in massive parallel - not by predicting strings, but by predicting how the world changes.
+          This system is language-native, but token-free at its core. It doesn’t think in words. It thinks in semantic trajectories. When you say, “The robot picks up the cup and places it on the counter,” it builds a latent configuration of the world where the cup moves from floor to counter. And it can run that simulation forward, backward, or in massive parallel - not by predicting strings, but by predicting how the world changes.
 
-        I think this matters for a few reasons:
-        <ul>
-          <li>First, it lets us reason over meaning instead of syntax. The system doesn’t get distracted by phrasing. It thinks in structure.</li>
-          <li>Second, it allows us to separate grounding from generation. We can evaluate, plan, and simulate in latent space, and only decode to language when needed.</li>
-          <li>Third, it reframes intelligence as predictive compression over world-state entropy, not token entropy. That gives us a better measure of understanding.</li>
-          <li>Fourth, and maybe most importantly: it gives us <em>explicit control</em> over the world model. Not just prompt-hacking. Not just steering with soft constraints. But actual simulation over latent variables we define and interpret.</li>
-        </ul>
+          I think this matters for a few reasons:
+          <ul>
+            <li>First, it lets us reason over meaning instead of syntax. The system doesn’t get distracted by phrasing. It thinks in structure.</li>
+            <li>Second, it allows us to separate grounding from generation. We can evaluate, plan, and simulate in latent space, and only decode to language when needed.</li>
+            <li>Third, it reframes intelligence as predictive compression over world-state entropy, not token entropy. That gives us a better measure of understanding.</li>
+            <li>Fourth, and maybe most importantly: it gives us <em>explicit control</em> over the world model. Not just prompt-hacking. Not just steering with soft constraints. But actual simulation over latent variables we define and interpret.</li>
+          </ul>
 
-        I’m not claiming I've already built this system, or even come close. This is a blueprint. But it points to a class of models that feel closer to how we think: not just reacting to words, but actively simulating environments based on them.
+          I’m not claiming I've already built this system, or even come close. This is a blueprint. But it points to a class of models that feel closer to how we think: not just reacting to words, but actively simulating environments based on them.
 
-        To me, this is what intelligence looks like. Not the ability to finish a sentence. The ability to simulate a world, manipulate it mentally, and test whether your imagined trajectory gets you to the outcome you want.
+          To me, this is what intelligence looks like. Not the ability to finish a sentence. The ability to simulate a world, manipulate it mentally, and test whether your imagined trajectory gets you to the outcome you want.
 
-        Language boosted that power. It gave us a keyboard for simulation. But simulation itself, world modeling, was always the substrate. My claim is that we can go back to that substrate, build from it, and use language as the bridge, not the destination. If you're interested in the math, I've linked a paper on my page that formalizes this idea more rigorously.
+          Language boosted that power. It gave us a keyboard for simulation. But simulation itself, world modeling, was always the substrate. My claim is that we can go back to that substrate, build from it, and use language as the bridge, not the destination. If you're interested in the math, I've linked a paper on my page that formalizes this idea more rigorously.
 
-        Also, here's a hint for implementing a working prototype of this right now: language models, with good prompting, can also be used as the latent dynamics model, predicting next latent states from previous latents. As long as the system is set up such that the language model takes in previous latent states as input and outputs predicted latent states, it works as the latent dynamics model. This way, you can leverage existing LLMs to boostrap the latent dynamics model without needing to train a new one from scratch. With this approach, you're basically giving a cognitive framework to existing LLMs.
+          Also, here's a hint for implementing a working prototype of this right now: language models, with good prompting, can also be used as the latent dynamics model, predicting next latent states from previous latents. As long as the system is set up such that the language model takes in previous latent states as input and outputs predicted latent states, it works as the latent dynamics model. This way, you can leverage existing LLMs to boostrap the latent dynamics model without needing to train a new one from scratch. With this approach, you're basically giving a cognitive framework to existing LLMs.
+        </div>
       </div>
-    </div>
+    </main>
   </div>
 </body>
 </html>
