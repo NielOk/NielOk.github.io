@@ -3,6 +3,8 @@
   --page-w: 980px;          /* space for main + sidebar */
   --pad-x: 1.5rem;
   --pad-y: 3rem;
+  --name-mark-gap: 0.9rem;
+  --name-mark-size: 70px;
 
   --bg:#ffffff; --fg:#1f2328; --muted:#353536; --muted-2:#3a3a3a;
   --subtle:#8c8c8c;
@@ -61,6 +63,20 @@ h1{
   margin:0 0 1.2rem 0;
   font-weight:300;
   color:var(--muted-2);
+}
+.hero{
+  display:flex;
+  align-items:center;
+  gap: var(--name-mark-gap);
+  margin: 0 0 1.2rem 0;
+  flex-wrap: wrap;
+}
+.hero h1{ margin:0; }
+.name-mark{
+  width: var(--name-mark-size);
+  height: auto;
+  display: block;
+  flex-shrink: 0;
 }
 h2{
   font-size:1.5rem;
