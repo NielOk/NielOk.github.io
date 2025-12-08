@@ -3,8 +3,8 @@
   --page-w: 980px;          /* space for main + sidebar */
   --pad-x: 1.5rem;
   --pad-y: 3rem;
-  --name-mark-gap: 0.9rem;
-  --name-mark-size: 70px;
+  --name-mark-gap: 2.5rem;       /* adjust spacing between name and image */
+  --name-mark-size: 40px;        /* adjust image width */
 
   --bg:#ffffff; --fg:#1f2328; --muted:#353536; --muted-2:#3a3a3a;
   --subtle:#8c8c8c;
