@@ -43,9 +43,16 @@
           items.forEach((item, idx) => {
             const link = item.querySelector('a');
             if (!link) return;
-            const original = link.dataset.originalText || link.textContent;
+
+            // Restore original link text if numbering already ran.
+            const original = link.dataset.originalText || link.textContent.replace(/^\d+\\.\\s*/, '');
             link.dataset.originalText = original;
-            link.textContent = `${idx + 1}. ${original}`;
+            link.textContent = original;
+
+            // Inject number outside the link to avoid making it part of the anchor.
+            const numberLabel = document.createElement('span');
+            numberLabel.textContent = `${idx + 1}. `;
+            item.insertBefore(numberLabel, link);
           });
         })();
       </script>
