@@ -113,13 +113,6 @@ a:hover {
   text-decoration-color: currentColor;
 }
 .side a:hover { color: var(--link); text-decoration-color: currentColor; }
-.side a.active {
-  color: #1a1a1a;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  text-decoration-thickness: 1px;
-  text-decoration-color: #1a1a1a;
-}
 
 
 
@@ -211,14 +204,6 @@ a:hover {
     text-decoration-color: currentColor;
   }
   .side a:hover { color: var(--link); text-decoration-color: currentColor; }
-  .side a.active,
-  .side a[aria-current="page"] {
-    text-decoration: underline;
-    text-underline-offset: 2px;
-    text-decoration-thickness: 1px;
-    text-decoration-color: #1a1a1a;
-    color: #1a1a1a;
-  }
 
   img, video { max-width: 100%; height: auto; }
   pre { white-space: pre-wrap; }
