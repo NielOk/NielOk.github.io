@@ -21,79 +21,51 @@
         <div class="entry-category">directionality of time, irreversible systems</div>
           <h2>A Computational View on the Asymmetry of Time</h2>
         <p>
+          Why does time move forward and not backward? I have a perspective that doesn't rely on thermodynamics or psychology. Instead, I'd like to argue from a computational perspective. Specifically, when we think of the universe as a computational system that applies physical laws to its current state to produce the next, we can see that the direction of time emerges from the computational constraints of this system, as long as we put some constraints on the computer.
           This entry introduces the idea that the arrow of time is not solely a consequence of thermodynamic constraints or psychological phenomena, but a reflection of underlying computational asymmetries inherent to the physical universe. I introduce a model of physics as an unbounded stateless computer that exists outside of space and time, one which can access information about all matter in the universe. This computer does not evolve; rather, it applies the transition rules of physics to the current state of the universe, producing the next. If the many-worlds interpretation of quantum mechanics holds, this computer can access only one instance of the universe, meaning it is possible for information to be lost to this computer without being lost as a whole. While it has access to the entire present configuration of the universe, it enforces internal locality, relativistic causality, and quantum constraints. Within these constraints, I argue that the directionality of time emerges from the computer's inability to reconstruct past states due to the presence of irreversible systems, or systems with many-to-one mappings. Temporal asymmetry, under this framework, is a consequence of computational intractability: time flows forward because only forward evolution admits a well-posed computation.
         </p>
 
         <div class="entry-content">
-          <p><strong>Physics as a Stateless Computer</strong></p>
+          <p><strong>Defining the Universe as a Stateless Computer</strong></p>
           <p>
-            Consider the unfolding of physics as a hypothetical computer with complete instantaneous access to the present state of the universe, denoted \(S_t\). This computer possesses full knowledge of all particles, fields, and governing dynamics \(f\), but lacks any persistent memory of prior configurations \(S_{t-1}\). It functions as a stateless computational engine, applying physical laws directly to the current state to produce the next:
+            Let's define what this computer looks like. At any given moment, it has access to the complete state of the universe at that moment, which we can denote as \(S_t\). This state includes all particles, fields, and their interactions. The computer applies the physical laws, which we can represent as a function \(f\), to this state to compute the next state of the universe:
           </p>
           <p>
             \[ S_{t+1} = f(S_t) \]
           </p>
           <p>
-            Crucially, this computer cannot reconstruct \(S_{t-1}\) from \(S_t\) unless \(f\) is bijective. In the general case, where \(f\) is non-injective (i.e., many-to-one), the mapping is irreversible:
+            The computer is stateless in that it doesn't retain any information about previous states \(S_{t-1}\) or the history of the universe. All it does is take the current state and apply the transition function to compute the next state. The computer is constrained to one instance of the universe, meaning it can't access parallel branches, even if the many-worlds interpretation is true.
+          </p>
+          <p>
+            Notice that, if the transition function \(f\) were bijective (i.e., one-to-one and onto), the computer could also compute the previous state by applying the inverse function:
+          </p>
+          <p>
+            \[ S_{t-1} = f^{-1}(S_t) \]
+          </p>
+          <p> 
+            This would imply that the computer could simulate both forward and backward in time with equal ease, as each state would have a unique predecessor and successor. 
+          </p>
+
+          <p><strong>An Irreversible System</strong></p>
+          <p>
+            At this point, you'll notice that all I've done is set up a framework for computing the universe, but I haven't yet explained why that computation moves in a specific direction. Don't worry, we're here. 
+          </p>
+          <p>
+            I'd like to argue that \(f\) is not bijective. In fact, it is a many-to-one function, meaning that multiple distinct states can evolve into the same next state. Formally, this means
           </p>
           <p>
             \[ \exists S_{t-1}^{(1)} \neq S_{t-1}^{(2)} : f(S_{t-1}^{(1)}) = f(S_{t-1}^{(2)}) = S_t \]
           </p>
+          <p> 
+            Why? There is one fundamental irreversible system given our current definition of the computer: quantum measurement. When a quantum system is measured, it collapses from a superposition of states into a single outcome, losing information about the prior superposition. This process is inherently many-to-one, as multiple distinct superpositions can yield the same measurement result. If the computer had access to every instance of the universe under the many-worlds interpretation, this would not be a problem, as it could access the full superposition. However, since it is constrained to one instance, the information loss from measurement is irreversible from the computer's perspective.
+          </p>
           <p>
-            This renders the inverse computation ill-defined, as the computer has no mechanism to distinguish or automatically select the correct precursor among multiple plausible candidates to the current state.
+            This renders the inverse computation ill-defined, as the computer has no mechanism to distinguish or automatically select the correct precursor among multiple plausible candidates to the current state. Thus, the computer can only reliably compute forward in time.
           </p>
 
-          <p><strong>Irreversibility Across Scales</strong></p>
+          <p><strong>Conclusion</strong></p>
           <p>
-            Irreversible dynamics manifest at multiple physical scales:
-            <ul>
-              <li><em>Macroscopic systems</em>: Diverse causal histories may lead to identical macrostates. Human decision-making, for instance, reflects this degeneracy: the same belief or action may result from numerous experiential trajectories.</li>
-              <li><em>Neural systems</em>: A neuron's spike is a discrete, lossy transformation of high-dimensional continuous input. Post-spike, the fine-grained synaptic configuration that triggered it becomes unrecoverable.</li>
-              <li><em>Quantum systems</em>: While unitary evolution is time-reversible, measurement collapses the wavefunction, destroying phase coherence and precluding full recovery of the prior superposition.</li>
-            </ul>
-          </p>
-          <p>
-            In each case, the forward transition \(f\) acts as a lossy compression operator; its inverse lacks a unique solution without external memory or auxiliary constraints.
-          </p>
-
-          <p><strong>Compression of Futures into a Single Present</strong></p>
-          <p>
-          What distinguishes the past from the future under this model is the asymmetry of representational compression. While the past may consist of many possible prior states that converge to the current one (i.e., many-to-one), the future evolves deterministically (or probabilistically, but still computably) into a single next state. In effect, forward transitions squeeze the plurality of potential futures into a unique present, collapsing uncertainty into actuality. This directional compression ensures that:
-          </p>
-
-          <p>
-          $$
-          \exists \, S_{t-1}^{(1)} \neq S_{t-1}^{(2)} : f(S_{t-1}^{(1)}) = f(S_{t-1}^{(2)}) = S_t,
-          \quad \text{but} \quad f(S_t) \rightarrow S_{t+1} \text{ is unique}
-          $$
-          </p>
-
-          <p>
-          The future is funneled into one consistent present, while the past branches remain computationally inaccessible without auxiliary constraints. This asymmetry, one-to-many in reverse but one-to-one (or deterministic/stochastic but computable) in forward time, explains why only forward simulation is feasible for the stateless, unbounded computer.
-          </p>
-
-          <p><strong>The Computational Arrow of Time</strong></p>
-          <p>
-            In a universe governed exclusively by reversible dynamics, temporal directionality would be arbitrary: both forward and backward evolution would be computationally equivalent. In such a system, the computer could compute:
-          </p>
-          <p>
-            \[ S_{t+1} = f(S_t) \quad \text{and} \quad S_{t-1} = f^{-1}(S_t) \]
-          </p>
-          <p>
-            However, with the ubiquity of irreversible transitions, only the forward direction admits a well-defined, computable update. The specific irreversible phenomena responsible for this asymmetry is quantum measurement. Because of the information loss inherent in measurement, when constrained to a single universe, the backward direction is fundamentally ill-posed: it entails inference over an unbounded, often unenumerable, space of past configurations. The other irreversible processes, while significant, are secondary to this fundamental asymmetry, as technically, those other processes could be reversed with perfect knowledge of microstates.
-          </p>
-          <p>
-            Hence, the arrow of time is not imposed externally by physical law, but internally selected by the computer according to computational feasibility.
-          </p>
-
-          <p><strong>Conclusion: Computability as Temporal Grounding</strong></p>
-          <p>
-            Temporal directionality, in this formulation, is a derived property of a system's informational structure and the computer’s computational constraints. For an unbounded computer devoid of memory, one limited to present-state evaluation of the universe, the direction of time corresponds to the axis along which simulation remains well-posed. The universe does not inherently flow toward the future; it is simply the only direction that remains accessible to forward modeling. This principle can be formalized as:
-          </p>
-          <p>
-            \[ \text{Time direction} = \arg\min_{d \in \{\text{forward}, \text{backward}\}} \text{Complexity}(\text{Compute}(S_d)) \]
-          </p>
-          <p>
-            This perspective suggests a unification of temporal asymmetry with complexity theory, where the apparent irreversibility of the world is not merely thermodynamic but computational in essence. It invites further inquiry into how informational constraints shape our most fundamental intuitions about time.
+            Although this isn't a proof of the asymmetry of time, I think it's an interesting computational perspective on the problem. I hope to build on this perspective as I learn more. This was just my gut reaction when I first became aware that time only moves forward.
           </p>
         </div>
       </div>
