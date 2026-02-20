@@ -273,3 +273,41 @@ summary {
   letter-spacing: 0.04em;
 }
 .entry-content { font-size: 13px; color: var(--muted); }
+
+/* MathJax: allow selecting/copying rendered TeX */
+mjx-container, mjx-container * {
+  -webkit-user-select: text !important;
+  user-select: text !important;
+}
+/* Ensure SVG/CHTML math can be drag-selected */
+mjx-container svg,
+mjx-container mjx-chtml,
+mjx-container mjx-assistive-mml {
+  -webkit-user-select: text !important;
+  user-select: text !important;
+  pointer-events: auto;
+}
+
+/* KaTeX copy-tex: select whole equation so clipboard gets TeX */
+.katex,
+.katex-display {
+  -webkit-user-select: all;
+  user-select: all;
+}
+
+/* Invisible TeX overlay for selectable/copyable math */
+.math-wrap {
+  position: relative;
+  display: inline-block;
+}
+.math-wrap.math-display { display: block; }
+.tex-overlay {
+  position: absolute;
+  inset: 0;
+  color: rgba(0, 0, 0, 0.01);
+  -webkit-user-select: text;
+  user-select: text;
+  pointer-events: auto;
+  white-space: pre;
+  overflow: visible;
+}

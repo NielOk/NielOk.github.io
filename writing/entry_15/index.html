@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.28/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.28/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.28/dist/contrib/copy-tex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.28/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body,{delimiters:[{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}],throwOnError:false});"></script>
   <meta charset="UTF-8">
   <title>A Computational View on the Asymmetry of Time - Niel Ok</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,50 +25,55 @@
         <div class="entry-category">directionality of time, irreversible systems</div>
           <h2>A Computational View on the Asymmetry of Time</h2>
         <p>
-          Why does time move forward and not backward? I have a perspective that doesn't rely on thermodynamics or psychology. Instead, I'd like to argue from a computational perspective. Specifically, when we think of the universe as a computational system that applies physical laws to its current state to produce the next, we can see that the direction of time emerges from the computational constraints of this system, as long as we put some constraints on the computer.
+          Why does time move forward and not backward? I have a perspective which I think holds under both Copenhagen-style views and the many-worlds interpretation of quantum mechanics. My view is more computational in nature. Specifically, when we think of the universe as a constrained computational system that applies physical laws to its current state to produce the next, we can see that the direction of time emerges from those constraints, which I'll get into.
         </p>
 
         <div class="entry-content">
-          <p><strong>Defining the Universe as a Stateless Computer</strong></p>
+          <p><strong>Defining the Laws of Physics as a Stateless Computer</strong></p>
           <p>
-            Let's define what this computer looks like. At any given moment, it has access to the complete state of the universe at that moment, which we can denote as \(S_t\). This state includes all particles, fields, and their interactions. The computer applies the physical laws, which we can represent as a function \(f\), to this state to compute the next state of the universe:
+            To help define what this computer looks like, let's first define \(S\). \(S\) denotes a space of all physically admissible states of the universe (density operators on a Hilbert space \(H\) for example, if the universe admits a standard quantum description). A particular state at time \(t\) is \(s_t \in S\). The laws of physics, our computer, can be thought of as a transition function \(f_{\Delta t}\) that takes the current state of the universe and produces the next state:
           </p>
           <p>
-            \[ S_{t+1} = f(S_t) \]
+            \[ f_{\Delta t} : \mathcal{S} \to \mathcal{S}, \qquad s_{t+\Delta t} = f_{\Delta t}(s_t). \]
           </p>
           <p>
-            The computer is stateless in that it doesn't retain any information about previous states \(S_{t-1}\) or the history of the universe. All it does is take the current state and apply the transition function to compute the next state. The computer is constrained to one instance of the universe, meaning it can't access parallel branches, even if the many-worlds interpretation is true.
+            The computer is stateless in that the update rule has Markov form: the next state is computed from only the current state, with no priveleged access to the system's history beyond what's encoded in \(s_{t}\). The computer is branch-relative (record-relative) state, and does not have access to the full global state including phase relations between branches, if the many-worlds interpretation is true.
           </p>
           <p>
-            Notice that, if the transition function \(f\) were bijective (i.e., one-to-one and onto), the computer could also compute the previous state by applying the inverse function:
+            Notice that, if the transition function \(f_{\Delta t}\) were bijective (i.e., one-to-one and onto), the computer could also compute the previous state by applying the inverse function:
           </p>
           <p>
-            \[ S_{t-1} = f^{-1}(S_t) \]
+            \[ f_{\Delta t}^{-1} : \mathcal{S} \to \mathcal{S}, \qquad s_{t-\Delta t} = f_{\Delta t}^{-1}(s_t). \]
           </p>
           <p> 
-            This would imply that the computer could simulate both forward and backward in time with equal ease, as each state would have a unique predecessor and successor. 
+            This would imply that the computer could simulate both forward and backward in time with equal ease, as each state would have a unique predecessor and successor deterministically defined by the transition function. 
           </p>
 
           <p><strong>An Irreversible System</strong></p>
           <p>
-            At this point, you'll notice that all I've done is set up a framework for computing the universe, but I haven't yet explained why that computation moves in a specific direction. Don't worry, we're here. 
+            At this point, I've set up a framework for computing the universe, but I haven't yet justified why that computation should move in a specific direction. Don't worry, we're here. 
           </p>
           <p>
-            I'd like to argue that \(f\) is not bijective. In fact, it is a many-to-one function, meaning that multiple distinct states can evolve into the same next state. Formally, this means
+            If the universe were a perfectly closed system evolving under a reversible law (Hamiltonian evolution classically, unitary evolution quantum mechanically), then the update map would be bijective in principle. In that case, backwards evolution is well-defined at the microphysical level, and the asymmetry of time would not be explainable from the perspective of the computer.
           </p>
           <p>
-            \[ \exists S_{t-1}^{(1)} \neq S_{t-1}^{(2)} : f(S_{t-1}^{(1)}) = f(S_{t-1}^{(2)}) = S_t \]
-          </p>
-          <p> 
-            Why? There is one fundamental irreversible system given our current definition of the computer: quantum measurement. When a quantum system is measured, it collapses from a superposition of states into a single outcome, losing information about the prior superposition. This process is inherently many-to-one, as multiple distinct superpositions can yield the same measurement result. If the computer had access to every instance of the universe under the many-worlds interpretation, this would not be a problem, as it could access the full superposition. However, since it is constrained to one instance, the information loss from measurement is irreversible from the computer's perspective.
+            The asymmetry I'm pointing at shows up when we include a genuinely irreversible update rule in \(f_{\Delta t}\). In both the Copenhagen-style views and the many-worlds interpretation, given our computer's constraints, there is an irreversible process that occurs during quantum measurement. For the Copenhagen-style views, this is the collapse of the wavefunction, a fundamental irreversible process. For the many-worlds interpretation, while the global state evolves unitarily, the branch-relative state that our computer has access to undergoes an effective collapse, as it loses access to the full superposition as a result of decoherence and only retains the outcome of the measurement. This is irreversible more because of the constraints we have put on our computer. In either case, this introduces an irreversibility into the transition function \(f_{\Delta t}\). Basically, because of this, we have: 
           </p>
           <p>
-            This renders the inverse computation ill-defined, as the computer has no mechanism to distinguish or automatically select the correct precursor among multiple plausible candidates to the current state. Thus, the computer can only reliably compute forward in time.
+            \[
+              \exists s_t^{(1)} \neq s_t^{(2)} \in \mathcal{S} \;\text{s.t.}\; f_{\Delta t}(s_t^{(1)}) = f_{\Delta t}(s_t^{(2)}).
+            \]
+          </p>
+          <p>
+            This renders the inverse computation ill-defined, as the computer has no mechanism to compute the correct precursor among multiple plausible candidates to the current state. For many-worlds, think of there being distinct microstates that lead to the same macrostate. Thus, the computer can only reliably compute forward in time.
           </p>
 
           <p><strong>Conclusion</strong></p>
           <p>
-            Although this isn't a proof of the asymmetry of time, I think it's an interesting computational perspective on the problem. I hope to build on this perspective as I learn more. This was just my gut reaction when I first became aware that time only moves forward.
+            Although this isn’t a proof of the arrow of time, I like this computational lens because it isolates one clean issue: invertibility is fragile under information-discarding updates. If the effective laws available to an embedded observer include any many-to-one step (fundamental collapse in a Copenhagen-style view, branch-restricted description in many-worlds), then backward simulation is ill-posed. 
+          </p>
+          <p>
+            The next thing I want to understand is how this computational asymmetry relates to more standard arrows (thermodynamic, causal, cosmological). My hunch is that the “many-to-one-ness” I’m describing is closely related to the thermodynamic arrow of time, which is often associated with the increase of entropy, but I'll have to look deeper into it. 
           </p>
         </div>
       </div>
