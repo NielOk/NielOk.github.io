@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.28/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.28/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.28/dist/contrib/copy-tex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.28/dist/contrib/auto-render.min.js"></script>
 <meta charset="UTF-8">
-  <title>Notes on Optimizing in Non-Differentiable Worlds (I) - Niel Ok</title>
+  <title>Notes on optimizing in non-differentiable worlds (I) - Niel Ok</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../../site.css">
 </head>
@@ -21,7 +20,7 @@
       <div class="entry" id="entry-2025-05-30">
         <div class="entry-date">May 30, 2025</div>
         <div class="entry-category">evolution, non-differentiable environments, optimization</div>
-        <h2>Notes on Optimizing in Non-Differentiable Worlds (I)</h2>
+        <h2>Notes on optimizing in non-differentiable worlds (I)</h2>
         <p>  Modern machine learning is built on gradient-based optimization methods, particularly backpropagation. All arguments that say neural networks alone will bring about superintelligence rest on one of two assumptions: 1. the world is learnable by continuous functions, or 2. a simplified, continuous representation of the world is enough to create intelligence more powerful than humans. If either one of these are true, then neural networks alone will bring about superintelligence. In this essay, I will argue that both of these conditions are likely false and reason from first principles on what developing superior intelligence looks like when these conditions are false. Interestingly, the approach I come up with can be found in nature.</p>
         <div class="entry-content">
           <p><strong>1. Assumption One: The World Can Be Learned by Continuous Functions</strong>

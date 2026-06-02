@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.28/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.28/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.28/dist/contrib/copy-tex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.28/dist/contrib/auto-render.min.js"></script>
+  <meta charset="UTF-8">
+  <title>What makes a game a good test of intelligence? - Niel Ok</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../site.css">
+</head>
+<body>
+
+  <div class="shell">
+    <main class="main">
+      <a href="javascript:window.history.back()">Back</a>
+
+      <p></p>
+      <!-- Entries -->
+      <div class="entry" id="entry-2026-04-17">
+        <div class="entry-date">April 17, 2026</div>
+        <div class="entry-category">draft</div>
+        <h2>What makes a game a good test of intelligence?</h2>
+        <p>
+          Not all games seem to reward intelligence equally. In some games, it is very easy to reach the ceiling of performance. In Tic-Tac-Toe, for example, nearly every game ends in a draw once both players understand the basic strategy. Even if I played against my kindergarten self, it would likely still end in a draw. Once a minimal level of competence is reached, improvements in decision-making no longer translate into better outcomes.
+        </p>
+        <p>
+          In others, like chess or Go, we have a very different situation. Better decision-making consistently leads to better outcomes, and even small improvements in play can meaningfully change results. The game is highly sensitive to the quality of decisions: stronger policies reliably outperform weaker ones. 
+        </p>
+        <p>
+          Then there are games like poker, where even optimal play does not guarantee a win. I could consistently make better decisions than a weaker opponent and still lose individual hands, because the outcome depends on random factors like the cards dealt. In this case, outcomes are a noisy reflection of decision quality rather than a direct measure of it.
+        </p>
+        <p>
+          These games differ not just in difficulty, but in how clearly they translate better decisions into better outcomes. What exactly determines that? 
+        </p>
+
+        <div class="entry-content">
+          <p><strong>Separating skill from luck</strong></p>
+          <p>
+            The examples above suggest that not all variation in outcomes comes from differences in intelligence. In some games, better decisions translate cleanly into better results. In others, outcomes are partially obscured by randomness. To understand this difference, we need to separate what a player controls from what they do not.
+          </p>
+          <p>
+            We can model a player as operating according to a policy, which we define as a mapping from game states to actions. The quality of this policy reflects what I will call policy strength: how good the player’s decisions are. More precisely, policy strength will correspond to the expected performance of a policy, which we will define shortly.
+          </p>
+          <p>
+            Separately, we distinguish this from policy update strength, which captures how quickly a player can improve their policy with experience. In this section, I will focus only on policy strength and return to learning later.
+          </p>
+          <p>
+            Given fixed policies, the outcome of a game is not always deterministic. Even if two players follow identical policies, the result can vary due to things like initial conditions and hidden information. So, we can model the outcome of a game as
+          </p>
+          <p>\[ R = f(\pi, \pi', \omega) \]</p>
+          <p>
+            where, \( R \) is the outcome/reward, \( \pi \) is the player's policy, \( \pi' \) represents the policies of other players (including hidden actions), and \( \omega \) captures stochastic elements of the game such as initial conditions, random draws (e.g. shuffled cards), and other sources of randomness.
+          </p>
+          <p>
+            Crucially, \( \pi' \) captures the strategic behavior of other agents, while \( \omega \) captures uncertainty that is not influenced by any player’s decisions.
+          </p>
+          <p>
+            Without this distinction, we cannot tell whether differences in outcomes are due to better decisions or unavoidable randomness.
+          </p>
+          <p>
+            This decomposition lets us ask a more precise question: how much of the variation in outcomes is actually caused by differences in policy?
+          </p>
+          <p>
+            To make this precise, consider the expected performance of a policy against a fixed opponent:
+          </p>
+          <p>
+            \[ V(\pi | \pi') = \mathbb{E}_{\omega}[f(\pi, \pi', \omega)] \]
+          </p>
+          <p>
+            This represents the average outcome a player can expect when following policy π, with randomness averaged out. By taking this expectation, we isolate the effect of decision-making from the noise introduced by stochastic elements of the game. The remaining question is how large this effect is relative to the noise introduced by randomness.
+          </p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function renderMath() {
+        if (!window.renderMathInElement) return;
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '\\(', right: '\\)', display: false },
+            { left: '\\[', right: '\\]', display: true }
+          ],
+          throwOnError: false
+        });
+      }
+      if (window.renderMathInElement) {
+        renderMath();
+      } else {
+        window.addEventListener('load', renderMath, { once: true });
+      }
+    });
+  </script>
+</body>
+</html>

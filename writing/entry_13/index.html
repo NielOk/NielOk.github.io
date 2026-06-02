@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.28/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.28/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.28/dist/contrib/copy-tex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.28/dist/contrib/auto-render.min.js"></script>
 <meta charset="UTF-8">
-  <title>Notes on Optimizing in Non-Differentiable Worlds (II) - Niel Ok</title>
+  <title>Notes on optimizing in non-differentiable worlds (II) - Niel Ok</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../../site.css">
 </head>
@@ -21,7 +20,7 @@
         <div class="entry" id="entry-2025-06-04">
         <div class="entry-date">June 4, 2025</div>
         <div class="entry-category">non-differentiable environments, optimization, intelligence</div>
-        <h2>Notes on Optimizing in Non-Differentiable Worlds (II)</h2>
+        <h2>Notes on optimizing in non-differentiable worlds (II)</h2>
         <p>
           This is a follow-up to my previous entry, "Notes on Optimizing in Non-Differentiable Worlds (I)". In that entry, I argued that the world is not learnable by continuous functions modeled by universal function approximators like neural networks and that simplified, continuous representations of the world are insufficient for building superintelligent systems. I then reasoned from first principles on what developing superior intelligence looks like when these conditions are false, concluding that evolutionary search is a powerful approach to optimization in non-differentiable worlds. In this entry, I will take a step back and explain more rigorously about why the world is not learnable by continuous functions. Specifically, I will argue that, while the world is most likely composed of physically continuous processes, for a bounded agent that can only observe a limited portion of the world, these processes can be observed as discrete, non-differentiable events. This means that, for bounded agents, the world is not learnable by continuous functions, and therefore an alternative approach to optimization, evolutionary search being an example, is necessary for developing world-aligned superintelligent systems, or even just intelligences that can operate effectively in non-differentiable environments. From there, I will build a new agent-level approach to learning in non-differentiable environments.
         </p>
