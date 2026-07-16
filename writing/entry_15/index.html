@@ -23,7 +23,7 @@
         <div class="entry-category">directionality of time, irreversible systems</div>
           <h2>A computational view on the asymmetry of time</h2>
         <p>
-          Why does time move forward? I have a perspective which I think holds under both Copenhagen-style views and the many-worlds interpretation of quantum mechanics. My view is more computational in nature. Specifically, when we think of the universe as a computational system that applies physical laws to its current state to produce the next, with specific constraints, we can see that the direction of time emerges.
+          Why does time move forward? I have a vague computational perspective which I think holds under the many-worlds interpretation of quantum mechanics. Specifically, when we think of the universe as a computational system that applies physical laws to its current state to produce the next, with specific constraints, we can see that the direction of time emerges.
         </p>
 
         <div class="entry-content">
@@ -35,7 +35,7 @@
             \[ f_{\Delta t} : \mathcal{S} \to \mathcal{S}, \qquad s_{t+\Delta t} = f_{\Delta t}(s_t). \]
           </p>
           <p>
-            The computer is stateless in that the update rule has Markov form: the next state is computed from only the current state, with no priveleged access to the system's history beyond what's encoded in \(s_{t}\). The computer is branch-relative (record-relative) state, and does not have access to the full global state including phase relations between branches, if the many-worlds interpretation is true.
+            The computer is stateless in that the update rule has Markov form: the next state is computed from only the current state, with no priveleged access to the system's history beyond what's encoded in \(s_{t}\). The computer is branch-relative (record-relative) state, and does not have access to the full global state including phase relations between branches. This means, under the many-worlds interpretation, the computer only has access to one branch.
           </p>
           <p>
             Notice that, if the transition function \(f_{\Delta t}\) were bijective (i.e., one-to-one and onto), the computer could also compute the previous state by applying the inverse function:
@@ -55,7 +55,7 @@
             If the universe were a perfectly closed system evolving under a reversible law (Hamiltonian evolution classically, unitary evolution quantum mechanically), then the update map would be bijective in principle. In that case, backwards evolution is well-defined at the microphysical level, and the asymmetry of time would not be explainable from the perspective of the computer.
           </p>
           <p>
-            The asymmetry I'm pointing at shows up when we include a genuinely irreversible update rule in \(f_{\Delta t}\). In both the Copenhagen-style views and the many-worlds interpretation, given our computer's constraints, there is an irreversible process that occurs during quantum measurement. For the Copenhagen-style views, this is the collapse of the wavefunction, a fundamental irreversible process. For the many-worlds interpretation, while the global state evolves unitarily, the branch-relative state that our computer has access to undergoes an effective collapse, as it loses access to the full superposition as a result of decoherence and only retains the outcome of the measurement. This is irreversible more because of the constraints we have put on our computer. In either case, this introduces an irreversibility into the transition function \(f_{\Delta t}\). Basically, because of this, we have: 
+            The asymmetry I'm talking about shows up when we include a genuinely irreversible update rule in \(f_{\Delta t}\). In the many-worlds interpretation, given our computer's constraints, there is an irreversible process that occurs during quantum measurement. While the global state evolves unitarily, the branch-relative state that our computer has access to undergoes an effective collapse, as it loses access to the full superposition as a result of decoherence and only retains the outcome of the measurement. The wavefunction survives across the branches, but to our computer this looks like collapse. You can see this is irreversible more because of the constraints we've put on our computer, but nevertheless this introduces an irreversibility into the transition function \(f_{\Delta t}\). Basically, because of this, we have: 
           </p>
           <p>
             \[
@@ -68,10 +68,7 @@
 
           <p><strong>Conclusion</strong></p>
           <p>
-            Although this isn’t a proof of the arrow of time, I like this computational lens because it isolates one clean issue: invertibility is fragile under information-discarding updates. If the effective laws available to an embedded observer include any many-to-one step (fundamental collapse in a Copenhagen-style view, branch-restricted description in many-worlds), then backward simulation is ill-posed. 
-          </p>
-          <p>
-            The next thing I want to understand is how this computational asymmetry relates to more standard arrows (thermodynamic, causal, cosmological). My hunch is that the “many-to-one-ness” I’m describing is closely related to the thermodynamic arrow of time, which is often associated with the increase of entropy, but I'll have to look deeper into it. 
+            I think this thought experiment is interesting because it points out that if the effective laws available to an embedded observer include any many-to-one step (branch-restricted description in the case of many-worlds), then backward simulation is ill-posed.
           </p>
         </div>
       </div>
