@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.28/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.28/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.28/dist/contrib/copy-tex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.28/dist/contrib/auto-render.min.js"></script>
+  <meta charset="UTF-8">
+  <title>[Entry Title] - Niel Ok</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../site.css">
+</head>
+<body>
+  <div class="shell">
+    <main class="main">
+      <a href="javascript:window.history.back()">Back</a>
+
+      <div class="entry" id="entry-[YYYY-MM-DD]">
+        <h2>[Entry Title]</h2>
+        <div class="entry-date">[Month DD, YYYY]</div>
+        <div class="entry-category">[category]</div>
+
+        <div class="entry-content">
+          <p>[Write your entry here.]</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function renderMath() {
+        if (!window.renderMathInElement) return;
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '\\(', right: '\\)', display: false },
+            { left: '\\[', right: '\\]', display: true }
+          ],
+          throwOnError: false
+        });
+      }
+      if (window.renderMathInElement) {
+        renderMath();
+      } else {
+        window.addEventListener('load', renderMath, { once: true });
+      }
+    });
+  </script>
+</body>
+</html>

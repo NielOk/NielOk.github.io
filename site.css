@@ -136,6 +136,24 @@ a:hover {
 .bullet li::marker{ color:var(--muted-2); }
 .bullet.tight li{ margin:.15rem 0 .55rem 0; }
 
+/* Writing-note lists deliberately use the same type treatment as entry copy. */
+.entry-content .notes-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  list-style: disc;
+  color: inherit;
+  font: inherit;
+}
+.entry-content .notes-list li {
+  margin: .15rem 0 .55rem;
+  color: inherit;
+  font: inherit;
+}
+.entry-content .notes-list .note-title {
+  color: inherit;
+  font: inherit;
+}
+
 /* Link styling INSIDE bullet items */
 .bullet li a{
   color: var(--link);                    /* restore your link color */
